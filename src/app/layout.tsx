@@ -100,6 +100,18 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
         <link rel="alternate" type="text/plain" href={absoluteUrl("/llms.txt")} title="llms.txt" />
       </head>
       <body className="min-h-full">
+        <Script
+          src={`https://www.googletagmanager.com/gtag/js?id=${siteConfig.gaId}`}
+          strategy="afterInteractive"
+        />
+        <Script id="gtag-init" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', '${siteConfig.gaId}');
+          `}
+        </Script>
         <div className="noise" aria-hidden="true" />
         <div className="site-shell">{children}</div>
       </body>
