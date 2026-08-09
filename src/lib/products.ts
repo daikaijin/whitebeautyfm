@@ -57,6 +57,18 @@ export const products: Product[] = [
     status: "pre_order",
   },
   {
+    id: "sticker-portrait",
+    name: "Portrait Sticker",
+    description: "Field portrait + pink script. Pre-order — ships when the drop lands.",
+    priceYen: 1000,
+    images: [
+      "/merch/sticker-portrait-beach.png",
+      "/merch/sticker-portrait-artwork.png",
+    ],
+    category: "sticker",
+    status: "pre_order",
+  },
+  {
     id: "pin-colorbars",
     name: "Color Bars Pin",
     description: "Hard enamel. Pink over green. Soft flex.",
