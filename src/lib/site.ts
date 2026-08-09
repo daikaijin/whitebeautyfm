@@ -31,6 +31,8 @@ export const siteConfig = {
     instagram: "https://www.instagram.com/whitebeautyfm/",
     handle: "@whitebeautyfm",
   },
+  /** Google Analytics 4 measurement ID */
+  gaId: "G-CPDTF0QMGJ",
   ogImage: {
     url: "/brand/og.jpg",
     width: 1200,

@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import { Bebas_Neue, Manrope } from "next/font/google";
+import Script from "next/script";
 import { absoluteUrl, siteConfig } from "@/lib/site";
 import "./globals.css";
 
