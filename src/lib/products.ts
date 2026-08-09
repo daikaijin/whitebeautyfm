@@ -52,8 +52,7 @@ export const products: Product[] = [
   {
     id: "patch-script",
     name: "Script Patch",
-    description:
-      "PVC script hit. Velcro front with velcro backing — removable, or stitch it direct.",
+    description: "PVC + velcro backing. Removable, or stitch it direct.",
     priceYen: 2000,
     images: [
       "/merch/patch-script-beach.png",

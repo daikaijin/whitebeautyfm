@@ -1,3 +1,4 @@
+import { InstagramIcon } from "@/components/InstagramIcon";
 import { JsonLd } from "@/components/JsonLd";
 import { LogoGlitch } from "@/components/LogoGlitch";
 import { ProductCard } from "@/components/ProductCard";
@@ -62,9 +63,13 @@ export default function Home() {
             href={siteConfig.social.instagram}
             target="_blank"
             rel="noopener noreferrer me"
+            aria-label="White Beauty on Instagram"
           >
-            <span className="contact-handle">{siteConfig.social.handle}</span>
-            <span className="contact-line">DM for orders, drops, and finds</span>
+            <InstagramIcon className="contact-ig" />
+            <span className="contact-handle">Instagram</span>
+            <span className="contact-line">
+              We’re here — orders, drops, video, photo
+            </span>
           </a>
         </section>
       </main>
