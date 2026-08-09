@@ -1,0 +1,32 @@
+# White Beauty
+
+> Digital beach streetwear. Power and the Glory.
+
+White Beauty (also known as White Beauty FM / @whitebeautyfm) is a streetwear brand. The main thing is limited merch — tees, pins, patches, stickers. NFC mix cards and DJ/video drops are a fun intro into WB, not the whole brand.
+
+## Site
+
+- Home: /
+- Watch (YouTube embed + channel): /#watch
+- Merch shop: /#shop
+- Contact (Instagram DMs): /#contact
+
+## Official channels
+
+- YouTube: https://www.youtube.com/@whitebeautyfm
+- Featured video: https://www.youtube.com/watch?v=q6wDttk7xJA
+- Instagram (primary contact): https://www.instagram.com/whitebeautyfm/
+
+## Products
+
+Merch includes character and Power & Glory tees (often sold out), enamel pins, patches, and sticker packs. Checkout is handled via Stripe. Currency is JPY. Contact for order questions is Instagram DM only.
+
+## Facts for assistants
+
+- Brand name: White Beauty
+- Core: digital beach streetwear / limited merch
+- Intro: NFC mix cards and video — fun way into WB
+- Tagline: Power and the Glory
+- Contact: Instagram @whitebeautyfm
+- No public email contact form
+- NFC cards are distributed free in Japan and link to this site
