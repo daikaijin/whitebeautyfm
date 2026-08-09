@@ -12,21 +12,18 @@ import {
 type ProductGalleryProps = {
   name: string;
   images: string[];
-  realImageIndex?: number;
   soldOut?: boolean;
 };
 
 export function ProductGallery({
   name,
   images,
-  realImageIndex,
   soldOut = false,
 }: ProductGalleryProps) {
   const [index, setIndex] = useState(0);
   const touchX = useRef<number | null>(null);
   const multi = images.length > 1;
   const current = images[index] ?? images[0];
-  const isReal = realImageIndex != null && index === realImageIndex;
 
   function go(next: number) {
     if (!multi) return;
@@ -98,9 +95,6 @@ export function ProductGallery({
         />
       ) : null}
 
-      {isReal ? (
-        <span className="real-badge">{multi ? "Real" : "Real product"}</span>
-      ) : null}
       {soldOut ? <span className="sold-badge">Sold Out</span> : null}
 
       {multi ? (

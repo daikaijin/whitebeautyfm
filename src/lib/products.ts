@@ -5,8 +5,6 @@ export type Product = {
   priceYen: number;
   /** Gallery frames — every product is multi-image; first is the cover. */
   images: string[];
-  /** Index (into images) of the real physical product shot, if any. */
-  realImageIndex?: number;
   category: "tee" | "pin" | "patch" | "sticker";
   status: "available" | "sold_out";
 };
@@ -45,7 +43,6 @@ export const products: Product[] = [
     description: "Hard enamel. Pink over green. Soft flex.",
     priceYen: 1500,
     images: ["/merch/pin-colorbars.jpg"],
-    realImageIndex: 0,
     category: "pin",
     status: "available",
   },
@@ -56,7 +53,6 @@ export const products: Product[] = [
       "PVC script hit. Velcro front with velcro backing — removable, or stitch it direct.",
     priceYen: 2000,
     images: ["/merch/patch-script.jpg"],
-    realImageIndex: 0,
     category: "patch",
     status: "available",
   },
@@ -66,7 +62,6 @@ export const products: Product[] = [
     description: "Pink White Beauty script. Peel and claim.",
     priceYen: 800,
     images: ["/merch/sticker-script.jpg"],
-    realImageIndex: 0,
     category: "sticker",
     status: "available",
   },
@@ -76,7 +71,6 @@ export const products: Product[] = [
     description: "Black plate. Neon script. Stack ready.",
     priceYen: 800,
     images: ["/merch/sticker-logo.jpg"],
-    realImageIndex: 0,
     category: "sticker",
     status: "available",
   },
@@ -86,7 +80,6 @@ export const products: Product[] = [
     description: "Cracked-ice holo + WB/QR side. Scan the signal.",
     priceYen: 1000,
     images: ["/merch/sticker-holo-set.jpg", "/merch/sticker-wb-qr.jpg"],
-    realImageIndex: 0,
     category: "sticker",
     status: "available",
   },
@@ -96,7 +89,6 @@ export const products: Product[] = [
     description: "Double-sided drop. Bring the night back.",
     priceYen: 1000,
     images: ["/merch/sticker-halloween.jpg"],
-    realImageIndex: 0,
     category: "sticker",
     status: "available",
   },

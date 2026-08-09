@@ -534,59 +534,19 @@ a {
   border: 1px solid rgba(255, 255, 255, 0.2);
 }
 
-.real-badge,
-.sold-badge,
-.product-real-label {
-  font-family: var(--font-display), sans-serif;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-  font-size: 0.7rem;
-  color: white;
-}
-
-.real-badge {
-  position: absolute;
-  top: 0.85rem;
-  right: 0.85rem;
-  z-index: 2;
-  padding: 0.45rem 0.65rem;
-  background: rgba(0, 0, 0, 0.72);
-  border: 1px solid rgba(255, 43, 214, 0.55);
-}
-
 .sold-badge {
   position: absolute;
   top: 0.85rem;
   left: 0.85rem;
   z-index: 2;
   padding: 0.45rem 0.65rem;
+  font-family: var(--font-display), sans-serif;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  font-size: 0.7rem;
+  color: white;
   background: rgba(0, 0, 0, 0.72);
   border: 1px solid rgba(255, 255, 255, 0.25);
-}
-
-.product-real {
-  position: absolute;
-  right: 0.75rem;
-  bottom: 0.75rem;
-  z-index: 3;
-  width: 28%;
-  aspect-ratio: 1;
-  overflow: hidden;
-  border: 1px solid rgba(255, 255, 255, 0.55);
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.45);
-  background: #0a070c;
-}
-
-.product-real-label {
-  position: absolute;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  z-index: 1;
-  padding: 0.25rem 0.3rem;
-  text-align: center;
-  background: rgba(0, 0, 0, 0.72);
-  font-size: 0.58rem;
 }
 
 .product-copy h3 {
@@ -628,7 +588,8 @@ a {
 .wb-btn {
   appearance: none;
   border: 1px solid transparent;
-  background: linear-gradient(135deg, var(--wb-pink), #ff6af0 45%, var(--wb-blue));
+  background: #f70eff;
+  background-image: none;
   color: white;
   font-family: var(--font-display), sans-serif;
   letter-spacing: 0.16em;
@@ -636,13 +597,28 @@ a {
   font-size: 0.9rem;
   padding: 0.9rem 1.4rem;
   cursor: pointer;
-  transition: transform 0.2s ease, filter 0.2s ease, opacity 0.2s ease;
-  box-shadow: 0 0 24px rgba(255, 43, 214, 0.28);
+  transition:
+    transform 0.2s ease,
+    background 0.25s ease,
+    background-image 0.25s ease,
+    box-shadow 0.25s ease,
+    opacity 0.2s ease;
+  box-shadow: 0 0 20px rgba(247, 14, 255, 0.3);
 }
 
-.wb-btn:hover:not(:disabled) {
+.wb-btn:hover:not(:disabled),
+.wb-btn:focus-visible:not(:disabled) {
   transform: translateY(-1px);
-  filter: brightness(1.08);
+  background-image: linear-gradient(90deg, #f70eff 0%, #3aff15 100%);
+  box-shadow:
+    0 0 22px rgba(247, 14, 255, 0.35),
+    0 0 28px rgba(58, 255, 21, 0.2);
+}
+
+.wb-btn:active:not(:disabled) {
+  transform: translateY(0);
+  background-image: linear-gradient(90deg, #f70eff 0%, #3aff15 100%);
+  filter: brightness(1.05);
 }
 
 .wb-btn:disabled,
@@ -650,13 +626,28 @@ a {
   opacity: 0.45;
   cursor: not-allowed;
   box-shadow: none;
+  background: #f70eff;
+  background-image: none;
+  filter: none;
 }
 
 .wb-btn-ghost {
   background: rgba(5, 3, 7, 0.45);
+  background-image: none;
   border-color: rgba(255, 255, 255, 0.35);
   box-shadow: none;
   backdrop-filter: blur(8px);
+}
+
+.wb-btn-ghost:hover:not(:disabled),
+.wb-btn-ghost:focus-visible:not(:disabled),
+.wb-btn-ghost:active:not(:disabled) {
+  background: rgba(5, 3, 7, 0.45);
+  background-image: none;
+  box-shadow: none;
+  border-color: #f70eff;
+  color: #f70eff;
+  filter: none;
 }
 
 .success-panel {

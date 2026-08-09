@@ -11,7 +11,6 @@ export function ProductCard({ product }: { product: Product }) {
       <ProductGallery
         name={product.name}
         images={images}
-        realImageIndex={product.realImageIndex}
         soldOut={soldOut}
       />
       <div className="product-copy">
