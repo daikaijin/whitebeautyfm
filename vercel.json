@@ -5,6 +5,11 @@
       "has": [{ "type": "host", "value": "whitebeautyfm.com" }],
       "destination": "https://www.whitebeautyfm.com/:path*",
       "permanent": true
+    },
+    {
+      "source": "/patg-mix",
+      "destination": "/",
+      "permanent": false
     }
   ]
 }
