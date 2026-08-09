@@ -5,9 +5,13 @@ export type Product = {
   priceYen: number;
   /** Gallery frames — every product is multi-image; first is the cover. */
   images: string[];
-  category: "tee" | "pin" | "patch" | "sticker";
-  status: "available" | "sold_out";
+  category: "tee" | "longsleeve" | "pin" | "patch" | "sticker";
+  status: "available" | "pre_order" | "sold_out";
 };
+
+export function isPurchasable(product: Product) {
+  return product.status === "available" || product.status === "pre_order";
+}
 
 export function productImages(product: Product) {
   return product.images.filter(Boolean);
@@ -39,6 +43,18 @@ export const products: Product[] = [
     images: ["/merch/power-glory-tee-beach.png"],
     category: "tee",
     status: "sold_out",
+  },
+  {
+    id: "tough-cookies-ls",
+    name: "Tough Cookies Long Sleeve",
+    description: "Black dry-fit poly long sleeve. Pre-order — ships when the drop lands.",
+    priceYen: 12000,
+    images: [
+      "/merch/tough-cookies-ls-beach.png",
+      "/merch/tough-cookies-artwork.png",
+    ],
+    category: "longsleeve",
+    status: "pre_order",
   },
   {
     id: "pin-colorbars",

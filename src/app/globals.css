@@ -562,6 +562,12 @@ a {
   border: 1px solid rgba(255, 255, 255, 0.25);
 }
 
+.sold-badge.is-preorder {
+  color: #050307;
+  background: #f70eff;
+  border-color: #f70eff;
+}
+
 .product-copy h3 {
   margin: 0;
   font-family: var(--font-display), sans-serif;

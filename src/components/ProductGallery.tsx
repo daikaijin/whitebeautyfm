@@ -13,12 +13,14 @@ type ProductGalleryProps = {
   name: string;
   images: string[];
   soldOut?: boolean;
+  badge?: string;
 };
 
 export function ProductGallery({
   name,
   images,
   soldOut = false,
+  badge,
 }: ProductGalleryProps) {
   const [index, setIndex] = useState(0);
   const touchX = useRef<number | null>(null);
@@ -95,7 +97,11 @@ export function ProductGallery({
         />
       ) : null}
 
-      {soldOut ? <span className="sold-badge">Sold Out</span> : null}
+      {badge ? (
+        <span className={`sold-badge${soldOut ? "" : " is-preorder"}`}>
+          {badge}
+        </span>
+      ) : null}
 
       {multi ? (
         <>

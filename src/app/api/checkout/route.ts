@@ -1,5 +1,5 @@
 import { NextResponse } from "next/server";
-import { getProduct, productImage } from "@/lib/products";
+import { getProduct, isPurchasable, productImage } from "@/lib/products";
 import { getStripe } from "@/lib/stripe";
 
 export async function POST(request: Request) {
@@ -13,7 +13,7 @@ export async function POST(request: Request) {
     }
 
     const product = getProduct(productId);
-    if (!product || product.status !== "available") {
+    if (!product || !isPurchasable(product)) {
       return NextResponse.json({ error: "Product unavailable" }, { status: 400 });
     }
 
@@ -36,7 +36,10 @@ export async function POST(request: Request) {
             currency: "jpy",
             unit_amount: product.priceYen,
             product_data: {
-              name: product.name,
+              name:
+                product.status === "pre_order"
+                  ? `${product.name} (Pre-Order)`
+                  : product.name,
               description: product.description,
               images: [`${origin}${productImage(product)}`],
             },
@@ -47,6 +50,7 @@ export async function POST(request: Request) {
       cancel_url: `${origin}/#shop`,
       metadata: {
         productId: product.id,
+        status: product.status,
       },
     });
 

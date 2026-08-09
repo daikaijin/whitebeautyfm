@@ -68,7 +68,9 @@ export function JsonLd() {
           availability:
             product.status === "available"
               ? "https://schema.org/InStock"
-              : "https://schema.org/SoldOut",
+              : product.status === "pre_order"
+                ? "https://schema.org/PreOrder"
+                : "https://schema.org/SoldOut",
           seller: { "@id": absoluteUrl("/#organization") },
         },
       },
