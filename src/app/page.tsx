@@ -29,8 +29,12 @@ export default function Home() {
             <span>streetwear that keeps the signal hot.</span>
           </p>
           <div className="product-grid">
-            {products.map((product) => (
-              <ProductCard key={product.id} product={product} />
+            {products.map((product, index) => (
+              <ProductCard
+                key={product.id}
+                product={product}
+                priority={index < 2}
+              />
             ))}
           </div>
         </section>

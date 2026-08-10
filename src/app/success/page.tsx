@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { ClearCartOnSuccess } from "@/components/ClearCartOnSuccess";
 
 export const metadata: Metadata = {
   title: "Order confirmed",
@@ -9,6 +10,7 @@ export const metadata: Metadata = {
 export default function SuccessPage() {
   return (
     <main className="success-panel">
+      <ClearCartOnSuccess />
       <div>
         <p className="section-kicker">Order locked</p>
         <h1>You&apos;re in</h1>

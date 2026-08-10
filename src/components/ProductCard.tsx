@@ -1,4 +1,4 @@
-import { BuyButton } from "@/components/BuyButton";
+import { AddToCartButton } from "@/components/AddToCartButton";
 import { ProductGallery } from "@/components/ProductGallery";
 import {
   formatYen,
@@ -7,7 +7,13 @@ import {
   type Product,
 } from "@/lib/products";
 
-export function ProductCard({ product }: { product: Product }) {
+export function ProductCard({
+  product,
+  priority = false,
+}: {
+  product: Product;
+  priority?: boolean;
+}) {
   const soldOut = product.status === "sold_out";
   const preOrder = product.status === "pre_order";
   const images = productImages(product);
@@ -19,6 +25,7 @@ export function ProductCard({ product }: { product: Product }) {
         images={images}
         soldOut={soldOut}
         badge={preOrder ? "Pre-Order" : soldOut ? "Sold Out" : undefined}
+        priority={priority}
       />
       <div className="product-copy">
         <div className="flex items-baseline justify-between gap-3">
@@ -27,9 +34,9 @@ export function ProductCard({ product }: { product: Product }) {
         </div>
         <p className="desc">{product.description}</p>
         {isPurchasable(product) ? (
-          <BuyButton
+          <AddToCartButton
             productId={product.id}
-            label={preOrder ? "Pre-Order" : "Order"}
+            label={preOrder ? "Add pre-order" : "Add to cart"}
           />
         ) : (
           <button type="button" className="wb-btn wb-btn-ghost" disabled>

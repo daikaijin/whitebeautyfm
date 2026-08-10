@@ -1,4 +1,5 @@
 import { NextResponse } from "next/server";
+import { normalizeCart, type CartItem } from "@/lib/cart";
 import { getProduct, isPurchasable, productImage } from "@/lib/products";
 import { siteConfig } from "@/lib/site";
 import { getStripe } from "@/lib/stripe";
@@ -23,6 +24,25 @@ function corsHeaders(origin: string | null) {
   return headers;
 }
 
+function parseItems(body: {
+  items?: CartItem[];
+  productId?: string;
+  quantity?: number;
+}): CartItem[] {
+  if (Array.isArray(body.items) && body.items.length) {
+    return normalizeCart(body.items);
+  }
+  if (body.productId) {
+    return normalizeCart([
+      {
+        productId: body.productId,
+        quantity: body.quantity ?? 1,
+      },
+    ]);
+  }
+  return [];
+}
+
 export async function OPTIONS(request: Request) {
   return new NextResponse(null, {
     status: 204,
@@ -36,29 +56,48 @@ export async function POST(request: Request) {
 
   try {
     const body = (await request.json()) as {
+      items?: CartItem[];
       productId?: string;
       quantity?: number;
     };
-    const productId = body.productId;
-    const quantity = Math.min(Math.max(Number(body.quantity) || 1, 1), 10);
 
-    if (!productId) {
+    const items = parseItems(body);
+    if (!items.length) {
       return NextResponse.json(
-        { error: "Missing productId" },
+        { error: "Cart is empty" },
         { status: 400, headers },
       );
     }
 
-    const product = getProduct(productId);
-    if (!product || !isPurchasable(product)) {
-      return NextResponse.json(
-        { error: "Product unavailable" },
-        { status: 400, headers },
-      );
-    }
+    const lineItems = [];
+    const metaParts: string[] = [];
 
-    // Always use the canonical site URL for Stripe redirects + product images.
-    const origin = siteConfig.url;
+    for (const item of items) {
+      const product = getProduct(item.productId);
+      if (!product || !isPurchasable(product)) {
+        return NextResponse.json(
+          { error: `Product unavailable: ${item.productId}` },
+          { status: 400, headers },
+        );
+      }
+
+      metaParts.push(`${product.id}x${item.quantity}`);
+      lineItems.push({
+        quantity: item.quantity,
+        price_data: {
+          currency: "jpy" as const,
+          unit_amount: product.priceYen,
+          product_data: {
+            name:
+              product.status === "pre_order"
+                ? `${product.name} (Pre-Order)`
+                : product.name,
+            description: product.description,
+            images: [`${siteConfig.url}${productImage(product)}`],
+          },
+        },
+      });
+    }
 
     const stripe = getStripe();
     const session = await stripe.checkout.sessions.create({
@@ -78,28 +117,11 @@ export async function POST(request: Request) {
           "HK",
         ],
       },
-      line_items: [
-        {
-          quantity,
-          price_data: {
-            currency: "jpy",
-            unit_amount: product.priceYen,
-            product_data: {
-              name:
-                product.status === "pre_order"
-                  ? `${product.name} (Pre-Order)`
-                  : product.name,
-              description: product.description,
-              images: [`${origin}${productImage(product)}`],
-            },
-          },
-        },
-      ],
-      success_url: `${origin}/success?session_id={CHECKOUT_SESSION_ID}`,
-      cancel_url: `${origin}/#shop`,
+      line_items: lineItems,
+      success_url: `${siteConfig.url}/success?session_id={CHECKOUT_SESSION_ID}`,
+      cancel_url: `${siteConfig.url}/#shop`,
       metadata: {
-        productId: product.id,
-        status: product.status,
+        cart: metaParts.join(",").slice(0, 500),
       },
     });
 

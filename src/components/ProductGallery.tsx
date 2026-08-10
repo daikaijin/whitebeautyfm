@@ -14,6 +14,7 @@ type ProductGalleryProps = {
   images: string[];
   soldOut?: boolean;
   badge?: string;
+  priority?: boolean;
 };
 
 export function ProductGallery({
@@ -21,6 +22,7 @@ export function ProductGallery({
   images,
   soldOut = false,
   badge,
+  priority = false,
 }: ProductGalleryProps) {
   const [index, setIndex] = useState(0);
   const touchX = useRef<number | null>(null);
@@ -91,9 +93,10 @@ export function ProductGallery({
             multi ? ` — image ${index + 1} of ${images.length}` : ""
           }`}
           fill
-          sizes="(max-width: 768px) 100vw, 33vw"
+          sizes="(max-width: 768px) 92vw, 28vw"
           className="product-main-image object-cover object-center transition duration-500"
-          priority={index === 0}
+          priority={priority && index === 0}
+          loading={priority && index === 0 ? "eager" : "lazy"}
         />
       ) : null}
 

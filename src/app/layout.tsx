@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import { Bebas_Neue, Manrope } from "next/font/google";
 import Script from "next/script";
+import { Providers } from "@/components/Providers";
 import { absoluteUrl, siteConfig } from "@/lib/site";
 import "./globals.css";
 
@@ -113,7 +114,9 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
           `}
         </Script>
         <div className="noise" aria-hidden="true" />
-        <div className="site-shell">{children}</div>
+        <div className="site-shell">
+          <Providers>{children}</Providers>
+        </div>
       </body>
     </html>
   );
