@@ -10,13 +10,12 @@ import { supportEmailAddress, supportMailto } from "@/lib/support-email";
  * - Address only assembled after a user click
  * - Honeypot field traps dumb bots that fill every input
  */
-export function ProtectedSupportEmail() {
+export function ProtectedSupportEmail({ compact = false }: { compact?: boolean }) {
   const { t } = useLocale();
   const [revealed, setRevealed] = useState(false);
   const [address, setAddress] = useState("");
 
   function revealAndMail() {
-    // Honeypot: if filled, abort quietly.
     const trap = document.getElementById(
       "wb-support-company",
     ) as HTMLInputElement | null;
@@ -29,7 +28,7 @@ export function ProtectedSupportEmail() {
   }
 
   return (
-    <div className="contact-hit contact-hit-email">
+    <>
       <input
         id="wb-support-company"
         name="company"
@@ -39,24 +38,19 @@ export function ProtectedSupportEmail() {
         aria-hidden="true"
         className="contact-honeypot"
       />
-
       <button
         type="button"
-        className="contact-email-btn"
+        className={compact ? "contact-chip" : "contact-email-btn"}
         onClick={revealAndMail}
         aria-label={t.supportAria}
       >
-        <span className="contact-mail-icon" aria-hidden="true">
+        <span className="contact-chip-icon" aria-hidden="true">
           @
         </span>
-        <span className="contact-handle">{t.supportHandle}</span>
-        <span className="contact-line">{t.supportLine}</span>
-        {revealed && address ? (
-          <span className="contact-email-revealed">{address}</span>
-        ) : (
-          <span className="contact-email-hint">{t.supportReveal}</span>
-        )}
+        <span className="contact-chip-label">
+          {revealed && address ? address : t.supportHandle}
+        </span>
       </button>
-    </div>
+    </>
   );
 }

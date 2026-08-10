@@ -420,62 +420,97 @@ a {
 }
 
 .contact {
-  margin-top: 1rem;
-  padding-top: 3rem;
+  margin-top: 0.5rem;
+  padding-top: 1.5rem;
+  padding-bottom: 0.25rem;
   border-top: 1px solid rgba(255, 255, 255, 0.1);
   text-align: center;
 }
 
+.contact-bar {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.65rem;
+}
+
 .contact-kicker {
-  margin: 0 0 0.75rem;
+  margin: 0;
   font-family: var(--font-display), sans-serif;
   letter-spacing: 0.35em;
   text-indent: 0.35em;
   text-transform: uppercase;
   color: var(--wb-pink);
-  font-size: 0.8rem;
+  font-size: 0.75rem;
 }
 
-.contact-grid {
-  display: grid;
-  gap: 1.75rem;
-  justify-items: center;
+.contact-line {
+  margin: 0;
+  color: var(--wb-muted);
+  letter-spacing: 0.06em;
+  font-size: 0.9rem;
+  max-width: 28rem;
 }
 
-@media (min-width: 720px) {
-  .contact-grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    align-items: start;
-  }
-}
-
-.contact-hit {
-  display: inline-flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 0.7rem;
-  padding: 0.5rem 1rem;
-  transition: transform 0.25s ease;
-  max-width: 22rem;
-}
-
-.contact-hit-email {
+.contact-chips {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.65rem;
   width: 100%;
 }
 
-.contact-email-btn {
+.contact-chip {
   appearance: none;
-  border: 0;
-  background: transparent;
-  color: inherit;
-  cursor: pointer;
   display: inline-flex;
-  flex-direction: column;
   align-items: center;
-  gap: 0.7rem;
-  padding: 0;
-  width: 100%;
+  gap: 0.55rem;
+  padding: 0.65rem 0.95rem;
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  background: rgba(5, 3, 7, 0.55);
+  color: #fff;
+  text-decoration: none;
+  cursor: pointer;
   font: inherit;
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease,
+    transform 0.2s ease;
+}
+
+.contact-chip:hover,
+.contact-chip:focus-visible {
+  border-color: #f70eff;
+  box-shadow: 0 0 18px rgba(247, 14, 255, 0.28);
+  transform: translateY(-1px);
+  outline: none;
+}
+
+.contact-chip-icon {
+  width: 1.15rem;
+  height: 1.15rem;
+  color: #f70eff;
+  flex-shrink: 0;
+  font-family: var(--font-display), sans-serif;
+  font-size: 1.1rem;
+  line-height: 1;
+  display: grid;
+  place-items: center;
+}
+
+.contact-chip:hover .contact-chip-icon {
+  color: #3aff15;
+}
+
+.contact-chip-label {
+  font-family: var(--font-display), sans-serif;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  font-size: 0.85rem;
+  max-width: 16rem;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .contact-honeypot {
@@ -485,86 +520,6 @@ a {
   width: 1px;
   height: 1px;
   overflow: hidden;
-}
-
-.contact-mail-icon {
-  display: grid;
-  place-items: center;
-  width: 2rem;
-  height: 2rem;
-  color: #f70eff;
-  font-family: var(--font-display), sans-serif;
-  font-size: 1.55rem;
-  line-height: 1;
-  filter: drop-shadow(0 0 12px rgba(247, 14, 255, 0.45));
-  transition: color 0.2s ease, filter 0.2s ease;
-}
-
-.contact-email-btn:hover .contact-mail-icon {
-  color: #3aff15;
-  filter: drop-shadow(0 0 14px rgba(58, 255, 21, 0.4));
-}
-
-.contact-email-hint,
-.contact-email-revealed {
-  font-family: var(--font-display), sans-serif;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  font-size: 0.72rem;
-}
-
-.contact-email-hint {
-  color: rgba(247, 242, 248, 0.55);
-}
-
-.contact-email-revealed {
-  color: var(--wb-green);
-  word-break: break-all;
-}
-
-.contact-hit:hover {
-  transform: translateY(-3px);
-}
-
-.contact-ig {
-  color: #f70eff;
-  width: 2rem;
-  height: 2rem;
-  filter: drop-shadow(0 0 12px rgba(247, 14, 255, 0.45));
-  transition: color 0.2s ease, filter 0.2s ease;
-}
-
-.contact-hit:hover .contact-ig {
-  color: #3aff15;
-  filter: drop-shadow(0 0 14px rgba(58, 255, 21, 0.4));
-}
-
-.contact-handle {
-  font-family: var(--font-display), sans-serif;
-  font-size: clamp(2.4rem, 9vw, 4.8rem);
-  line-height: 0.95;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  background: linear-gradient(120deg, #fff 10%, #f70eff 45%, #3aff15 90%);
-  background-clip: text;
-  -webkit-background-clip: text;
-  color: transparent;
-  filter: drop-shadow(0 0 28px rgba(247, 14, 255, 0.28));
-  transition: filter 0.25s ease;
-}
-
-.contact-hit:hover .contact-handle {
-  filter: drop-shadow(0 0 32px rgba(247, 14, 255, 0.4)) brightness(1.08);
-}
-
-.contact-line {
-  color: var(--wb-muted);
-  letter-spacing: 0.08em;
-  font-size: 0.95rem;
-}
-
-.contact-hit:hover .contact-line {
-  color: rgba(247, 242, 248, 0.9);
 }
 
 .product-grid {

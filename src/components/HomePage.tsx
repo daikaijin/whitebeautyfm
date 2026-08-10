@@ -51,20 +51,22 @@ export function HomePage() {
       <MixAccordion />
 
       <section id="contact" className="section contact" aria-label={t.contact}>
-        <p className="contact-kicker">{t.contact}</p>
-        <div className="contact-grid">
-          <a
-            className="contact-hit"
-            href={siteConfig.social.instagram}
-            target="_blank"
-            rel="noopener noreferrer me"
-            aria-label="White Beauty on Instagram"
-          >
-            <InstagramIcon className="contact-ig" />
-            <span className="contact-handle">Instagram</span>
-            <span className="contact-line">{t.contactLine}</span>
-          </a>
-          <ProtectedSupportEmail />
+        <div className="contact-bar">
+          <p className="contact-kicker">{t.contact}</p>
+          <p className="contact-line">{t.contactLine}</p>
+          <div className="contact-chips">
+            <a
+              className="contact-chip"
+              href={siteConfig.social.instagram}
+              target="_blank"
+              rel="noopener noreferrer me"
+              aria-label="White Beauty on Instagram"
+            >
+              <InstagramIcon className="contact-chip-icon" />
+              <span className="contact-chip-label">Instagram</span>
+            </a>
+            <ProtectedSupportEmail compact />
+          </div>
         </div>
       </section>
     </main>
