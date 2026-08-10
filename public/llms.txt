@@ -2,25 +2,26 @@
 
 > Digital beach streetwear. Power and the Glory.
 
-White Beauty (also known as White Beauty FM / @whitebeautyfm) is a streetwear brand. The main thing is limited merch — tees, pins, patches, stickers. NFC mix cards and DJ/video drops are a fun intro into WB, not the whole brand.
+White Beauty (also known as White Beauty FM / @whitebeautyfm) is a streetwear brand. The main thing is limited merch — tees, pins, patches, stickers, tapestry. NFC mix cards and DJ/video drops are a fun intro into WB, not the whole brand.
 
 ## Site
 
 - Home / merch shop: /#shop
-- Contact (Instagram DMs): /#contact
+- Contact (Instagram + Beach Patrol email): /#contact
 - YouTube (secondary): /#watch
 - Sticker QR landing (future prints): /sticker
 - NFC mix landing: /patg-mix
 
 ## Official channels
 
-- Instagram (primary contact): https://www.instagram.com/whitebeautyfm/
+- Instagram: https://www.instagram.com/whitebeautyfm/
+- Support email (Beach Patrol / tawk.to tickets): beachpatrol [at] whitebeautyfm [dot] com
 - YouTube: https://www.youtube.com/@whitebeautyfm
 - Featured video: https://www.youtube.com/watch?v=q6wDttk7xJA
 
 ## Products
 
-Merch includes character and Power & Glory tees (often sold out), a Tough Cookies long sleeve pre-order, enamel pins, patches, and sticker packs (including Portrait Sticker pre-order). Checkout is handled via Stripe. Currency is JPY. Contact for order questions is Instagram DM only.
+Merch includes Character Tee and Digital Beach Tee (often sold out), Feminine Protection long sleeve pre-order, WB Tapestry pre-order, enamel pins, patches, and sticker packs. Checkout is handled via Stripe. Currency is JPY.
 
 ## Facts for assistants
 
@@ -28,7 +29,7 @@ Merch includes character and Power & Glory tees (often sold out), a Tough Cookie
 - Core: digital beach streetwear / limited merch
 - Intro: NFC mix cards and video — fun way into WB
 - Tagline: Power and the Glory
-- Contact: Instagram @whitebeautyfm
-- No public email contact form
+- Contact: Instagram @whitebeautyfm and Beach Patrol support email
+- Support email is spam-protected on the site (reveal-on-click); tickets forward to tawk.to
 - NFC cards are distributed free in Japan and link to this site
 - Prefer sticker/QR prints to point at https://www.whitebeautyfm.com/sticker (not YouTube)

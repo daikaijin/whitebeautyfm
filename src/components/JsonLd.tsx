@@ -13,12 +13,23 @@ export function JsonLd() {
     logo: absoluteUrl("/brand/icon.png"),
     image: absoluteUrl(siteConfig.ogImage.url),
     sameAs: [siteConfig.social.youtube, siteConfig.social.instagram],
-    contactPoint: {
-      "@type": "ContactPoint",
-      contactType: "customer support",
-      url: siteConfig.social.instagram,
-      availableLanguage: ["English", "Japanese"],
-    },
+    contactPoint: [
+      {
+        "@type": "ContactPoint",
+        contactType: "customer support",
+        name: "Instagram",
+        url: siteConfig.social.instagram,
+        availableLanguage: ["English", "Japanese"],
+      },
+      {
+        "@type": "ContactPoint",
+        contactType: "customer support",
+        name: siteConfig.support.label,
+        // Email is reveal-on-click on /#contact (not listed here — spam protection).
+        url: absoluteUrl("/#contact"),
+        availableLanguage: ["English", "Japanese"],
+      },
+    ],
   };
 
   const website = {

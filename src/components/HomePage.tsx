@@ -5,6 +5,7 @@ import { LanguageSelect } from "@/components/LanguageSelect";
 import { LogoGlitch } from "@/components/LogoGlitch";
 import { MixAccordion } from "@/components/MixAccordion";
 import { ProductCard } from "@/components/ProductCard";
+import { ProtectedSupportEmail } from "@/components/ProtectedSupportEmail";
 import { useLocale } from "@/components/LocaleProvider";
 import { products } from "@/lib/products";
 import { siteConfig } from "@/lib/site";
@@ -51,17 +52,20 @@ export function HomePage() {
 
       <section id="contact" className="section contact" aria-label={t.contact}>
         <p className="contact-kicker">{t.contact}</p>
-        <a
-          className="contact-hit"
-          href={siteConfig.social.instagram}
-          target="_blank"
-          rel="noopener noreferrer me"
-          aria-label="White Beauty on Instagram"
-        >
-          <InstagramIcon className="contact-ig" />
-          <span className="contact-handle">Instagram</span>
-          <span className="contact-line">{t.contactLine}</span>
-        </a>
+        <div className="contact-grid">
+          <a
+            className="contact-hit"
+            href={siteConfig.social.instagram}
+            target="_blank"
+            rel="noopener noreferrer me"
+            aria-label="White Beauty on Instagram"
+          >
+            <InstagramIcon className="contact-ig" />
+            <span className="contact-handle">Instagram</span>
+            <span className="contact-line">{t.contactLine}</span>
+          </a>
+          <ProtectedSupportEmail />
+        </div>
       </section>
     </main>
   );

@@ -14,6 +14,11 @@ export type UiMessages = {
   merch: string;
   contact: string;
   contactLine: string;
+  supportHandle: string;
+  supportLine: string;
+  supportReveal: string;
+  supportAria: string;
+  supportMailSubject: string;
   cart: string;
   cartEmpty: string;
   total: string;
@@ -42,6 +47,11 @@ const en: UiMessages = {
   merch: "Merch",
   contact: "Contact",
   contactLine: "We’re here — orders, drops, video, photo",
+  supportHandle: "Beach Patrol",
+  supportLine: "Support, orders, tickets — beachpatrol",
+  supportReveal: "Tap to email (spam-protected)",
+  supportAria: "Email Beach Patrol support",
+  supportMailSubject: "White Beauty support",
   cart: "Cart",
   cartEmpty: "Empty — add merch from the shop.",
   total: "Total",
@@ -71,6 +81,11 @@ const ja: UiMessages = {
   merch: "マーチャント",
   contact: "コンタクト",
   contactLine: "注文・ドロップ・映像・写真はこちら",
+  supportHandle: "ビーチパトロール",
+  supportLine: "サポート・注文・チケット — beachpatrol",
+  supportReveal: "タップでメール（スパム対策）",
+  supportAria: "ビーチパトロールへメール",
+  supportMailSubject: "White Beauty サポート",
   cart: "カート",
   cartEmpty: "カートは空です — ショップから追加してください。",
   total: "合計",

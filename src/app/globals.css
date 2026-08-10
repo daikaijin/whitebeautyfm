@@ -5,6 +5,7 @@
   --foreground: #f7f2f8;
   --wb-pink: #ff2bd6;
   --wb-pink-hot: #ff4ae0;
+  --wb-green: #3aff15;
   --wb-blue: #1e5cff;
   --wb-muted: #b7a8bc;
   --wb-line: rgba(255, 43, 214, 0.35);
@@ -435,6 +436,19 @@ a {
   font-size: 0.8rem;
 }
 
+.contact-grid {
+  display: grid;
+  gap: 1.75rem;
+  justify-items: center;
+}
+
+@media (min-width: 720px) {
+  .contact-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    align-items: start;
+  }
+}
+
 .contact-hit {
   display: inline-flex;
   flex-direction: column;
@@ -442,6 +456,70 @@ a {
   gap: 0.7rem;
   padding: 0.5rem 1rem;
   transition: transform 0.25s ease;
+  max-width: 22rem;
+}
+
+.contact-hit-email {
+  width: 100%;
+}
+
+.contact-email-btn {
+  appearance: none;
+  border: 0;
+  background: transparent;
+  color: inherit;
+  cursor: pointer;
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.7rem;
+  padding: 0;
+  width: 100%;
+  font: inherit;
+}
+
+.contact-honeypot {
+  position: absolute;
+  left: -10000px;
+  top: auto;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+
+.contact-mail-icon {
+  display: grid;
+  place-items: center;
+  width: 2rem;
+  height: 2rem;
+  color: #f70eff;
+  font-family: var(--font-display), sans-serif;
+  font-size: 1.55rem;
+  line-height: 1;
+  filter: drop-shadow(0 0 12px rgba(247, 14, 255, 0.45));
+  transition: color 0.2s ease, filter 0.2s ease;
+}
+
+.contact-email-btn:hover .contact-mail-icon {
+  color: #3aff15;
+  filter: drop-shadow(0 0 14px rgba(58, 255, 21, 0.4));
+}
+
+.contact-email-hint,
+.contact-email-revealed {
+  font-family: var(--font-display), sans-serif;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  font-size: 0.72rem;
+}
+
+.contact-email-hint {
+  color: rgba(247, 242, 248, 0.55);
+}
+
+.contact-email-revealed {
+  color: var(--wb-green);
+  word-break: break-all;
 }
 
 .contact-hit:hover {
@@ -639,7 +717,7 @@ a {
 
 .product-copy .price {
   margin: 0;
-  color: var(--wb-pink-hot);
+  color: var(--wb-green);
   font-family: var(--font-display), sans-serif;
   letter-spacing: 0.06em;
 }
@@ -903,7 +981,7 @@ a {
 .cart-line-price {
   margin: 0;
   white-space: nowrap;
-  color: rgba(247, 242, 248, 0.85);
+  color: var(--wb-green);
   font-size: 0.85rem;
 }
 
@@ -972,7 +1050,7 @@ a {
 
 .cart-total strong {
   font-size: 1.2rem;
-  color: #fff;
+  color: var(--wb-green);
 }
 
 .cart-error {

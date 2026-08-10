@@ -31,6 +31,12 @@ export const siteConfig = {
     instagram: "https://www.instagram.com/whitebeautyfm/",
     handle: "@whitebeautyfm",
   },
+  /** Assembled only via support-email helpers — do not paste a mailto here. */
+  support: {
+    label: "Beach Patrol",
+    local: "beachpatrol",
+    domain: "whitebeautyfm.com",
+  },
   /** Google Analytics 4 measurement ID */
   gaId: "G-CPDTF0QMGJ",
   ogImage: {
