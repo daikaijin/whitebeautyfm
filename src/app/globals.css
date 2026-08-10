@@ -210,49 +210,109 @@ a {
   text-transform: uppercase;
 }
 
-.watch-secondary {
-  padding-top: 0.5rem;
-  padding-bottom: 2rem;
+.mix-section {
+  width: 100vw;
+  margin-left: calc(50% - 50vw);
+  margin-right: calc(50% - 50vw);
+  margin-top: 0.5rem;
+  margin-bottom: 2rem;
+  padding: 0;
 }
 
-.watch-stage {
-  position: relative;
-  width: min(100%, 28rem);
-  margin-inline: auto;
+.mix-accordion {
+  border-block: 1px solid rgba(255, 255, 255, 0.16);
+  background: rgba(5, 3, 7, 0.55);
 }
 
-.watch-meta {
-  display: flex;
-  justify-content: space-between;
-  align-items: baseline;
-  gap: 1rem;
-  margin-bottom: 0.55rem;
+.mix-summary {
+  list-style: none;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  grid-template-areas:
+    "kicker hint"
+    "title hint";
+  gap: 0.35rem 1rem;
+  align-items: center;
+  padding: 1.15rem clamp(1rem, 4vw, 1.75rem);
+  cursor: pointer;
+  user-select: none;
+}
+
+.mix-summary::-webkit-details-marker {
+  display: none;
+}
+
+.mix-summary-kicker {
+  grid-area: kicker;
   font-family: var(--font-display), sans-serif;
-  letter-spacing: 0.18em;
+  letter-spacing: 0.2em;
   text-transform: uppercase;
-  font-size: 0.7rem;
+  font-size: 0.72rem;
+  color: #f70eff;
+}
+
+.mix-summary-title {
+  grid-area: title;
+  font-family: var(--font-display), sans-serif;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  font-size: clamp(1.15rem, 4.2vw, 1.85rem);
+  line-height: 1.05;
+  color: rgba(247, 242, 248, 0.95);
+}
+
+.mix-summary-hint {
+  grid-area: hint;
+  width: 2rem;
+  height: 2rem;
+  display: grid;
+  place-items: center;
+  border: 1px solid rgba(255, 255, 255, 0.28);
+  color: #fff;
+  font-size: 1.25rem;
+  line-height: 1;
+}
+
+.mix-accordion[open] .mix-summary {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.mix-panel {
+  padding: 1.1rem 0 0;
+}
+
+.mix-copy {
+  margin: 0 auto 0.85rem;
+  width: min(40rem, calc(100% - 2rem));
+  color: rgba(247, 242, 248, 0.82);
+  font-size: 0.98rem;
+  line-height: 1.55;
+}
+
+.mix-copy-secondary {
+  margin-bottom: 1.15rem;
   color: var(--wb-muted);
 }
 
-.watch-meta-link {
-  color: var(--wb-pink-hot);
+.mix-copy a {
+  color: #f70eff;
   text-decoration: none;
 }
 
-.watch-meta-link:hover {
+.mix-copy a:hover {
   color: #fff;
 }
 
-.watch-frame {
+.mix-frame {
   position: relative;
+  width: 100%;
   aspect-ratio: 16 / 9;
   overflow: hidden;
   background: #050307;
-  border: 1px solid rgba(255, 255, 255, 0.18);
-  opacity: 0.9;
+  border-top: 1px solid rgba(255, 255, 255, 0.12);
 }
 
-.watch-frame iframe {
+.mix-frame iframe {
   position: absolute;
   inset: 0;
   width: 100%;

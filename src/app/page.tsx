@@ -1,6 +1,7 @@
 import { InstagramIcon } from "@/components/InstagramIcon";
 import { JsonLd } from "@/components/JsonLd";
 import { LogoGlitch } from "@/components/LogoGlitch";
+import { MixAccordion } from "@/components/MixAccordion";
 import { ProductCard } from "@/components/ProductCard";
 import { products } from "@/lib/products";
 import { siteConfig } from "@/lib/site";
@@ -39,31 +40,7 @@ export default function Home() {
           </div>
         </section>
 
-        <section id="watch" className="section watch-secondary" aria-label="Video">
-          <h2 className="sr-only">Watch</h2>
-          <div className="watch-stage">
-            <div className="watch-meta">
-              <span>Also on YouTube</span>
-              <a
-                className="watch-meta-link"
-                href={siteConfig.social.youtube}
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                @whitebeautyfm
-              </a>
-            </div>
-            <div className="watch-frame">
-              <iframe
-                src={siteConfig.social.youtubeEmbed}
-                title={`${siteConfig.name} on YouTube`}
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                allowFullScreen
-                loading="lazy"
-              />
-            </div>
-          </div>
-        </section>
+        <MixAccordion />
 
         <section id="contact" className="section contact" aria-label="Contact">
           <p className="contact-kicker">Contact</p>
