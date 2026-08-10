@@ -888,7 +888,10 @@ a {
   .logo-glitch,
   .logo-channel,
   .logo-slice,
-  .logo-scan,
+  .logo-scan {
+    animation: none;
+  }
+
   .logo-channel,
   .logo-slice,
   .logo-scan {
