@@ -36,7 +36,7 @@ export function BuyButton({
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ productId, quantity: 1 }),
-        credentials: "same-origin",
+        credentials: "omit",
       });
 
       let data: { url?: string; error?: string } = {};
