@@ -8,6 +8,16 @@ type BuyButtonProps = {
   disabled?: boolean;
 };
 
+function checkoutUrl() {
+  if (typeof window === "undefined") return "/api/checkout";
+  const host = window.location.hostname;
+  // Avoid apex→www POST redirect failures in some browsers.
+  if (host === "whitebeautyfm.com" || host === "www.whitebeautyfm.com") {
+    return "https://www.whitebeautyfm.com/api/checkout";
+  }
+  return "/api/checkout";
+}
+
 export function BuyButton({
   productId,
   label = "Buy",
@@ -22,20 +32,33 @@ export function BuyButton({
     setError(null);
 
     try {
-      const response = await fetch("/api/checkout", {
+      const response = await fetch(checkoutUrl(), {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ productId, quantity: 1 }),
+        credentials: "same-origin",
       });
-      const data = (await response.json()) as { url?: string; error?: string };
+
+      let data: { url?: string; error?: string } = {};
+      try {
+        data = (await response.json()) as { url?: string; error?: string };
+      } catch {
+        throw new Error("Checkout response was invalid");
+      }
 
       if (!response.ok || !data.url) {
         throw new Error(data.error || "Checkout failed");
       }
 
-      window.location.href = data.url;
+      window.location.assign(data.url);
     } catch (err) {
-      setError(err instanceof Error ? err.message : "Checkout failed");
+      const message =
+        err instanceof TypeError
+          ? "Network error — try www.whitebeautyfm.com or disable blockers"
+          : err instanceof Error
+            ? err.message
+            : "Checkout failed";
+      setError(message);
       setLoading(false);
     }
   }
