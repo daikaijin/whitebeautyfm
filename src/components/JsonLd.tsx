@@ -86,7 +86,7 @@ export function JsonLd() {
     isPartOf: { "@id": absoluteUrl("/#website") },
     about: { "@id": absoluteUrl("/#organization") },
     primaryImageOfPage: absoluteUrl(siteConfig.ogImage.url),
-    mainEntity: [{ "@id": absoluteUrl("/#video") }, { "@id": absoluteUrl("/#merch") }],
+    mainEntity: [{ "@id": absoluteUrl("/#merch") }, { "@id": absoluteUrl("/#video") }],
   };
 
   const graph = {

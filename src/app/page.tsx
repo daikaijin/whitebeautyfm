@@ -17,33 +17,12 @@ export default function Home() {
             {siteConfig.name} — {siteConfig.tagline}. Digital beach streetwear.
             NFC mixes are the fun intro — the brand is the merch.
           </h1>
-        </header>
-
-        <section id="watch" className="section section-first" aria-label="Video">
-          <h2 className="sr-only">Watch</h2>
-          <div className="watch-stage">
-            <div className="watch-meta">
-              <span>Digital Beach</span>
-              <span className="watch-meta-live">Signal Live</span>
-            </div>
-            <div className="watch-frame">
-              <iframe
-                src={siteConfig.social.youtubeEmbed}
-                title={`${siteConfig.name} on YouTube`}
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                allowFullScreen
-              />
-              <div className="watch-scanlines" aria-hidden="true" />
-              <div className="watch-glow" aria-hidden="true" />
-            </div>
-            <div className="watch-colorbar" aria-hidden="true" />
-          </div>
           <p className="brand-pitch">
             <span>Digital beach streetwear.</span>
           </p>
-        </section>
+        </header>
 
-        <section id="shop" className="section" aria-label="Merch">
+        <section id="shop" className="section section-first" aria-label="Merch">
           <h2 className="sr-only">Merch</h2>
           <p className="section-lede">
             <span>Limited drops from the digital beach —</span>
@@ -53,6 +32,32 @@ export default function Home() {
             {products.map((product) => (
               <ProductCard key={product.id} product={product} />
             ))}
+          </div>
+        </section>
+
+        <section id="watch" className="section watch-secondary" aria-label="Video">
+          <h2 className="sr-only">Watch</h2>
+          <div className="watch-stage">
+            <div className="watch-meta">
+              <span>Also on YouTube</span>
+              <a
+                className="watch-meta-link"
+                href={siteConfig.social.youtube}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                @whitebeautyfm
+              </a>
+            </div>
+            <div className="watch-frame">
+              <iframe
+                src={siteConfig.social.youtubeEmbed}
+                title={`${siteConfig.name} on YouTube`}
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowFullScreen
+                loading="lazy"
+              />
+            </div>
           </div>
         </section>
 

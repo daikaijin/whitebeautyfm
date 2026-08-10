@@ -10,6 +10,11 @@
       "source": "/patg-mix",
       "destination": "/",
       "permanent": false
+    },
+    {
+      "source": "/sticker",
+      "destination": "/?utm_source=sticker&utm_medium=qr&utm_campaign=print",
+      "permanent": false
     }
   ]
 }
