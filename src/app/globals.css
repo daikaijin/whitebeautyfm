@@ -211,11 +211,8 @@ a {
 }
 
 .mix-section {
-  width: 100vw;
-  margin-left: calc(50% - 50vw);
-  margin-right: calc(50% - 50vw);
-  margin-top: 0.5rem;
-  margin-bottom: 2rem;
+  width: 100%;
+  margin: 0.5rem 0 2rem;
   padding: 0;
 }
 
@@ -233,7 +230,7 @@ a {
     "title hint";
   gap: 0.35rem 1rem;
   align-items: center;
-  padding: 1.15rem clamp(1rem, 4vw, 1.75rem);
+  padding: 1.15rem 0;
   cursor: pointer;
   user-select: none;
 }
@@ -278,12 +275,12 @@ a {
 }
 
 .mix-panel {
-  padding: 1.1rem 0 0;
+  padding: 1.1rem 0 1.25rem;
 }
 
 .mix-copy {
-  margin: 0 auto 0.85rem;
-  width: min(40rem, calc(100% - 2rem));
+  margin: 0 0 0.85rem;
+  width: 100%;
   color: rgba(247, 242, 248, 0.82);
   font-size: 0.98rem;
   line-height: 1.55;
@@ -305,11 +302,13 @@ a {
 
 .mix-frame {
   position: relative;
-  width: 100%;
+  width: 50%;
+  max-width: 100%;
+  margin-inline: auto;
   aspect-ratio: 16 / 9;
   overflow: hidden;
   background: #050307;
-  border-top: 1px solid rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(255, 255, 255, 0.12);
 }
 
 .mix-frame iframe {

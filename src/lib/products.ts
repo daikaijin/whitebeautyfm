@@ -37,10 +37,15 @@ export const products: Product[] = [
   },
   {
     id: "power-glory-tee",
-    name: "Power & Glory Tee",
-    description: "Black dry-fit poly. Power and the Glory front.",
+    name: "Digital Beach Tee",
+    description:
+      "Black dry-fit poly. Real drop — horizontal WB front, Let’s Retreat back at the shoulder blades.",
     priceYen: 6500,
-    images: ["/merch/power-glory-tee-beach.webp"],
+    images: [
+      "/merch/retreat-tee-front-real.webp",
+      "/merch/retreat-tee-back-real.webp",
+      "/merch/retreat-back-artwork.webp",
+    ],
     category: "tee",
     status: "sold_out",
   },
