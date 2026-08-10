@@ -3,7 +3,9 @@
 import Image from "next/image";
 import { useState } from "react";
 import { useCart } from "@/components/CartProvider";
+import { useLocale } from "@/components/LocaleProvider";
 import { checkoutErrorMessage, startCheckout } from "@/lib/checkout-client";
+import { getProductCopy } from "@/lib/i18n";
 import {
   formatYen,
   getProduct,
@@ -14,6 +16,7 @@ import {
 export function CartDrawer() {
   const { items, count, open, setOpen, setQuantity, removeItem, clear } =
     useCart();
+  const { locale, t } = useLocale();
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
@@ -57,9 +60,9 @@ export function CartDrawer() {
         type="button"
         className={`cart-fab${count > 0 ? " has-items" : ""}`}
         onClick={() => setOpen(true)}
-        aria-label={`Open cart${count ? `, ${count} items` : ""}`}
+        aria-label={`${t.openCart}${count ? `, ${count}` : ""}`}
       >
-        <span>Cart</span>
+        <span>{t.cart}</span>
         {count > 0 ? <span className="cart-fab-count">{count}</span> : null}
       </button>
 
@@ -72,88 +75,96 @@ export function CartDrawer() {
       <aside
         className={`cart-drawer${open ? " is-open" : ""}`}
         aria-hidden={!open}
-        aria-label="Cart"
+        aria-label={t.cart}
       >
         <header className="cart-drawer-head">
-          <h2>Cart</h2>
+          <h2>{t.cart}</h2>
           <button
             type="button"
             className="cart-close"
             onClick={() => setOpen(false)}
-            aria-label="Close cart"
+            aria-label={t.close}
           >
-            Close
+            {t.close}
           </button>
         </header>
 
         {lines.length === 0 ? (
-          <p className="cart-empty">Empty — add merch from the shop.</p>
+          <p className="cart-empty">{t.cartEmpty}</p>
         ) : (
           <ul className="cart-lines">
-            {lines.map(({ item, product }) => (
-              <li key={product.id} className="cart-line">
-                <div className="cart-thumb">
-                  {open ? (
-                    <Image
-                      src={productImage(product)}
-                      alt={product.name}
-                      fill
-                      sizes="72px"
-                      className="object-cover"
-                      loading="lazy"
-                    />
-                  ) : null}
-                </div>
-                <div className="cart-line-copy">
-                  <div className="cart-line-top">
-                    <p className="cart-line-name">{product.name}</p>
-                    <p className="cart-line-price">
-                      {formatYen(product.priceYen * item.quantity)}
-                    </p>
+            {lines.map(({ item, product }) => {
+              const copy = getProductCopy(
+                product.id,
+                locale,
+                product.name,
+                product.description,
+              );
+              return (
+                <li key={product.id} className="cart-line">
+                  <div className="cart-thumb">
+                    {open ? (
+                      <Image
+                        src={productImage(product)}
+                        alt={copy.name}
+                        fill
+                        sizes="72px"
+                        className="object-cover"
+                        loading="lazy"
+                      />
+                    ) : null}
                   </div>
-                  {product.status === "pre_order" ? (
-                    <p className="cart-line-meta">Pre-order</p>
-                  ) : null}
-                  <div className="cart-line-actions">
-                    <label className="cart-qty">
-                      <span className="sr-only">Quantity</span>
+                  <div className="cart-line-copy">
+                    <div className="cart-line-top">
+                      <p className="cart-line-name">{copy.name}</p>
+                      <p className="cart-line-price">
+                        {formatYen(product.priceYen * item.quantity)}
+                      </p>
+                    </div>
+                    {product.status === "pre_order" ? (
+                      <p className="cart-line-meta">{t.preOrder}</p>
+                    ) : null}
+                    <div className="cart-line-actions">
+                      <label className="cart-qty">
+                        <span className="sr-only">{t.quantity}</span>
+                        <button
+                          type="button"
+                          onClick={() =>
+                            setQuantity(product.id, item.quantity - 1)
+                          }
+                          aria-label="Decrease quantity"
+                        >
+                          −
+                        </button>
+                        <span>{item.quantity}</span>
+                        <button
+                          type="button"
+                          onClick={() =>
+                            setQuantity(product.id, item.quantity + 1)
+                          }
+                          aria-label="Increase quantity"
+                        >
+                          +
+                        </button>
+                      </label>
                       <button
                         type="button"
-                        onClick={() =>
-                          setQuantity(product.id, item.quantity - 1)
-                        }
-                        aria-label="Decrease quantity"
+                        className="cart-remove"
+                        onClick={() => removeItem(product.id)}
                       >
-                        −
+                        {t.remove}
                       </button>
-                      <span>{item.quantity}</span>
-                      <button
-                        type="button"
-                        onClick={() =>
-                          setQuantity(product.id, item.quantity + 1)
-                        }
-                        aria-label="Increase quantity"
-                      >
-                        +
-                      </button>
-                    </label>
-                    <button
-                      type="button"
-                      className="cart-remove"
-                      onClick={() => removeItem(product.id)}
-                    >
-                      Remove
-                    </button>
+                    </div>
                   </div>
-                </div>
-              </li>
-            ))}
+                </li>
+              );
+            })}
           </ul>
         )}
 
         <footer className="cart-drawer-foot">
           <div className="cart-total">
-            <span>Total</span>
+            <span>{t.total}</span>
             <strong>{formatYen(totalYen)}</strong>
           </div>
           {error ? <p className="cart-error">{error}</p> : null}
@@ -163,7 +174,7 @@ export function CartDrawer() {
             disabled={!lines.length || loading}
             onClick={checkout}
           >
-            {loading ? "Redirecting…" : "Checkout"}
+            {loading ? t.redirecting : t.checkout}
           </button>
           {lines.length ? (
             <button
@@ -172,7 +183,7 @@ export function CartDrawer() {
               onClick={clear}
               disabled={loading}
             >
-              Clear cart
+              {t.clearCart}
             </button>
           ) : null}
         </footer>

@@ -57,7 +57,7 @@ export const products: Product[] = [
   },
   {
     id: "tough-cookies-ls",
-    name: "Tough Cookies Long Sleeve",
+    name: "Feminine Protection",
     description:
       "Black dry-fit poly long sleeve. Pre-order — ships when the drop lands.",
     priceYen: 12000,
