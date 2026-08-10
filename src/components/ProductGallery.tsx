@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import {
+  useEffect,
   useRef,
   useState,
   type KeyboardEvent,
@@ -28,6 +29,11 @@ export function ProductGallery({
   const touchX = useRef<number | null>(null);
   const multi = images.length > 1;
   const current = images[index] ?? images[0];
+
+  // Reset when the product/gallery set changes (fixes stuck slide / wrong frame).
+  useEffect(() => {
+    setIndex(0);
+  }, [images.join("|")]);
 
   function go(next: number) {
     if (!multi) return;
@@ -88,6 +94,7 @@ export function ProductGallery({
     >
       {current ? (
         <Image
+          key={current}
           src={current}
           alt={`White Beauty ${name}${soldOut ? " (sold out)" : ""}${
             multi ? ` — image ${index + 1} of ${images.length}` : ""

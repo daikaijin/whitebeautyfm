@@ -3,9 +3,14 @@ export type Product = {
   name: string;
   description: string;
   priceYen: number;
-  /** Gallery frames — every product is multi-image; first is the cover. */
+  /**
+   * Gallery frames in fixed order:
+   * 1) store image (beach cover)
+   * 2) artwork
+   * 3+) real product photos
+   */
   images: string[];
-  category: "tee" | "longsleeve" | "pin" | "patch" | "sticker";
+  category: "tee" | "longsleeve" | "pin" | "patch" | "sticker" | "tapestry";
   status: "available" | "pre_order" | "sold_out";
 };
 
@@ -39,12 +44,13 @@ export const products: Product[] = [
     id: "power-glory-tee",
     name: "Digital Beach Tee",
     description:
-      "Black dry-fit poly. Real drop — horizontal WB front, Let’s Retreat back at the shoulder blades.",
+      "Black dry-fit poly. Horizontal WB front. Let’s Retreat back at the shoulder blades.",
     priceYen: 6500,
     images: [
+      "/merch/retreat-tee-front-beach.webp",
+      "/merch/retreat-back-artwork.webp",
       "/merch/retreat-tee-front-real.webp",
       "/merch/retreat-tee-back-real.webp",
-      "/merch/retreat-back-artwork.webp",
     ],
     category: "tee",
     status: "sold_out",
@@ -52,7 +58,8 @@ export const products: Product[] = [
   {
     id: "tough-cookies-ls",
     name: "Tough Cookies Long Sleeve",
-    description: "Black dry-fit poly long sleeve. Pre-order — ships when the drop lands.",
+    description:
+      "Black dry-fit poly long sleeve. Pre-order — ships when the drop lands.",
     priceYen: 12000,
     images: [
       "/merch/tough-cookies-ls-beach.webp",
@@ -62,9 +69,23 @@ export const products: Product[] = [
     status: "pre_order",
   },
   {
+    id: "tapestry-wb",
+    name: "WB Tapestry",
+    description:
+      "150×150cm. Pole pocket. Digital beach wall hit — made one, can make more.",
+    priceYen: 18000,
+    images: [
+      "/merch/tapestry-beach.webp",
+      "/merch/tapestry-artwork.webp",
+    ],
+    category: "tapestry",
+    status: "pre_order",
+  },
+  {
     id: "sticker-portrait",
     name: "Portrait Sticker",
-    description: "Field portrait + pink script. Pre-order — ships when the drop lands.",
+    description:
+      "Field portrait + pink script. Pre-order — ships when the drop lands.",
     priceYen: 1000,
     images: [
       "/merch/sticker-portrait-beach.webp",
