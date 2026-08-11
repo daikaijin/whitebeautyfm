@@ -9,6 +9,9 @@ import {
 } from "react";
 import {
   LOCALE_STORAGE_KEY,
+  detectBrowserLocale,
+  htmlLang,
+  isLocale,
   uiMessages,
   type Locale,
   type UiMessages,
@@ -22,10 +25,13 @@ type LocaleContextValue = {
 
 const LocaleContext = createContext<LocaleContextValue | null>(null);
 
-function readStoredLocale(): Locale {
+function resolveInitialLocale(): Locale {
   if (typeof window === "undefined") return "en";
+
   const stored = window.localStorage.getItem(LOCALE_STORAGE_KEY);
-  return stored === "ja" || stored === "en" ? stored : "en";
+  if (isLocale(stored)) return stored;
+
+  return detectBrowserLocale(window.navigator.languages ?? window.navigator.language);
 }
 
 export function LocaleProvider({ children }: { children: ReactNode }) {
@@ -33,14 +39,14 @@ export function LocaleProvider({ children }: { children: ReactNode }) {
   const [ready, setReady] = useState(false);
 
   useEffect(() => {
-    setLocaleState(readStoredLocale());
+    setLocaleState(resolveInitialLocale());
     setReady(true);
   }, []);
 
   useEffect(() => {
     if (!ready) return;
     window.localStorage.setItem(LOCALE_STORAGE_KEY, locale);
-    document.documentElement.lang = locale === "ja" ? "ja" : "en";
+    document.documentElement.lang = htmlLang(locale);
   }, [locale, ready]);
 
   function setLocale(next: Locale) {

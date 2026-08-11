@@ -1,8 +1,9 @@
-export type Locale = "en" | "ja";
+export type Locale = "en" | "ja" | "th";
 
 export const LOCALES: { value: Locale; label: string }[] = [
   { value: "en", label: "English" },
   { value: "ja", label: "日本語" },
+  { value: "th", label: "ไทย" },
 ];
 
 export const LOCALE_STORAGE_KEY = "wb-locale";
@@ -67,9 +68,9 @@ const en: UiMessages = {
   added: "Added",
   openCart: "Open cart",
   mixKicker: "The mix",
-  mixTitle: "Power and the Glory — open the signal",
+  mixTitle: "Open the mix — then shop the drop",
   mixCopy:
-    "The mix is how people find White Beauty — NFC taps, late-night plays, the cut that starts the story. It exists to pull you into the brand: digital beach streetwear, limited drops, pins, patches, stickers, and the pieces that keep the signal hot after the track ends.",
+    "The mix is how people find White Beauty — NFC taps, late-night plays, the cut that starts the story. It pulls you into the brand: digital beach streetwear, limited drops, pins, patches, stickers, and the pieces that keep the signal hot after the track ends.",
   mixCopySecondary: "Hit play, then shop the merch.",
   quantity: "Quantity",
 };
@@ -101,14 +102,48 @@ const ja: UiMessages = {
   added: "追加しました",
   openCart: "カートを開く",
   mixKicker: "ミックス",
-  mixTitle: "Power and the Glory — シグナルを開け",
+  mixTitle: "ミックスを開けて — ドロップへ",
   mixCopy:
     "ミックスは White Beauty への入り口。NFC、夜のプレイ、物語の始まり。目的はブランドへ誘うこと — デジタルビーチのストリートウェア、リミテッドドロップ、ピン、パッチ、ステッカー。曲が終わったあともシグナルを熱く保つピース。",
   mixCopySecondary: "再生してから、マーチャントへ。",
   quantity: "数量",
 };
 
-export const uiMessages: Record<Locale, UiMessages> = { en, ja };
+const th: UiMessages = {
+  brandPitch: "สตรีทแวร์ดิจิทัลบีช",
+  shopLede1: "ดรอปลิมิเต็ดจากดิจิทัลบีช —",
+  shopLede2: "สตรีทแวร์ที่ทำให้สัญญาณยังร้อน",
+  merch: "สินค้า",
+  contact: "ติดต่อ",
+  contactLine: "ออเดอร์ ดรอป รูป — Instagram หรือ Beach Patrol",
+  supportHandle: "Beach Patrol",
+  supportLine: "ตั๋วซัพพอร์ต",
+  supportReveal: "แตะเพื่ออีเมล",
+  supportAria: "อีเมลหา Beach Patrol",
+  supportMailSubject: "White Beauty สนับสนุน",
+  cart: "ตะกร้า",
+  cartEmpty: "ว่าง — เพิ่มสินค้าจากร้าน",
+  total: "รวม",
+  checkout: "ชำระเงิน",
+  redirecting: "กำลังพาไป…",
+  clearCart: "ล้างตะกร้า",
+  close: "ปิด",
+  remove: "ลบ",
+  preOrder: "พรีออเดอร์",
+  soldOut: "ขายหมด",
+  addToCart: "ใส่ตะกร้า",
+  addPreOrder: "เพิ่มพรีออเดอร์",
+  added: "เพิ่มแล้ว",
+  openCart: "เปิดตะกร้า",
+  mixKicker: "มิกซ์",
+  mixTitle: "เปิดมิกซ์ — แล้วไปช้อปดรอป",
+  mixCopy:
+    "มิกซ์คือทางเข้า White Beauty — แตะ NFC ฟังตอนดึก จุดเริ่มเรื่อง ดึงคุณเข้าสู่แบรนด์: สตรีทแวร์ดิจิทัลบีช ดรอปลิมิเต็ด เข็มกลัด แพทช์ สติกเกอร์ และชิ้นที่ทำให้สัญญาณยังร้อนหลังเพลงจบ",
+  mixCopySecondary: "กดเล่น แล้วไปช้อปเมิร์ช",
+  quantity: "จำนวน",
+};
+
+export const uiMessages: Record<Locale, UiMessages> = { en, ja, th };
 
 export type ProductCopy = {
   name: string;
@@ -125,6 +160,10 @@ export const productCopy: Record<string, Record<Locale, ProductCopy>> = {
       name: "キャラクターTシャツ",
       description: "黒のドライフィットポリ。ヒビ入りレンズのキャラクターヒット。",
     },
+    th: {
+      name: "Character Tee",
+      description: "โพลี dry-fit สีดำ กราฟิกตัวละครเลนส์ร้าว",
+    },
   },
   "power-glory-tee": {
     en: {
@@ -136,6 +175,11 @@ export const productCopy: Record<string, Record<Locale, ProductCopy>> = {
       name: "デジタルビーチTシャツ",
       description:
         "黒のドライフィットポリ。フロントは横型WBロゴ。バックは肩甲骨あたりの Let’s Retreat ヒット。",
+    },
+    th: {
+      name: "Digital Beach Tee",
+      description:
+        "โพลี dry-fit สีดำ หน้าอกโลโก้ WB แนวนอน หลัง Let’s Retreat ที่สะบัก",
     },
   },
   "tough-cookies-ls": {
@@ -149,6 +193,11 @@ export const productCopy: Record<string, Record<Locale, ProductCopy>> = {
       description:
         "黒のドライフィットポリ ロングスリーブ。予約注文 — ドロップ到着後に発送。",
     },
+    th: {
+      name: "Feminine Protection",
+      description:
+        "แขนยาวโพลี dry-fit สีดำ พรีออเดอร์ — ส่งเมื่อดรอปถึง",
+    },
   },
   "tapestry-wb": {
     en: {
@@ -160,6 +209,11 @@ export const productCopy: Record<string, Record<Locale, ProductCopy>> = {
       name: "WBタペストリー",
       description:
         "150×150cm。ポールポケット付き。デジタルビーチのウォールヒット — 1点制作済み、追加制作可。",
+    },
+    th: {
+      name: "WB Tapestry",
+      description:
+        "150×150 ซม. มีช่องใส่ไม้ งานผนังดิจิทัลบีช — ทำแล้วหนึ่งผืน สั่งเพิ่มได้",
     },
   },
   "sticker-portrait": {
@@ -173,6 +227,11 @@ export const productCopy: Record<string, Record<Locale, ProductCopy>> = {
       description:
         "フィールドポートレート＋ピンクスクリプト。予約注文 — ドロップ到着後に発送。",
     },
+    th: {
+      name: "Portrait Sticker",
+      description:
+        "พอร์ตเทรตสนาม + สคริปต์ชมพู พรีออเดอร์ — ส่งเมื่อดรอปถึง",
+    },
   },
   "pin-colorbars": {
     en: {
@@ -182,6 +241,10 @@ export const productCopy: Record<string, Record<Locale, ProductCopy>> = {
     ja: {
       name: "カラーバーピン",
       description: "ハードエナメル。ピンク×グリーン。ソフトフレックス。",
+    },
+    th: {
+      name: "Color Bars Pin",
+      description: "ฮาร์ดอีนาเมล ชมพูบนเขียว Soft flex",
     },
   },
   "patch-script": {
@@ -193,6 +256,10 @@ export const productCopy: Record<string, Record<Locale, ProductCopy>> = {
       name: "スクリプトパッチ",
       description: "PVC＋ベルクロ裏地。取り外し可、または直接縫い付け。",
     },
+    th: {
+      name: "Script Patch",
+      description: "PVC + หลังเวลโคร ถอดได้ หรือเย็บติด",
+    },
   },
   "sticker-script": {
     en: {
@@ -202,6 +269,10 @@ export const productCopy: Record<string, Record<Locale, ProductCopy>> = {
     ja: {
       name: "ダイカット・スクリプトステッカー",
       description: "ピンクの White Beauty スクリプト。剥がして貼れ。",
+    },
+    th: {
+      name: "Die-Cut Script Sticker",
+      description: "สคริปต์ White Beauty สีชมพู ลอกแล้วติด",
     },
   },
   "sticker-logo": {
@@ -213,6 +284,10 @@ export const productCopy: Record<string, Record<Locale, ProductCopy>> = {
       name: "ロゴステッカー",
       description: "ブラックプレート。ネオンスクリプト。重ね貼りOK。",
     },
+    th: {
+      name: "Logo Sticker",
+      description: "แผ่นดำ สคริปต์นีออน ซ้อนติดได้",
+    },
   },
   "sticker-cut-rite": {
     en: {
@@ -222,6 +297,10 @@ export const productCopy: Record<string, Record<Locale, ProductCopy>> = {
     ja: {
       name: "カットライトステッカー",
       description: "クラックアイスホロ＋WB/QR面。シグナルをスキャン。",
+    },
+    th: {
+      name: "Cut Rite Sticker",
+      description: "โฮโลน้ำแข็งแตก + ด้าน WB/QR สแกนสัญญาณ",
     },
   },
   "sticker-halloween": {
@@ -233,8 +312,39 @@ export const productCopy: Record<string, Record<Locale, ProductCopy>> = {
       name: "Make Halloween Scary Again",
       description: "両面ドロップ。夜を取り戻せ。",
     },
+    th: {
+      name: "Make Halloween Scary Again",
+      description: "ดรอปสองด้าน เอากลางคืนกลับมา",
+    },
   },
 };
+
+export function isLocale(value: string | null | undefined): value is Locale {
+  return value === "en" || value === "ja" || value === "th";
+}
+
+/** Map browser language tags (e.g. th-TH, ja-JP) to a supported locale. */
+export function detectBrowserLocale(
+  languages: readonly string[] | string | undefined,
+): Locale {
+  const list = Array.isArray(languages)
+    ? languages
+    : typeof languages === "string" && languages
+      ? [languages]
+      : [];
+
+  for (const tag of list) {
+    const base = tag.toLowerCase().split("-")[0];
+    if (base === "th") return "th";
+    if (base === "ja") return "ja";
+    if (base === "en") return "en";
+  }
+  return "en";
+}
+
+export function htmlLang(locale: Locale) {
+  return locale;
+}
 
 export function getProductCopy(
   productId: string,

@@ -19,7 +19,7 @@ export function JsonLd() {
         contactType: "customer support",
         name: "Instagram",
         url: siteConfig.social.instagram,
-        availableLanguage: ["English", "Japanese"],
+        availableLanguage: ["English", "Japanese", "Thai"],
       },
       {
         "@type": "ContactPoint",
@@ -27,7 +27,7 @@ export function JsonLd() {
         name: siteConfig.support.label,
         // Email is reveal-on-click on /#contact (not listed here — spam protection).
         url: absoluteUrl("/#contact"),
-        availableLanguage: ["English", "Japanese"],
+        availableLanguage: ["English", "Japanese", "Thai"],
       },
     ],
   };
