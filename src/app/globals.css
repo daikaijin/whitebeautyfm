@@ -149,6 +149,7 @@ a {
   z-index: 1;
   width: min(280px, 72vw);
   isolation: isolate;
+  overflow: visible;
   animation: logoGlitch 10s steps(1, end) infinite;
 }
 
@@ -158,6 +159,7 @@ a {
   z-index: 2;
   width: 100%;
   height: auto;
+  background: transparent;
   filter: drop-shadow(0 0 22px rgba(247, 14, 255, 0.35));
 }
 
@@ -168,6 +170,7 @@ a {
   display: block;
   pointer-events: none;
   opacity: 0;
+  background-color: transparent;
   background-repeat: no-repeat;
   background-position: center;
   background-size: contain;
@@ -216,6 +219,15 @@ a {
     transparent 1px,
     transparent 3px
   );
+  /* Keep scanlines on the glyph only — avoids a square box during glitch. */
+  -webkit-mask-image: url("/brand/logo-vert.png");
+  mask-image: url("/brand/logo-vert.png");
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+  -webkit-mask-position: center;
+  mask-position: center;
+  -webkit-mask-size: contain;
+  mask-size: contain;
   mix-blend-mode: soft-light;
   animation: logoScan 10s steps(1, end) infinite;
 }
