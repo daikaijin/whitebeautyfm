@@ -1,9 +1,10 @@
-export type Locale = "en" | "ja" | "th";
+export type Locale = "en" | "ja" | "th" | "zh";
 
 export const LOCALES: { value: Locale; label: string }[] = [
   { value: "en", label: "English" },
   { value: "ja", label: "日本語" },
   { value: "th", label: "ไทย" },
+  { value: "zh", label: "中文" },
 ];
 
 export const LOCALE_STORAGE_KEY = "wb-locale";
@@ -143,7 +144,41 @@ const th: UiMessages = {
   quantity: "จำนวน",
 };
 
-export const uiMessages: Record<Locale, UiMessages> = { en, ja, th };
+const zh: UiMessages = {
+  brandPitch: "数字海滩街头服饰。",
+  shopLede1: "来自数字海滩的限量发售 —",
+  shopLede2: "让信号持续升温的街头服饰。",
+  merch: "周边",
+  contact: "联系",
+  contactLine: "订单、发售、照片 — Instagram 或 Beach Patrol。",
+  supportHandle: "Beach Patrol",
+  supportLine: "支持工单",
+  supportReveal: "点击发邮件",
+  supportAria: "给 Beach Patrol 发邮件",
+  supportMailSubject: "White Beauty 支持",
+  cart: "购物车",
+  cartEmpty: "空的 — 从商店添加周边。",
+  total: "合计",
+  checkout: "结账",
+  redirecting: "跳转中…",
+  clearCart: "清空购物车",
+  close: "关闭",
+  remove: "移除",
+  preOrder: "预购",
+  soldOut: "售罄",
+  addToCart: "加入购物车",
+  addPreOrder: "加入预购",
+  added: "已添加",
+  openCart: "打开购物车",
+  mixKicker: "混音",
+  mixTitle: "打开混音 — 然后选购发售",
+  mixCopy:
+    "混音是认识 White Beauty 的入口 — NFC 轻触、深夜播放、故事的起点。它把你拉进品牌：数字海滩街头服饰、限量发售、徽章、贴章、贴纸，以及在曲终后仍让信号保持热度的单品。",
+  mixCopySecondary: "先播放，再选购周边。",
+  quantity: "数量",
+};
+
+export const uiMessages: Record<Locale, UiMessages> = { en, ja, th, zh };
 
 export type ProductCopy = {
   name: string;
@@ -164,6 +199,10 @@ export const productCopy: Record<string, Record<Locale, ProductCopy>> = {
       name: "Character Tee",
       description: "โพลี dry-fit สีดำ กราฟิกตัวละครเลนส์ร้าว",
     },
+    zh: {
+      name: "角色 T 恤",
+      description: "黑色速干聚酯。裂镜角色图案。",
+    },
   },
   "power-glory-tee": {
     en: {
@@ -180,6 +219,11 @@ export const productCopy: Record<string, Record<Locale, ProductCopy>> = {
       name: "Digital Beach Tee",
       description:
         "โพลี dry-fit สีดำ หน้าอกโลโก้ WB แนวนอน หลัง Let’s Retreat ที่สะบัก",
+    },
+    zh: {
+      name: "数字海滩 T 恤",
+      description:
+        "黑色速干聚酯。正面横版 WB。背面肩胛处 Let’s Retreat。",
     },
   },
   "tough-cookies-ls": {
@@ -198,6 +242,10 @@ export const productCopy: Record<string, Record<Locale, ProductCopy>> = {
       description:
         "แขนยาวโพลี dry-fit สีดำ พรีออเดอร์ — ส่งเมื่อดรอปถึง",
     },
+    zh: {
+      name: "Feminine Protection",
+      description: "黑色速干聚酯长袖。预购 — 发售到货后发货。",
+    },
   },
   "tapestry-wb": {
     en: {
@@ -214,6 +262,11 @@ export const productCopy: Record<string, Record<Locale, ProductCopy>> = {
       name: "WB Tapestry",
       description:
         "150×150 ซม. มีช่องใส่ไม้ งานผนังดิจิทัลบีช — ทำแล้วหนึ่งผืน สั่งเพิ่มได้",
+    },
+    zh: {
+      name: "WB 挂毯",
+      description:
+        "150×150cm。挂杆袋。数字海滩墙面单品 — 已做一件，可加做。",
     },
   },
   "sticker-portrait": {
@@ -232,6 +285,10 @@ export const productCopy: Record<string, Record<Locale, ProductCopy>> = {
       description:
         "พอร์ตเทรตสนาม + สคริปต์ชมพู พรีออเดอร์ — ส่งเมื่อดรอปถึง",
     },
+    zh: {
+      name: "肖像贴纸",
+      description: "现场肖像 + 粉色手写字。预购 — 发售到货后发货。",
+    },
   },
   "pin-colorbars": {
     en: {
@@ -245,6 +302,10 @@ export const productCopy: Record<string, Record<Locale, ProductCopy>> = {
     th: {
       name: "Color Bars Pin",
       description: "ฮาร์ดอีนาเมล ชมพูบนเขียว Soft flex",
+    },
+    zh: {
+      name: "彩条徽章",
+      description: "硬珐琅。粉压绿。Soft flex。",
     },
   },
   "patch-script": {
@@ -260,6 +321,10 @@ export const productCopy: Record<string, Record<Locale, ProductCopy>> = {
       name: "Script Patch",
       description: "PVC + หลังเวลโคร ถอดได้ หรือเย็บติด",
     },
+    zh: {
+      name: "手写贴章",
+      description: "PVC + 魔术贴背面。可拆卸，也可直接缝上。",
+    },
   },
   "sticker-script": {
     en: {
@@ -273,6 +338,10 @@ export const productCopy: Record<string, Record<Locale, ProductCopy>> = {
     th: {
       name: "Die-Cut Script Sticker",
       description: "สคริปต์ White Beauty สีชมพู ลอกแล้วติด",
+    },
+    zh: {
+      name: "异形手写贴纸",
+      description: "粉色 White Beauty 手写字。撕开贴上。",
     },
   },
   "sticker-logo": {
@@ -288,6 +357,10 @@ export const productCopy: Record<string, Record<Locale, ProductCopy>> = {
       name: "Logo Sticker",
       description: "แผ่นดำ สคริปต์นีออน ซ้อนติดได้",
     },
+    zh: {
+      name: "Logo 贴纸",
+      description: "黑底板。霓虹手写。可叠贴。",
+    },
   },
   "sticker-cut-rite": {
     en: {
@@ -301,6 +374,10 @@ export const productCopy: Record<string, Record<Locale, ProductCopy>> = {
     th: {
       name: "Cut Rite Sticker",
       description: "โฮโลน้ำแข็งแตก + ด้าน WB/QR สแกนสัญญาณ",
+    },
+    zh: {
+      name: "Cut Rite 贴纸",
+      description: "裂冰全息 + WB/QR 面。扫描信号。",
     },
   },
   "sticker-halloween": {
@@ -316,14 +393,18 @@ export const productCopy: Record<string, Record<Locale, ProductCopy>> = {
       name: "Make Halloween Scary Again",
       description: "ดรอปสองด้าน เอากลางคืนกลับมา",
     },
+    zh: {
+      name: "Make Halloween Scary Again",
+      description: "双面发售。把夜晚带回来。",
+    },
   },
 };
 
 export function isLocale(value: string | null | undefined): value is Locale {
-  return value === "en" || value === "ja" || value === "th";
+  return value === "en" || value === "ja" || value === "th" || value === "zh";
 }
 
-/** Map browser language tags (e.g. th-TH, ja-JP) to a supported locale. */
+/** Map browser language tags (e.g. th-TH, ja-JP, zh-CN) to a supported locale. */
 export function detectBrowserLocale(
   languages: readonly string[] | string | undefined,
 ): Locale {
@@ -337,6 +418,7 @@ export function detectBrowserLocale(
     const base = tag.toLowerCase().split("-")[0];
     if (base === "th") return "th";
     if (base === "ja") return "ja";
+    if (base === "zh") return "zh";
     if (base === "en") return "en";
   }
   return "en";
