@@ -31,21 +31,58 @@ body {
   min-height: 100%;
   color: var(--foreground);
   background-color: #050307;
+  font-family: var(--font-body), sans-serif;
+}
+
+.glitch-bg {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+  pointer-events: none;
+  background: #050307;
+}
+
+.glitch-bg-video,
+.glitch-bg-poster {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.glitch-bg-poster {
+  background-image: url("/brand/glitch-bg-poster.webp");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.glitch-bg-video {
+  z-index: 1;
+}
+
+.glitch-bg-veil {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
   background-image:
     linear-gradient(
       165deg,
-      rgba(5, 3, 7, 0.94) 0%,
+      rgba(5, 3, 7, 0.92) 0%,
       rgba(247, 14, 255, 0.1) 38%,
-      rgba(58, 255, 21, 0.08) 68%,
-      rgba(5, 3, 7, 0.96) 100%
+      rgba(58, 255, 21, 0.07) 68%,
+      rgba(5, 3, 7, 0.94) 100%
     ),
-    linear-gradient(180deg, rgba(5, 3, 7, 0.88) 0%, rgba(5, 3, 7, 0.94) 100%),
-    url("/brand/glitch-bg.webp");
-  background-size: cover;
-  background-position: center;
-  background-attachment: fixed;
-  background-repeat: no-repeat;
-  font-family: var(--font-body), sans-serif;
+    linear-gradient(180deg, rgba(5, 3, 7, 0.78) 0%, rgba(5, 3, 7, 0.88) 100%);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .glitch-bg-video {
+    display: none;
+  }
 }
 
 a {

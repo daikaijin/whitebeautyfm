@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import { Bebas_Neue, Manrope } from "next/font/google";
 import Script from "next/script";
+import { GlitchBg } from "@/components/GlitchBg";
 import { Providers } from "@/components/Providers";
 import { absoluteUrl, siteConfig } from "@/lib/site";
 import "./globals.css";
@@ -113,6 +114,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
             gtag('config', '${siteConfig.gaId}');
           `}
         </Script>
+        <GlitchBg />
         <div className="noise" aria-hidden="true" />
         <div className="site-shell">
           <Providers>{children}</Providers>
