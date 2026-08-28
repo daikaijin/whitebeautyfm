@@ -43,7 +43,7 @@ export type UiMessages = {
 };
 
 const en: UiMessages = {
-  brandPitch: "Digital beach streetwear.",
+  brandPitch: "Streetwear for the Digital Beach.",
   shopLede1: "Limited drops from the digital beach —",
   shopLede2: "streetwear that keeps the signal hot.",
   merch: "Merch",
@@ -77,7 +77,7 @@ const en: UiMessages = {
 };
 
 const ja: UiMessages = {
-  brandPitch: "デジタルビーチ・ストリートウェア。",
+  brandPitch: "デジタルビーチのためのストリートウェア。",
   shopLede1: "デジタルビーチから届くリミテッドドロップ —",
   shopLede2: "シグナルを熱く保つストリートウェア。",
   merch: "マーチャント",
@@ -111,7 +111,7 @@ const ja: UiMessages = {
 };
 
 const th: UiMessages = {
-  brandPitch: "สตรีทแวร์ดิจิทัลบีช",
+  brandPitch: "สตรีทแวร์สำหรับดิจิทัลบีช",
   shopLede1: "ดรอปลิมิเต็ดจากดิจิทัลบีช —",
   shopLede2: "สตรีทแวร์ที่ทำให้สัญญาณยังร้อน",
   merch: "สินค้า",
@@ -145,7 +145,7 @@ const th: UiMessages = {
 };
 
 const zh: UiMessages = {
-  brandPitch: "数字海滩街头服饰。",
+  brandPitch: "数字海滩的街头服饰。",
   shopLede1: "来自数字海滩的限量发售 —",
   shopLede2: "让信号持续升温的街头服饰。",
   merch: "周边",

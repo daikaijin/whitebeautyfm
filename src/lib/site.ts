@@ -2,9 +2,9 @@ export const siteConfig = {
   name: "White Beauty",
   shortName: "WB",
   tagline: "Power and the Glory",
-  pitch: "Digital beach streetwear.",
+  pitch: "Streetwear for the Digital Beach.",
   description:
-    "White Beauty — digital beach streetwear. Power and the Glory. Limited merch drops.",
+    "White Beauty — streetwear for the Digital Beach. Power and the Glory. Limited merch drops.",
   url:
     process.env.NEXT_PUBLIC_SITE_URL?.replace(/\/$/, "") ||
     "https://www.whitebeautyfm.com",
@@ -43,7 +43,7 @@ export const siteConfig = {
     url: "/brand/og.jpg",
     width: 1200,
     height: 630,
-    alt: "White Beauty — digital beach streetwear, Power and the Glory",
+    alt: "White Beauty — streetwear for the Digital Beach, Power and the Glory",
   },
 } as const;
 

@@ -57,7 +57,7 @@ export function JsonLd() {
   const itemList = {
     "@type": "ItemList",
     "@id": absoluteUrl("/#merch"),
-    name: "White Beauty digital beach streetwear merch",
+    name: "White Beauty streetwear for the Digital Beach merch",
     itemListOrder: "https://schema.org/ItemListOrderAscending",
     numberOfItems: products.length,
     itemListElement: products.map((product, index) => ({
