@@ -164,23 +164,6 @@ a {
   animation: rise 0.9s ease both;
 }
 
-.logo-aura {
-  position: absolute;
-  z-index: 0;
-  width: min(340px, 78vw);
-  aspect-ratio: 1;
-  border-radius: 50%;
-  background: radial-gradient(
-    circle,
-    rgba(247, 14, 255, 0.55) 0%,
-    rgba(247, 14, 255, 0.22) 38%,
-    transparent 70%
-  );
-  filter: blur(18px);
-  animation: pinkPulse 2.8s ease-in-out infinite;
-  pointer-events: none;
-}
-
 .logo-glitch {
   position: relative;
   z-index: 1;
@@ -1102,18 +1085,6 @@ a {
   to {
     opacity: 1;
     transform: translateY(0);
-  }
-}
-
-@keyframes pinkPulse {
-  0%,
-  100% {
-    opacity: 0.55;
-    transform: scale(0.92);
-  }
-  50% {
-    opacity: 1;
-    transform: scale(1.08);
   }
 }
 

@@ -20,7 +20,6 @@ export function HomePage() {
       </div>
 
       <header className="logo-top">
-        <div className="logo-aura" aria-hidden="true" />
         <LogoGlitch />
         <h1 className="sr-only">
           {siteConfig.name} — {siteConfig.tagline}. {t.brandPitch} NFC mixes are
