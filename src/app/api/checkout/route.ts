@@ -40,10 +40,6 @@ function isEmail(value: string) {
   return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value);
 }
 
-function escapeStripeSearch(value: string) {
-  return value.replace(/\\/g, "\\\\").replace(/"/g, '\\"');
-}
-
 function sessionClaimedHalloween(session: Stripe.Checkout.Session) {
   if (session.status !== "complete") return false;
   return (session.metadata?.cart ?? "").includes("sticker-halloween");
@@ -58,17 +54,6 @@ async function emailAlreadyClaimedHalloween(stripe: Stripe, email: string) {
     });
     if (sessions.data.some(sessionClaimedHalloween)) return true;
   }
-
-  try {
-    const found = await stripe.checkout.sessions.search({
-      query: `customer_details.email:"${escapeStripeSearch(email)}" AND status:"complete"`,
-      limit: 20,
-    });
-    if (found.data.some(sessionClaimedHalloween)) return true;
-  } catch (error) {
-    console.error("Halloween claim search error:", error);
-  }
-
   return false;
 }
 
