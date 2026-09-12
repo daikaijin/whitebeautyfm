@@ -1,3 +1,5 @@
+import { productMaxQty } from "@/lib/products";
+
 export type CartItem = {
   productId: string;
   quantity: number;
@@ -11,12 +13,13 @@ export function normalizeCart(items: CartItem[]): CartItem[] {
   const map = new Map<string, number>();
   for (const item of items) {
     if (!item?.productId) continue;
-    const qty = Math.min(
-      Math.max(Number(item.quantity) || 0, 0),
-      CART_MAX_QTY,
-    );
+    const cap = productMaxQty(item.productId);
+    const qty = Math.min(Math.max(Number(item.quantity) || 0, 0), cap);
     if (qty < 1) continue;
-    map.set(item.productId, Math.min((map.get(item.productId) ?? 0) + qty, CART_MAX_QTY));
+    map.set(
+      item.productId,
+      Math.min((map.get(item.productId) ?? 0) + qty, cap),
+    );
   }
   return [...map.entries()]
     .slice(0, CART_MAX_LINES)

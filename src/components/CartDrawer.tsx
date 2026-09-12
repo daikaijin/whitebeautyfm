@@ -11,6 +11,8 @@ import {
   getProduct,
   isPurchasable,
   productImage,
+  productMaxQty,
+  productPriceYen,
 } from "@/lib/products";
 
 export function CartDrawer() {
@@ -32,7 +34,8 @@ export function CartDrawer() {
   }[];
 
   const totalYen = lines.reduce(
-    (sum, line) => sum + line.product.priceYen * line.item.quantity,
+    (sum, line) =>
+      sum + productPriceYen(line.product) * line.item.quantity,
     0,
   );
 
@@ -118,11 +121,18 @@ export function CartDrawer() {
                     <div className="cart-line-top">
                       <p className="cart-line-name">{copy.name}</p>
                       <p className="cart-line-price">
-                        {formatYen(product.priceYen * item.quantity)}
+                        {productPriceYen(product) === 0
+                          ? t.free
+                          : formatYen(
+                              productPriceYen(product) * item.quantity,
+                            )}
                       </p>
                     </div>
                     {product.status === "pre_order" ? (
                       <p className="cart-line-meta">{t.preOrder}</p>
+                    ) : null}
+                    {productPriceYen(product) === 0 ? (
+                      <p className="cart-line-meta">{t.freeThroughOct10}</p>
                     ) : null}
                     <div className="cart-line-actions">
                       <label className="cart-qty">
@@ -139,6 +149,7 @@ export function CartDrawer() {
                         <span>{item.quantity}</span>
                         <button
                           type="button"
+                          disabled={item.quantity >= productMaxQty(product.id)}
                           onClick={() =>
                             setQuantity(product.id, item.quantity + 1)
                           }
@@ -165,7 +176,7 @@ export function CartDrawer() {
         <footer className="cart-drawer-foot">
           <div className="cart-total">
             <span>{t.total}</span>
-            <strong>{formatYen(totalYen)}</strong>
+            <strong>{totalYen === 0 ? t.free : formatYen(totalYen)}</strong>
           </div>
           {error ? <p className="cart-error">{error}</p> : null}
           <button

@@ -186,6 +186,27 @@ export function getProduct(id: string) {
   return products.find((product) => product.id === id);
 }
 
+/** Free through end of Oct 10, Japan time. Then it returns to list price. */
+const HALLOWEEN_FREE_UNTIL = Date.parse("2026-10-10T23:59:59+09:00");
+
+export function isHalloweenStickerFree(now = new Date()) {
+  return now.getTime() <= HALLOWEEN_FREE_UNTIL;
+}
+
+export function productPriceYen(product: Product, now = new Date()) {
+  if (product.id === "sticker-halloween" && isHalloweenStickerFree(now)) {
+    return 0;
+  }
+  return product.priceYen;
+}
+
+export function productMaxQty(productId: string) {
+  if (productId === "sticker-halloween" && isHalloweenStickerFree()) {
+    return 1;
+  }
+  return 10;
+}
+
 export function formatYen(amount: number) {
   return new Intl.NumberFormat("ja-JP", {
     style: "currency",

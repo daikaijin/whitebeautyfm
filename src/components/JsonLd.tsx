@@ -1,4 +1,4 @@
-import { productImage, products } from "@/lib/products";
+import { productImage, productPriceYen, products } from "@/lib/products";
 import { absoluteUrl, siteConfig } from "@/lib/site";
 
 export function JsonLd() {
@@ -63,7 +63,7 @@ export function JsonLd() {
           "@type": "Offer",
           url: absoluteUrl("/#shop"),
           priceCurrency: "JPY",
-          price: product.priceYen,
+          price: productPriceYen(product),
           availability:
             product.status === "available"
               ? "https://schema.org/InStock"

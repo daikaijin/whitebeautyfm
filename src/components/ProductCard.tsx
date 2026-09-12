@@ -8,6 +8,7 @@ import {
   formatYen,
   isPurchasable,
   productImages,
+  productPriceYen,
   type Product,
 } from "@/lib/products";
 
@@ -28,6 +29,8 @@ export function ProductCard({
   const soldOut = product.status === "sold_out";
   const preOrder = product.status === "pre_order";
   const images = productImages(product);
+  const priceYen = productPriceYen(product);
+  const isFree = priceYen === 0;
 
   return (
     <article className="product-tile group" id={`product-${product.id}`}>
@@ -35,14 +38,23 @@ export function ProductCard({
         name={copy.name}
         images={images}
         soldOut={soldOut}
-        badge={preOrder ? t.preOrder : soldOut ? t.soldOut : undefined}
+        badge={
+          isFree
+            ? t.free
+            : preOrder
+              ? t.preOrder
+              : soldOut
+                ? t.soldOut
+                : undefined
+        }
         priority={priority}
       />
       <div className="product-copy">
         <div className="flex items-baseline justify-between gap-3">
           <h3>{copy.name}</h3>
-          <p className="price">{formatYen(product.priceYen)}</p>
+          <p className="price">{isFree ? t.free : formatYen(priceYen)}</p>
         </div>
+        {isFree ? <p className="spec">{t.freeThroughOct10}</p> : null}
         {copy.spec ? <p className="spec">{copy.spec}</p> : null}
         <p className="desc">{copy.description}</p>
         {isPurchasable(product) ? (

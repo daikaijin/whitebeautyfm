@@ -53,6 +53,8 @@ export type UiMessages = {
   addToCart: string;
   addPreOrder: string;
   added: string;
+  free: string;
+  freeThroughOct10: string;
   openCart: string;
   mixKicker: string;
   mixTitle: string;
@@ -106,6 +108,8 @@ const en: UiMessages = {
   addToCart: "Add to cart",
   addPreOrder: "Add pre-order",
   added: "Added",
+  free: "Free",
+  freeThroughOct10: "Free through Oct 10",
   openCart: "Open cart",
   mixKicker: "The mix",
   mixTitle: "Open the mix — then shop the drop",
@@ -160,6 +164,8 @@ const ja: UiMessages = {
   addToCart: "カートに入れる",
   addPreOrder: "予約を追加",
   added: "追加しました",
+  free: "無料",
+  freeThroughOct10: "10月10日まで無料",
   openCart: "カートを開く",
   mixKicker: "ミックス",
   mixTitle: "ミックスを開けて — ドロップへ",
@@ -214,6 +220,8 @@ const th: UiMessages = {
   addToCart: "ใส่ตะกร้า",
   addPreOrder: "เพิ่มพรีออเดอร์",
   added: "เพิ่มแล้ว",
+  free: "ฟรี",
+  freeThroughOct10: "ฟรีถึง 10 ต.ค.",
   openCart: "เปิดตะกร้า",
   mixKicker: "มิกซ์",
   mixTitle: "เปิดมิกซ์ — แล้วไปช้อปดรอป",
@@ -268,6 +276,8 @@ const zh: UiMessages = {
   addToCart: "加入购物车",
   addPreOrder: "加入预购",
   added: "已添加",
+  free: "免费",
+  freeThroughOct10: "免费至 10 月 10 日",
   openCart: "打开购物车",
   mixKicker: "混音",
   mixTitle: "打开混音 — 然后选购发售",

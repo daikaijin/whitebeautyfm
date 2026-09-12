@@ -1,6 +1,11 @@
 import { NextResponse } from "next/server";
 import { normalizeCart, type CartItem } from "@/lib/cart";
-import { getProduct, isPurchasable, productImage } from "@/lib/products";
+import {
+  getProduct,
+  isPurchasable,
+  productImage,
+  productPriceYen,
+} from "@/lib/products";
 import { siteConfig } from "@/lib/site";
 import { getStripe } from "@/lib/stripe";
 
@@ -86,7 +91,7 @@ export async function POST(request: Request) {
         quantity: item.quantity,
         price_data: {
           currency: "jpy" as const,
-          unit_amount: product.priceYen,
+          unit_amount: productPriceYen(product),
           product_data: {
             name:
               product.status === "pre_order"
@@ -99,10 +104,18 @@ export async function POST(request: Request) {
       });
     }
 
+    const amountTotal = lineItems.reduce(
+      (sum, line) => sum + line.price_data.unit_amount * line.quantity,
+      0,
+    );
+
     const stripe = getStripe();
     const session = await stripe.checkout.sessions.create({
       mode: "payment",
       payment_method_types: ["card"],
+      ...(amountTotal === 0
+        ? { payment_method_collection: "if_required" as const }
+        : {}),
       shipping_address_collection: {
         allowed_countries: [
           "JP",
