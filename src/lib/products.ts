@@ -4,8 +4,10 @@ export type Product = {
   description: string;
   priceYen: number;
   /**
-   * Gallery frames: real product first when we have it,
-   * then artwork, beach last.
+   * Gallery frames in fixed order:
+   * 1) store image (beach cover)
+   * 2) artwork
+   * 3+) real product photos
    */
   images: string[];
   category: "tee" | "longsleeve" | "pin" | "patch" | "sticker" | "tapestry";
@@ -45,10 +47,10 @@ export const products: Product[] = [
       "Black dry-fit poly. Horizontal WB front. Let’s Retreat back at the shoulder blades.",
     priceYen: 6500,
     images: [
-      "/merch/retreat-tee-front-real.webp",
-      "/merch/retreat-tee-back-real.webp",
       "/merch/retreat-tee-front-beach.webp",
       "/merch/retreat-back-artwork.webp",
+      "/merch/retreat-tee-front-real.webp",
+      "/merch/retreat-tee-back-real.webp",
     ],
     category: "tee",
     status: "sold_out",
