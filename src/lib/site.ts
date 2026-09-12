@@ -44,7 +44,7 @@ export const siteConfig = {
   /** Google Analytics 4 measurement ID */
   gaId: "G-CPDTF0QMGJ",
   ogImage: {
-    url: "/brand/og-halloween.jpg",
+    url: "/brand/og-halloween-2.jpg",
     width: 1200,
     height: 630,
     alt: "Make Halloween Scary Again — White Beauty sticker, now live",
