@@ -192,10 +192,10 @@ a {
   }
 
   .masthead-lede {
-    width: min(22rem, 42%);
+    width: min(34rem, 54%);
     align-items: flex-end;
     text-align: right;
-    font-size: clamp(0.92rem, 1.35vw, 1.15rem);
+    font-size: 45px;
     line-height: 1.2;
     letter-spacing: 0.1em;
     text-shadow: none;
