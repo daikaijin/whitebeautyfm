@@ -937,6 +937,24 @@ a {
   letter-spacing: 0.08em;
 }
 
+@media (max-width: 799px) {
+  .cart-fab {
+    background: #f70eff;
+    border: 1px solid #ffffff47;
+    bottom: 4rem;
+    -webkit-backdrop-filter: blur(10px);
+  }
+
+  .cart-fab.has-items {
+    box-shadow: 0 0 22px rgba(247, 14, 255, 0.45);
+  }
+
+  .cart-fab-count {
+    background: #050307;
+    color: #fff;
+  }
+}
+
 .cart-overlay {
   position: fixed;
   inset: 0;
