@@ -44,10 +44,10 @@ export const siteConfig = {
   /** Google Analytics 4 measurement ID */
   gaId: "G-CPDTF0QMGJ",
   ogImage: {
-    url: "/brand/og.jpg",
+    url: "/brand/og-halloween.jpg",
     width: 1200,
     height: 630,
-    alt: "White Beauty — streetwear for the Digital Beach, Power and the Glory",
+    alt: "Make Halloween Scary Again — White Beauty sticker, now live",
   },
 } as const;
 
