@@ -2,10 +2,10 @@
 
 import { InstagramIcon } from "@/components/InstagramIcon";
 import { LanguageSelect } from "@/components/LanguageSelect";
+import { LogoGlitch } from "@/components/LogoGlitch";
 import { Manifesto } from "@/components/Manifesto";
 import { ProductCard } from "@/components/ProductCard";
 import { ProtectedSupportEmail } from "@/components/ProtectedSupportEmail";
-import { SiteNav } from "@/components/SiteNav";
 import { useLocale } from "@/components/LocaleProvider";
 import { products } from "@/lib/products";
 import { siteConfig } from "@/lib/site";
@@ -19,12 +19,14 @@ export function HomePage() {
         <div className="lang-bar">
           <LanguageSelect />
         </div>
-        <SiteNav />
 
-        <h1 className="sr-only">
-          {t.manifestoTitle}. {t.manifestoLine1} {t.manifestoLine2}{" "}
-          {t.manifestoLine3} {t.manifestoLine4} {t.manifestoLine5}
-        </h1>
+        <header className="logo-top">
+          <LogoGlitch />
+          <h1 className="sr-only">
+            {t.manifestoTitle}. {t.manifestoLine1} {t.manifestoLine2}{" "}
+            {t.manifestoLine3} {t.manifestoLine4} {t.manifestoLine5}
+          </h1>
+        </header>
 
         <section id="shop" className="section section-first" aria-label={t.merch}>
           <h2 className="sr-only">{t.merch}</h2>
