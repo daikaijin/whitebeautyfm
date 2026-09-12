@@ -2,9 +2,11 @@ export const siteConfig = {
   name: "White Beauty",
   shortName: "WB",
   tagline: "Power and the Glory",
-  pitch: "Streetwear for the Digital Beach.",
+  pitch: "Streetwear for everywhere.",
+  manifesto:
+    "White Beauty Streetwear. Streetwear for everywhere. White is all colors. All people. Streetwear for humans. The Digital Beach isn't for everyone. The Digital Beach is for you.",
   description:
-    "White Beauty — streetwear for the Digital Beach. Power and the Glory. Limited merch drops.",
+    "White Beauty Streetwear — streetwear for everywhere. White is all colors. All people. The Digital Beach is for you.",
   url:
     process.env.NEXT_PUBLIC_SITE_URL?.replace(/\/$/, "") ||
     "https://www.whitebeautyfm.com",
@@ -14,6 +16,8 @@ export const siteConfig = {
     "White Beauty FM",
     "digital beach",
     "digital beach streetwear",
+    "streetwear for everywhere",
+    "streetwear for humans",
     "streetwear",
     "NFC drop",
     "Japan streetwear",

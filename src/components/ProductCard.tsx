@@ -43,6 +43,7 @@ export function ProductCard({
           <h3>{copy.name}</h3>
           <p className="price">{formatYen(product.priceYen)}</p>
         </div>
+        {copy.spec ? <p className="spec">{copy.spec}</p> : null}
         <p className="desc">{copy.description}</p>
         {isPurchasable(product) ? (
           <AddToCartButton

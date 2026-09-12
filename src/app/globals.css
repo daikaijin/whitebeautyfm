@@ -116,6 +116,10 @@ a {
   padding: 1.5rem 0 4rem;
 }
 
+.page-top {
+  padding-bottom: 1.25rem;
+}
+
 .lang-bar {
   display: flex;
   justify-content: flex-end;
@@ -415,6 +419,59 @@ a {
   display: block;
 }
 
+.manifesto {
+  position: relative;
+  z-index: 1;
+  padding: clamp(3.75rem, 11vw, 7.5rem) 1.25rem;
+  text-align: center;
+  border-top: 1px solid var(--wb-line);
+  border-bottom: 1px solid var(--wb-line);
+}
+
+.manifesto-mark {
+  margin: 0;
+  font-family: var(--font-display), sans-serif;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  font-size: 0.72rem;
+  color: var(--wb-pink);
+}
+
+.manifesto-stack {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.42em;
+  width: min(28rem, 100%);
+  margin: 1.6rem auto 0;
+}
+
+.manifesto-line {
+  margin: 0;
+  font-family: var(--font-display), sans-serif;
+  font-size: clamp(1.45rem, 5.2vw, 2.35rem);
+  line-height: 1.08;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: rgba(247, 242, 248, 0.94);
+  text-shadow: 0 0 28px rgba(247, 14, 255, 0.2);
+}
+
+.manifesto-line.is-turn {
+  margin-top: 0.85em;
+  color: var(--wb-muted);
+  text-shadow: none;
+}
+
+.manifesto-line.is-you {
+  background: linear-gradient(120deg, #fff 10%, #f70eff 45%, #3aff15 90%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  filter: drop-shadow(0 0 22px rgba(247, 14, 255, 0.28));
+  text-shadow: none;
+}
+
 .section-lede {
   margin: 0 0 2rem;
   width: 100%;
@@ -707,6 +764,15 @@ a {
   color: var(--wb-green);
   font-family: var(--font-display), sans-serif;
   letter-spacing: 0.06em;
+}
+
+.product-copy .spec {
+  margin: 0.28rem 0 0;
+  font-family: var(--font-display), sans-serif;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  font-size: 0.72rem;
+  color: rgba(247, 242, 248, 0.55);
 }
 
 .product-copy .desc {
@@ -1271,6 +1337,29 @@ a {
   to {
     background-position: 0 12px;
   }
+}
+
+.site-nav {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.7rem 1.25rem;
+  margin: 0 0 1.15rem;
+}
+
+.site-nav a {
+  font-family: var(--font-display), sans-serif;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  font-size: 0.72rem;
+  color: rgba(247, 242, 248, 0.62);
+  text-decoration: none;
+}
+
+.site-nav a:hover,
+.site-nav a:focus-visible {
+  color: #fff;
+  outline: none;
 }
 
 @media (prefers-reduced-motion: reduce) {

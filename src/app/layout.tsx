@@ -27,7 +27,7 @@ export const viewport: Viewport = {
 export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.url),
   title: {
-    default: `${siteConfig.name} — Streetwear for the Digital Beach`,
+    default: `${siteConfig.name} — Streetwear for everywhere`,
     template: `%s · ${siteConfig.name}`,
   },
   description: siteConfig.description,
@@ -60,7 +60,7 @@ export const metadata: Metadata = {
     locale: siteConfig.locale,
     url: siteConfig.url,
     siteName: siteConfig.name,
-    title: `${siteConfig.name} — Streetwear for the Digital Beach`,
+    title: `${siteConfig.name} — Streetwear for everywhere`,
     description: siteConfig.description,
     images: [
       {
@@ -74,7 +74,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: `${siteConfig.name} — Streetwear for the Digital Beach`,
+    title: `${siteConfig.name} — Streetwear for everywhere`,
     description: siteConfig.description,
     images: [siteConfig.ogImage.url],
     creator: siteConfig.social.handle,

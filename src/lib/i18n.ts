@@ -14,6 +14,25 @@ export type UiMessages = {
   shopLede1: string;
   shopLede2: string;
   merch: string;
+  navShop: string;
+  navLookbook: string;
+  navManifesto: string;
+  navMix: string;
+  manifestoTitle: string;
+  manifestoLine1: string;
+  manifestoLine2: string;
+  manifestoLine3: string;
+  manifestoLine4: string;
+  manifestoLine5: string;
+  lookbook: string;
+  lookbookKicker: string;
+  lookbookTitle: string;
+  lookbookLede: string;
+  lookbookBody: string;
+  lookbookNote: string;
+  lookbookFrame1: string;
+  lookbookFrame2: string;
+  lookbookFrame3: string;
   contact: string;
   contactLine: string;
   supportHandle: string;
@@ -44,9 +63,29 @@ export type UiMessages = {
 
 const en: UiMessages = {
   brandPitch: "Streetwear for the Digital Beach.",
-  shopLede1: "Limited drops from the digital beach —",
-  shopLede2: "streetwear that keeps the signal hot.",
+  shopLede1: "Limited pieces —",
+  shopLede2: "the bag should hit harder than the page.",
   merch: "Merch",
+  navShop: "Shop",
+  navLookbook: "Lookbook",
+  navManifesto: "Manifesto",
+  navMix: "Mix",
+  manifestoTitle: "White Beauty Streetwear",
+  manifestoLine1: "Streetwear for everywhere.",
+  manifestoLine2: "White is all colors. All people.",
+  manifestoLine3: "Streetwear for humans.",
+  manifestoLine4: "The Digital Beach isn't for everyone.",
+  manifestoLine5: "The Digital Beach is for you.",
+  lookbook: "Lookbook",
+  lookbookKicker: "Lookbook 02",
+  lookbookTitle: "After Hours",
+  lookbookLede: "Konbini light. After midnight. No studio.",
+  lookbookBody:
+    "The next pictures are people who already look like this — fluorescent, a drink in the lot, not booked for a campaign. The shop should read like the store they walk into. The piece in the bag should feel heavier than the page.",
+  lookbookNote: "Casting and photo — Instagram.",
+  lookbookFrame1: "Exterior",
+  lookbookFrame2: "Counter",
+  lookbookFrame3: "Lot",
   contact: "Contact",
   contactLine: "Orders, drops, photo — Instagram or Beach Patrol.",
   supportHandle: "Beach Patrol",
@@ -71,16 +110,36 @@ const en: UiMessages = {
   mixKicker: "The mix",
   mixTitle: "Open the mix — then shop the drop",
   mixCopy:
-    "The mix is how people find White Beauty — NFC taps, late-night plays, the cut that starts the story. It pulls you into the brand: digital beach streetwear, limited drops, pins, patches, stickers, and the pieces that keep the signal hot after the track ends.",
+    "The mix is how people find White Beauty — NFC taps, late-night plays, the cut that starts the story. It pulls you into the brand: streetwear for the Digital Beach, limited drops, pins, patches, stickers, and the pieces that keep the signal hot after the track ends.",
   mixCopySecondary: "Hit play, then shop the merch.",
   quantity: "Quantity",
 };
 
 const ja: UiMessages = {
   brandPitch: "デジタルビーチのためのストリートウェア。",
-  shopLede1: "デジタルビーチから届くリミテッドドロップ —",
-  shopLede2: "シグナルを熱く保つストリートウェア。",
+  shopLede1: "リミテッドピース —",
+  shopLede2: "ページより、袋の中のほうが重い。",
   merch: "マーチャント",
+  navShop: "ショップ",
+  navLookbook: "ルックブック",
+  navManifesto: "マニフェスト",
+  navMix: "ミックス",
+  manifestoTitle: "White Beauty Streetwear",
+  manifestoLine1: "どこにでもあるストリートウェア。",
+  manifestoLine2: "白はすべての色。すべての人。",
+  manifestoLine3: "人間のためのストリートウェア。",
+  manifestoLine4: "デジタルビーチは、みんなのものじゃない。",
+  manifestoLine5: "デジタルビーチは、あなたのもの。",
+  lookbook: "ルックブック",
+  lookbookKicker: "ルックブック 02",
+  lookbookTitle: "After Hours",
+  lookbookLede: "コンビニの光。深夜。スタジオなし。",
+  lookbookBody:
+    "次の写真は、もうその顔をしている人たち。蛍光灯、駐車場のドリンク、キャスティングされた感じはなし。ショップは彼らが歩く店のように。袋の中のピースは、ページより重く。",
+  lookbookNote: "キャスト・写真 — Instagram。",
+  lookbookFrame1: "外観",
+  lookbookFrame2: "レジ",
+  lookbookFrame3: "駐車場",
   contact: "コンタクト",
   contactLine: "注文・ドロップ・写真 — Instagram またはビーチパトロール。",
   supportHandle: "ビーチパトロール",
@@ -112,9 +171,29 @@ const ja: UiMessages = {
 
 const th: UiMessages = {
   brandPitch: "สตรีทแวร์สำหรับดิจิทัลบีช",
-  shopLede1: "ดรอปลิมิเต็ดจากดิจิทัลบีช —",
-  shopLede2: "สตรีทแวร์ที่ทำให้สัญญาณยังร้อน",
+  shopLede1: "ชิ้นลิมิเต็ด —",
+  shopLede2: "ถุงควรหนักกว่าหน้าเว็บ",
   merch: "สินค้า",
+  navShop: "ร้าน",
+  navLookbook: "ลุคบุ๊ค",
+  navManifesto: "แถลงการณ์",
+  navMix: "มิกซ์",
+  manifestoTitle: "White Beauty Streetwear",
+  manifestoLine1: "สตรีทแวร์สำหรับทุกที่",
+  manifestoLine2: "ขาวคือทุกสี ทุกคน",
+  manifestoLine3: "สตรีทแวร์สำหรับมนุษย์",
+  manifestoLine4: "ดิจิทัลบีชไม่ได้มีไว้สำหรับทุกคน",
+  manifestoLine5: "ดิจิทัลบีชมีไว้สำหรับคุณ",
+  lookbook: "ลุคบุ๊ค",
+  lookbookKicker: "ลุคบุ๊ค 02",
+  lookbookTitle: "After Hours",
+  lookbookLede: "แสงคอนบินิ หลังเที่ยงคืน ไม่มีสตูดิโอ",
+  lookbookBody:
+    "ภาพถัดไปคือคนที่ดูแบบนี้อยู่แล้ว — ไฟนีออน เครื่องดื่มที่ลานจอด ไม่ได้แคสต์มาถ่ายแคมเปญ ร้านควรอ่านเหมือนร้านที่พวกเขาเดินเข้า ชิ้นในถุงควรหนักกว่าหน้าเว็บ",
+  lookbookNote: "แคสต์และภาพ — Instagram",
+  lookbookFrame1: "หน้าร้าน",
+  lookbookFrame2: "เคาน์เตอร์",
+  lookbookFrame3: "ลานจอด",
   contact: "ติดต่อ",
   contactLine: "ออเดอร์ ดรอป รูป — Instagram หรือ Beach Patrol",
   supportHandle: "Beach Patrol",
@@ -146,9 +225,29 @@ const th: UiMessages = {
 
 const zh: UiMessages = {
   brandPitch: "数字海滩的街头服饰。",
-  shopLede1: "来自数字海滩的限量发售 —",
-  shopLede2: "让信号持续升温的街头服饰。",
+  shopLede1: "限量单品 —",
+  shopLede2: "袋子里的，应该比页面更沉。",
   merch: "周边",
+  navShop: "商店",
+  navLookbook: "型录",
+  navManifesto: "宣言",
+  navMix: "混音",
+  manifestoTitle: "White Beauty Streetwear",
+  manifestoLine1: "街头服饰，无处不在。",
+  manifestoLine2: "白是所有颜色。所有人。",
+  manifestoLine3: "给人类的街头服饰。",
+  manifestoLine4: "数字海滩不是给所有人的。",
+  manifestoLine5: "数字海滩是给你的。",
+  lookbook: "型录",
+  lookbookKicker: "型录 02",
+  lookbookTitle: "After Hours",
+  lookbookLede: "便利店的灯。午夜后。没有影棚。",
+  lookbookBody:
+    "下一组照片是本来就长这样的人——荧光灯、停车场里的饮料，不像被请来拍大片。店铺读起来应该像他们会走进的店。袋子里的单品，应该比页面更沉。",
+  lookbookNote: "模特与拍摄 — Instagram。",
+  lookbookFrame1: "店外",
+  lookbookFrame2: "柜台",
+  lookbookFrame3: "停车场",
   contact: "联系",
   contactLine: "订单、发售、照片 — Instagram 或 Beach Patrol。",
   supportHandle: "Beach Patrol",
@@ -183,6 +282,7 @@ export const uiMessages: Record<Locale, UiMessages> = { en, ja, th, zh };
 export type ProductCopy = {
   name: string;
   description: string;
+  spec: string;
 };
 
 export const productCopy: Record<string, Record<Locale, ProductCopy>> = {
@@ -190,18 +290,22 @@ export const productCopy: Record<string, Record<Locale, ProductCopy>> = {
     en: {
       name: "Character Tee",
       description: "Black dry-fit poly. Cracked-lens character hit.",
+      spec: "Dry-fit polyester. Front print.",
     },
     ja: {
       name: "キャラクターTシャツ",
       description: "黒のドライフィットポリ。ヒビ入りレンズのキャラクターヒット。",
+      spec: "ドライフィットポリエステル。フロントプリント。",
     },
     th: {
       name: "Character Tee",
       description: "โพลี dry-fit สีดำ กราฟิกตัวละครเลนส์ร้าว",
+      spec: "โพลี dry-fit. พิมพ์หน้า.",
     },
     zh: {
       name: "角色 T 恤",
       description: "黑色速干聚酯。裂镜角色图案。",
+      spec: "速干聚酯。正面印花。",
     },
   },
   "power-glory-tee": {
@@ -209,21 +313,25 @@ export const productCopy: Record<string, Record<Locale, ProductCopy>> = {
       name: "Digital Beach Tee",
       description:
         "Black dry-fit poly. Horizontal WB front. Let’s Retreat back at the shoulder blades.",
+      spec: "Dry-fit polyester. Front and back print.",
     },
     ja: {
       name: "デジタルビーチTシャツ",
       description:
         "黒のドライフィットポリ。フロントは横型WBロゴ。バックは肩甲骨あたりの Let’s Retreat ヒット。",
+      spec: "ドライフィットポリエステル。前後プリント。",
     },
     th: {
       name: "Digital Beach Tee",
       description:
         "โพลี dry-fit สีดำ หน้าอกโลโก้ WB แนวนอน หลัง Let’s Retreat ที่สะบัก",
+      spec: "โพลี dry-fit. พิมพ์หน้าและหลัง.",
     },
     zh: {
       name: "数字海滩 T 恤",
       description:
         "黑色速干聚酯。正面横版 WB。背面肩胛处 Let’s Retreat。",
+      spec: "速干聚酯。正背印花。",
     },
   },
   "tough-cookies-ls": {
@@ -231,20 +339,24 @@ export const productCopy: Record<string, Record<Locale, ProductCopy>> = {
       name: "Feminine Protection",
       description:
         "Black dry-fit poly long sleeve. Pre-order — ships when the drop lands.",
+      spec: "Dry-fit polyester. Long sleeve.",
     },
     ja: {
       name: "フェミニン・プロテクション",
       description:
         "黒のドライフィットポリ ロングスリーブ。予約注文 — ドロップ到着後に発送。",
+      spec: "ドライフィットポリエステル。長袖。",
     },
     th: {
       name: "Feminine Protection",
       description:
         "แขนยาวโพลี dry-fit สีดำ พรีออเดอร์ — ส่งเมื่อดรอปถึง",
+      spec: "โพลี dry-fit. แขนยาว.",
     },
     zh: {
       name: "Feminine Protection",
       description: "黑色速干聚酯长袖。预购 — 发售到货后发货。",
+      spec: "速干聚酯。长袖。",
     },
   },
   "tapestry-wb": {
@@ -252,21 +364,25 @@ export const productCopy: Record<string, Record<Locale, ProductCopy>> = {
       name: "WB Tapestry",
       description:
         "150×150cm. Pole pocket. Digital beach wall hit — made one, can make more.",
+      spec: "150 × 150 cm. Pole pocket.",
     },
     ja: {
       name: "WBタペストリー",
       description:
         "150×150cm。ポールポケット付き。デジタルビーチのウォールヒット — 1点制作済み、追加制作可。",
+      spec: "150 × 150 cm。ポールポケット。",
     },
     th: {
       name: "WB Tapestry",
       description:
         "150×150 ซม. มีช่องใส่ไม้ งานผนังดิจิทัลบีช — ทำแล้วหนึ่งผืน สั่งเพิ่มได้",
+      spec: "150 × 150 ซม. ช่องใส่ไม้.",
     },
     zh: {
       name: "WB 挂毯",
       description:
         "150×150cm。挂杆袋。数字海滩墙面单品 — 已做一件，可加做。",
+      spec: "150 × 150 cm。挂杆袋。",
     },
   },
   "sticker-portrait": {
@@ -274,128 +390,156 @@ export const productCopy: Record<string, Record<Locale, ProductCopy>> = {
       name: "Portrait Sticker",
       description:
         "Field portrait + pink script. Pre-order — ships when the drop lands.",
+      spec: "Vinyl sticker.",
     },
     ja: {
       name: "ポートレートステッカー",
       description:
         "フィールドポートレート＋ピンクスクリプト。予約注文 — ドロップ到着後に発送。",
+      spec: "ビニールステッカー。",
     },
     th: {
       name: "Portrait Sticker",
       description:
         "พอร์ตเทรตสนาม + สคริปต์ชมพู พรีออเดอร์ — ส่งเมื่อดรอปถึง",
+      spec: "สติกเกอร์ไวนิล",
     },
     zh: {
       name: "肖像贴纸",
       description: "现场肖像 + 粉色手写字。预购 — 发售到货后发货。",
+      spec: "乙烯贴纸。",
     },
   },
   "pin-colorbars": {
     en: {
       name: "Color Bars Pin",
       description: "Hard enamel. Pink over green. Soft flex.",
+      spec: "Hard enamel. Soft-flex pin.",
     },
     ja: {
       name: "カラーバーピン",
       description: "ハードエナメル。ピンク×グリーン。ソフトフレックス。",
+      spec: "ハードエナメル。ソフトフレックスピン。",
     },
     th: {
       name: "Color Bars Pin",
       description: "ฮาร์ดอีนาเมล ชมพูบนเขียว Soft flex",
+      spec: "ฮาร์ดอีนาเมล. เข็ม soft-flex.",
     },
     zh: {
       name: "彩条徽章",
       description: "硬珐琅。粉压绿。Soft flex。",
+      spec: "硬珐琅。软针。",
     },
   },
   "patch-script": {
     en: {
       name: "Script Patch",
       description: "PVC + velcro backing. Removable, or stitch it direct.",
+      spec: "PVC. Velcro back.",
     },
     ja: {
       name: "スクリプトパッチ",
       description: "PVC＋ベルクロ裏地。取り外し可、または直接縫い付け。",
+      spec: "PVC。ベルクロ裏地。",
     },
     th: {
       name: "Script Patch",
       description: "PVC + หลังเวลโคร ถอดได้ หรือเย็บติด",
+      spec: "PVC. หลังเวลโคร.",
     },
     zh: {
       name: "手写贴章",
       description: "PVC + 魔术贴背面。可拆卸，也可直接缝上。",
+      spec: "PVC。魔术贴背面。",
     },
   },
   "sticker-script": {
     en: {
       name: "Die-Cut Script Sticker",
       description: "Pink White Beauty script. Peel and claim.",
+      spec: "Die-cut vinyl.",
     },
     ja: {
       name: "ダイカット・スクリプトステッカー",
       description: "ピンクの White Beauty スクリプト。剥がして貼れ。",
+      spec: "ダイカットビニール。",
     },
     th: {
       name: "Die-Cut Script Sticker",
       description: "สคริปต์ White Beauty สีชมพู ลอกแล้วติด",
+      spec: "ไวนิลไดคัท",
     },
     zh: {
       name: "异形手写贴纸",
       description: "粉色 White Beauty 手写字。撕开贴上。",
+      spec: "异形乙烯。",
     },
   },
   "sticker-logo": {
     en: {
       name: "Logo Sticker",
       description: "Black plate. Neon script. Stack ready.",
+      spec: "Vinyl. Black plate.",
     },
     ja: {
       name: "ロゴステッカー",
       description: "ブラックプレート。ネオンスクリプト。重ね貼りOK。",
+      spec: "ビニール。ブラックプレート。",
     },
     th: {
       name: "Logo Sticker",
       description: "แผ่นดำ สคริปต์นีออน ซ้อนติดได้",
+      spec: "ไวนิล. แผ่นดำ.",
     },
     zh: {
       name: "Logo 贴纸",
       description: "黑底板。霓虹手写。可叠贴。",
+      spec: "乙烯。黑底板。",
     },
   },
   "sticker-cut-rite": {
     en: {
       name: "Cut Rite Sticker",
       description: "Cracked-ice holo + WB/QR side. Scan the signal.",
+      spec: "Holo vinyl. Double-sided.",
     },
     ja: {
       name: "カットライトステッカー",
       description: "クラックアイスホロ＋WB/QR面。シグナルをスキャン。",
+      spec: "ホロビニール。両面。",
     },
     th: {
       name: "Cut Rite Sticker",
       description: "โฮโลน้ำแข็งแตก + ด้าน WB/QR สแกนสัญญาณ",
+      spec: "ไวนิลโฮโล. สองด้าน.",
     },
     zh: {
       name: "Cut Rite 贴纸",
       description: "裂冰全息 + WB/QR 面。扫描信号。",
+      spec: "全息乙烯。双面。",
     },
   },
   "sticker-halloween": {
     en: {
       name: "Make Halloween Scary Again",
       description: "Double-sided drop. Bring the night back.",
+      spec: "90 × 140 mm. Double-sided vinyl.",
     },
     ja: {
       name: "Make Halloween Scary Again",
       description: "両面ドロップ。夜を取り戻せ。",
+      spec: "90 × 140 mm。両面ビニール。",
     },
     th: {
       name: "Make Halloween Scary Again",
       description: "ดรอปสองด้าน เอากลางคืนกลับมา",
+      spec: "90 × 140 มม. ไวนิลสองด้าน.",
     },
     zh: {
       name: "Make Halloween Scary Again",
       description: "双面发售。把夜晚带回来。",
+      spec: "90 × 140 mm。双面乙烯。",
     },
   },
 };
@@ -438,6 +582,7 @@ export function getProductCopy(
     productCopy[productId]?.[locale] ?? {
       name: fallbackName,
       description: fallbackDescription,
+      spec: "",
     }
   );
 }

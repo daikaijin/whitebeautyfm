@@ -9,7 +9,7 @@ export function JsonLd() {
     alternateName: ["WB", "White Beauty FM", "whitebeautyfm"],
     url: siteConfig.url,
     description: siteConfig.description,
-    slogan: siteConfig.tagline,
+    slogan: siteConfig.pitch,
     logo: absoluteUrl("/brand/icon.png"),
     image: absoluteUrl(siteConfig.ogImage.url),
     sameAs: [siteConfig.social.youtube, siteConfig.social.instagram],
@@ -57,7 +57,7 @@ export function JsonLd() {
   const itemList = {
     "@type": "ItemList",
     "@id": absoluteUrl("/#merch"),
-    name: "White Beauty streetwear for the Digital Beach merch",
+    name: "White Beauty Streetwear merch",
     itemListOrder: "https://schema.org/ItemListOrderAscending",
     numberOfItems: products.length,
     itemListElement: products.map((product, index) => ({
@@ -97,12 +97,25 @@ export function JsonLd() {
     isPartOf: { "@id": absoluteUrl("/#website") },
     about: { "@id": absoluteUrl("/#organization") },
     primaryImageOfPage: absoluteUrl(siteConfig.ogImage.url),
-    mainEntity: [{ "@id": absoluteUrl("/#merch") }, { "@id": absoluteUrl("/#video") }],
+    mainEntity: [
+      { "@id": absoluteUrl("/#manifesto") },
+      { "@id": absoluteUrl("/#merch") },
+      { "@id": absoluteUrl("/#video") },
+    ],
+  };
+
+  const manifesto = {
+    "@type": "CreativeWork",
+    "@id": absoluteUrl("/#manifesto"),
+    name: "White Beauty Streetwear",
+    text: siteConfig.manifesto,
+    inLanguage: "en",
+    author: { "@id": absoluteUrl("/#organization") },
   };
 
   const graph = {
     "@context": "https://schema.org",
-    "@graph": [organization, website, webpage, video, itemList],
+    "@graph": [organization, website, webpage, video, itemList, manifesto],
   };
 
   return (
