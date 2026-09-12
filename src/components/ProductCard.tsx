@@ -55,6 +55,7 @@ export function ProductCard({
           <p className="price">{isFree ? t.free : formatYen(priceYen)}</p>
         </div>
         {isFree ? <p className="spec">{t.freeThroughOct10}</p> : null}
+        {isFree ? <p className="spec">{t.onePerCustomer}</p> : null}
         {copy.spec ? <p className="spec">{copy.spec}</p> : null}
         <p className="desc">{copy.description}</p>
         {isPurchasable(product) ? (

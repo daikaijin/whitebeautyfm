@@ -9,6 +9,7 @@ import { getProductCopy } from "@/lib/i18n";
 import {
   formatYen,
   getProduct,
+  isHalloweenStickerFree,
   isPurchasable,
   productImage,
   productMaxQty,
@@ -21,6 +22,7 @@ export function CartDrawer() {
   const { locale, t } = useLocale();
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
+  const [email, setEmail] = useState("");
   const [flash, setFlash] = useState<"in" | "out" | null>(null);
   const wasOpen = useRef(open);
 
@@ -49,9 +51,16 @@ export function CartDrawer() {
       sum + productPriceYen(line.product) * line.item.quantity,
     0,
   );
+  const claimingHalloween =
+    isHalloweenStickerFree() &&
+    lines.some((line) => line.product.id === "sticker-halloween");
 
   async function checkout() {
     if (!lines.length || loading) return;
+    if (claimingHalloween && !email.trim()) {
+      setError(t.claimEmail);
+      return;
+    }
     setLoading(true);
     setError(null);
     try {
@@ -60,10 +69,18 @@ export function CartDrawer() {
           productId: line.product.id,
           quantity: line.item.quantity,
         })),
+        claimingHalloween ? email : undefined,
       );
       window.location.assign(url);
     } catch (err) {
-      setError(checkoutErrorMessage(err));
+      const message = checkoutErrorMessage(err);
+      setError(
+        message === "already_claimed"
+          ? t.alreadyClaimed
+          : message === "email_required"
+            ? t.claimEmail
+            : message,
+      );
       setLoading(false);
     }
   }
@@ -149,29 +166,40 @@ export function CartDrawer() {
                     {productPriceYen(product) === 0 ? (
                       <p className="cart-line-meta">{t.freeThroughOct10}</p>
                     ) : null}
+                    {productPriceYen(product) === 0 ? (
+                      <p className="cart-line-meta">{t.onePerCustomer}</p>
+                    ) : null}
                     <div className="cart-line-actions">
                       <label className="cart-qty">
                         <span className="sr-only">{t.quantity}</span>
-                        <button
-                          type="button"
-                          onClick={() =>
-                            setQuantity(product.id, item.quantity - 1)
-                          }
-                          aria-label="Decrease quantity"
-                        >
-                          −
-                        </button>
-                        <span>{item.quantity}</span>
-                        <button
-                          type="button"
-                          disabled={item.quantity >= productMaxQty(product.id)}
-                          onClick={() =>
-                            setQuantity(product.id, item.quantity + 1)
-                          }
-                          aria-label="Increase quantity"
-                        >
-                          +
-                        </button>
+                        {productMaxQty(product.id) === 1 ? (
+                          <span>{item.quantity}</span>
+                        ) : (
+                          <>
+                            <button
+                              type="button"
+                              onClick={() =>
+                                setQuantity(product.id, item.quantity - 1)
+                              }
+                              aria-label="Decrease quantity"
+                            >
+                              −
+                            </button>
+                            <span>{item.quantity}</span>
+                            <button
+                              type="button"
+                              disabled={
+                                item.quantity >= productMaxQty(product.id)
+                              }
+                              onClick={() =>
+                                setQuantity(product.id, item.quantity + 1)
+                              }
+                              aria-label="Increase quantity"
+                            >
+                              +
+                            </button>
+                          </>
+                        )}
                       </label>
                       <button
                         type="button"
@@ -193,6 +221,18 @@ export function CartDrawer() {
             <span>{t.total}</span>
             <strong>{totalYen === 0 ? t.free : formatYen(totalYen)}</strong>
           </div>
+          {claimingHalloween ? (
+            <label className="cart-email">
+              <span>{t.claimEmail}</span>
+              <input
+                type="email"
+                autoComplete="email"
+                value={email}
+                onChange={(event) => setEmail(event.target.value)}
+                required
+              />
+            </label>
+          ) : null}
           {error ? <p className="cart-error">{error}</p> : null}
           <button
             type="button"

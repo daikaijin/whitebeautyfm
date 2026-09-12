@@ -1203,6 +1203,33 @@ a {
   min-height: 3.4rem;
 }
 
+.cart-email {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  font-family: var(--font-display), sans-serif;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  font-size: 1.05rem;
+}
+
+.cart-email input {
+  appearance: none;
+  width: 100%;
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  background: transparent;
+  color: #fff;
+  font-family: var(--font-body), sans-serif;
+  letter-spacing: 0;
+  text-transform: none;
+  font-size: 1.15rem;
+  padding: 0.7rem 0.8rem;
+}
+
+.cart-email input:focus {
+  outline: 1px solid #f70eff;
+}
+
 .cart-total {
   display: flex;
   justify-content: space-between;

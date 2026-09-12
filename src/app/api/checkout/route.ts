@@ -1,7 +1,9 @@
 import { NextResponse } from "next/server";
+import type Stripe from "stripe";
 import { normalizeCart, type CartItem } from "@/lib/cart";
 import {
   getProduct,
+  isHalloweenStickerFree,
   isPurchasable,
   productImage,
   productPriceYen,
@@ -27,6 +29,47 @@ function corsHeaders(origin: string | null) {
   headers.set("Access-Control-Allow-Methods", "POST, OPTIONS");
   headers.set("Access-Control-Allow-Headers", "Content-Type");
   return headers;
+}
+
+function normalizeEmail(value: unknown) {
+  if (typeof value !== "string") return "";
+  return value.trim().toLowerCase();
+}
+
+function isEmail(value: string) {
+  return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value);
+}
+
+function escapeStripeSearch(value: string) {
+  return value.replace(/\\/g, "\\\\").replace(/"/g, '\\"');
+}
+
+function sessionClaimedHalloween(session: Stripe.Checkout.Session) {
+  if (session.status !== "complete") return false;
+  return (session.metadata?.cart ?? "").includes("sticker-halloween");
+}
+
+async function emailAlreadyClaimedHalloween(stripe: Stripe, email: string) {
+  const customers = await stripe.customers.list({ email, limit: 10 });
+  for (const customer of customers.data) {
+    const sessions = await stripe.checkout.sessions.list({
+      customer: customer.id,
+      limit: 40,
+    });
+    if (sessions.data.some(sessionClaimedHalloween)) return true;
+  }
+
+  try {
+    const found = await stripe.checkout.sessions.search({
+      query: `customer_details.email:"${escapeStripeSearch(email)}" AND status:"complete"`,
+      limit: 20,
+    });
+    if (found.data.some(sessionClaimedHalloween)) return true;
+  } catch (error) {
+    console.error("Halloween claim search error:", error);
+  }
+
+  return false;
 }
 
 function parseItems(body: {
@@ -64,6 +107,7 @@ export async function POST(request: Request) {
       items?: CartItem[];
       productId?: string;
       quantity?: number;
+      email?: string;
     };
 
     const items = parseItems(body);
@@ -110,9 +154,30 @@ export async function POST(request: Request) {
     );
 
     const stripe = getStripe();
+    const claimingHalloween =
+      isHalloweenStickerFree() &&
+      items.some((item) => item.productId === "sticker-halloween");
+    const email = normalizeEmail(body.email);
+
+    if (claimingHalloween) {
+      if (!isEmail(email)) {
+        return NextResponse.json(
+          { error: "email_required" },
+          { status: 400, headers },
+        );
+      }
+      if (await emailAlreadyClaimedHalloween(stripe, email)) {
+        return NextResponse.json(
+          { error: "already_claimed" },
+          { status: 400, headers },
+        );
+      }
+    }
+
     const session = await stripe.checkout.sessions.create({
       mode: "payment",
       ...(amountTotal > 0 ? { payment_method_types: ["card"] as const } : {}),
+      ...(claimingHalloween ? { customer_email: email } : {}),
       shipping_address_collection: {
         allowed_countries: [
           "JP",
@@ -132,6 +197,7 @@ export async function POST(request: Request) {
       cancel_url: `${siteConfig.url}/#shop`,
       metadata: {
         cart: metaParts.join(",").slice(0, 500),
+        ...(claimingHalloween ? { claim_email: email } : {}),
       },
     });
 

@@ -9,11 +9,11 @@ export function checkoutEndpoint() {
   return "/api/checkout";
 }
 
-export async function startCheckout(items: CartItem[]) {
+export async function startCheckout(items: CartItem[], email?: string) {
   const response = await fetch(checkoutEndpoint(), {
     method: "POST",
     headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({ items }),
+    body: JSON.stringify({ items, email }),
     credentials: "omit",
   });
 

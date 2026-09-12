@@ -55,6 +55,9 @@ export type UiMessages = {
   added: string;
   free: string;
   freeThroughOct10: string;
+  onePerCustomer: string;
+  claimEmail: string;
+  alreadyClaimed: string;
   openCart: string;
   mixKicker: string;
   mixTitle: string;
@@ -110,6 +113,9 @@ const en: UiMessages = {
   added: "Added",
   free: "Free",
   freeThroughOct10: "Free through Oct 10",
+  onePerCustomer: "One per customer",
+  claimEmail: "Email for the free sticker",
+  alreadyClaimed: "This email already claimed the free sticker.",
   openCart: "Open cart",
   mixKicker: "The mix",
   mixTitle: "Open the mix — then shop the drop",
@@ -166,6 +172,9 @@ const ja: UiMessages = {
   added: "追加しました",
   free: "無料",
   freeThroughOct10: "10月10日まで無料",
+  onePerCustomer: "お一人様1点",
+  claimEmail: "無料ステッカー用メール",
+  alreadyClaimed: "このメールはすでに無料ステッカーを受け取っています。",
   openCart: "カートを開く",
   mixKicker: "ミックス",
   mixTitle: "ミックスを開けて — ドロップへ",
@@ -222,6 +231,9 @@ const th: UiMessages = {
   added: "เพิ่มแล้ว",
   free: "ฟรี",
   freeThroughOct10: "ฟรีถึง 10 ต.ค.",
+  onePerCustomer: "คนละ 1 ชิ้น",
+  claimEmail: "อีเมลสำหรับสติกเกอร์ฟรี",
+  alreadyClaimed: "อีเมลนี้รับสติกเกอร์ฟรีไปแล้ว",
   openCart: "เปิดตะกร้า",
   mixKicker: "มิกซ์",
   mixTitle: "เปิดมิกซ์ — แล้วไปช้อปดรอป",
@@ -278,6 +290,9 @@ const zh: UiMessages = {
   added: "已添加",
   free: "免费",
   freeThroughOct10: "免费至 10 月 10 日",
+  onePerCustomer: "每位限领 1 张",
+  claimEmail: "免费贴纸邮箱",
+  alreadyClaimed: "此邮箱已领取过免费贴纸。",
   openCart: "打开购物车",
   mixKicker: "混音",
   mixTitle: "打开混音 — 然后选购发售",
