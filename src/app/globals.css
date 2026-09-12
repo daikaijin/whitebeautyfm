@@ -174,10 +174,6 @@ a {
   gap: 1.15rem;
 }
 
-.masthead-lede {
-  margin: 0;
-}
-
 @media (min-width: 800px) {
   .masthead {
     flex-direction: row;
@@ -189,16 +185,6 @@ a {
 
   .masthead-logo .logo-glitch {
     width: min(280px, 32vw);
-  }
-
-  .masthead-lede {
-    width: min(34rem, 54%);
-    align-items: flex-end;
-    text-align: right;
-    font-size: 45px;
-    line-height: 1.2;
-    letter-spacing: 0.1em;
-    text-shadow: none;
   }
 }
 
@@ -525,6 +511,22 @@ a {
 
 .section-lede span {
   display: block;
+}
+
+.masthead .section-lede {
+  margin: 0;
+  font-size: 45px;
+  line-height: 1.2;
+  letter-spacing: 0.1em;
+  text-shadow: none;
+}
+
+@media (min-width: 800px) {
+  .masthead .section-lede {
+    width: min(34rem, 54%);
+    align-items: flex-end;
+    text-align: right;
+  }
 }
 
 .channel-link {
