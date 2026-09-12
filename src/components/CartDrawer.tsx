@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useCart } from "@/components/CartProvider";
 import { useLocale } from "@/components/LocaleProvider";
 import { checkoutErrorMessage, startCheckout } from "@/lib/checkout-client";
@@ -21,6 +21,17 @@ export function CartDrawer() {
   const { locale, t } = useLocale();
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
+  const [flash, setFlash] = useState<"in" | "out" | null>(null);
+  const wasOpen = useRef(open);
+
+  useEffect(() => {
+    if (open === wasOpen.current) return;
+    const next = open ? "in" : "out";
+    wasOpen.current = open;
+    setFlash(next);
+    const id = window.setTimeout(() => setFlash(null), 460);
+    return () => window.clearTimeout(id);
+  }, [open]);
 
   const lines = items
     .map((item) => {
@@ -70,13 +81,17 @@ export function CartDrawer() {
       </button>
 
       <div
-        className={`cart-overlay${open ? " is-open" : ""}`}
+        className={`cart-overlay${open ? " is-open" : ""}${
+          flash ? ` is-flash-${flash}` : ""
+        }`}
         onClick={() => setOpen(false)}
         aria-hidden={!open}
       />
 
       <aside
-        className={`cart-drawer${open ? " is-open" : ""}`}
+        className={`cart-drawer${open ? " is-open" : ""}${
+          flash ? ` is-flash-${flash}` : ""
+        }`}
         aria-hidden={!open}
         aria-label={t.cart}
       >
