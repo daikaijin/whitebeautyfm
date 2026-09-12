@@ -20,20 +20,22 @@ export function HomePage() {
           <LanguageSelect />
         </div>
 
-        <header className="logo-top">
-          <LogoGlitch />
-          <h1 className="sr-only">
-            {t.manifestoTitle}. {t.manifestoLine1} {t.manifestoLine2}{" "}
-            {t.manifestoLine3} {t.manifestoLine4} {t.manifestoLine5}
-          </h1>
+        <header className="masthead">
+          <div className="masthead-logo">
+            <LogoGlitch />
+            <h1 className="sr-only">
+              {t.manifestoTitle}. {t.manifestoLine1} {t.manifestoLine2}{" "}
+              {t.manifestoLine3} {t.manifestoLine4} {t.manifestoLine5}
+            </h1>
+          </div>
+          <p className="section-lede masthead-lede">
+            <span>{t.shopLede1}</span>
+            <span>{t.shopLede2}</span>
+          </p>
         </header>
 
         <section id="shop" className="section section-first" aria-label={t.merch}>
           <h2 className="sr-only">{t.merch}</h2>
-          <p className="section-lede">
-            <span>{t.shopLede1}</span>
-            <span>{t.shopLede2}</span>
-          </p>
           <div className="product-grid">
             {products.map((product, index) => (
               <ProductCard

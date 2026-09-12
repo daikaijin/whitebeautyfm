@@ -159,13 +159,44 @@ a {
   color: #fff;
 }
 
-.logo-top {
+.logo-top,
+.masthead {
   position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
   padding: 0.5rem 0 1.5rem;
   animation: rise 0.9s ease both;
+}
+
+.masthead {
+  flex-direction: column;
+  gap: 1.15rem;
+}
+
+.masthead-lede {
+  margin: 0;
+}
+
+@media (min-width: 800px) {
+  .masthead {
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 2.5rem;
+    padding: 0.15rem 0 1.75rem;
+  }
+
+  .masthead-logo .logo-glitch {
+    width: 168px;
+  }
+
+  .masthead-lede {
+    width: min(28rem, 52%);
+    align-items: flex-end;
+    text-align: right;
+    font-size: clamp(1.55rem, 2.8vw, 2.35rem);
+  }
 }
 
 .logo-glitch {
@@ -1365,6 +1396,7 @@ a {
 @media (prefers-reduced-motion: reduce) {
   .section-first,
   .logo-top,
+  .masthead,
   .logo-aura,
   .logo-glitch,
   .logo-channel,
