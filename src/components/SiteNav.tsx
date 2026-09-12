@@ -10,7 +10,6 @@ export function SiteNav() {
     <nav className="site-nav" aria-label="Primary">
       <Link href="/#shop">{t.navShop}</Link>
       <Link href="/#manifesto">{t.navManifesto}</Link>
-      <Link href="/#watch">{t.navMix}</Link>
     </nav>
   );
 }

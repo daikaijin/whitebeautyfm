@@ -42,18 +42,6 @@ export function JsonLd() {
     publisher: { "@id": absoluteUrl("/#organization") },
   };
 
-  const video = {
-    "@type": "VideoObject",
-    "@id": absoluteUrl("/#video"),
-    name: `${siteConfig.name} — ${siteConfig.tagline}`,
-    description:
-      "Official White Beauty drop film from the digital beach. Featured on the NFC card landing page.",
-    thumbnailUrl: [absoluteUrl(siteConfig.ogImage.url)],
-    embedUrl: siteConfig.social.youtubeEmbed,
-    contentUrl: siteConfig.social.youtubeVideo,
-    publisher: { "@id": absoluteUrl("/#organization") },
-  };
-
   const itemList = {
     "@type": "ItemList",
     "@id": absoluteUrl("/#merch"),
@@ -98,9 +86,8 @@ export function JsonLd() {
     about: { "@id": absoluteUrl("/#organization") },
     primaryImageOfPage: absoluteUrl(siteConfig.ogImage.url),
     mainEntity: [
-      { "@id": absoluteUrl("/#manifesto") },
       { "@id": absoluteUrl("/#merch") },
-      { "@id": absoluteUrl("/#video") },
+      { "@id": absoluteUrl("/#manifesto") },
     ],
   };
 
@@ -115,7 +102,7 @@ export function JsonLd() {
 
   const graph = {
     "@context": "https://schema.org",
-    "@graph": [organization, website, webpage, video, itemList, manifesto],
+    "@graph": [organization, website, webpage, itemList, manifesto],
   };
 
   return (

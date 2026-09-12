@@ -2,9 +2,7 @@
 
 import { InstagramIcon } from "@/components/InstagramIcon";
 import { LanguageSelect } from "@/components/LanguageSelect";
-import { LogoGlitch } from "@/components/LogoGlitch";
 import { Manifesto } from "@/components/Manifesto";
-import { MixAccordion } from "@/components/MixAccordion";
 import { ProductCard } from "@/components/ProductCard";
 import { ProtectedSupportEmail } from "@/components/ProtectedSupportEmail";
 import { SiteNav } from "@/components/SiteNav";
@@ -23,21 +21,11 @@ export function HomePage() {
         </div>
         <SiteNav />
 
-        <header className="logo-top">
-          <LogoGlitch />
-          <h1 className="sr-only">
-            {t.manifestoTitle}. {t.manifestoLine1} {t.manifestoLine2}{" "}
-            {t.manifestoLine3} {t.manifestoLine4} {t.manifestoLine5}
-          </h1>
-          <p className="brand-pitch">
-            <span>{t.brandPitch}</span>
-          </p>
-        </header>
-      </div>
+        <h1 className="sr-only">
+          {t.manifestoTitle}. {t.manifestoLine1} {t.manifestoLine2}{" "}
+          {t.manifestoLine3} {t.manifestoLine4} {t.manifestoLine5}
+        </h1>
 
-      <Manifesto />
-
-      <div className="page">
         <section id="shop" className="section section-first" aria-label={t.merch}>
           <h2 className="sr-only">{t.merch}</h2>
           <p className="section-lede">
@@ -54,9 +42,11 @@ export function HomePage() {
             ))}
           </div>
         </section>
+      </div>
 
-        <MixAccordion />
+      <Manifesto />
 
+      <div className="page">
         <section id="contact" className="section contact" aria-label={t.contact}>
           <div className="contact-bar">
             <p className="contact-kicker">{t.contact}</p>
