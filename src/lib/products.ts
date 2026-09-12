@@ -200,10 +200,7 @@ export function productPriceYen(product: Product, now = new Date()) {
   return product.priceYen;
 }
 
-export function productMaxQty(productId: string) {
-  if (productId === "sticker-halloween" && isHalloweenStickerFree()) {
-    return 1;
-  }
+export function productMaxQty(_productId: string) {
   return 10;
 }
 
