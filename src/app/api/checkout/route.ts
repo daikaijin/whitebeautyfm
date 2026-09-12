@@ -112,10 +112,7 @@ export async function POST(request: Request) {
     const stripe = getStripe();
     const session = await stripe.checkout.sessions.create({
       mode: "payment",
-      payment_method_types: ["card"],
-      ...(amountTotal === 0
-        ? { payment_method_collection: "if_required" as const }
-        : {}),
+      ...(amountTotal > 0 ? { payment_method_types: ["card"] as const } : {}),
       shipping_address_collection: {
         allowed_countries: [
           "JP",
