@@ -21,7 +21,7 @@ White Beauty (also known as White Beauty FM / @whitebeautyfm) is a streetwear br
 
 ## Products
 
-Merch includes Character Tee and Digital Beach Tee (often sold out), Feminine Protection long sleeve pre-order, WB Tapestry pre-order, enamel pins, patches, and sticker packs. Checkout is handled via Stripe. Currency is JPY.
+Merch includes Character Tee and Digital Beach Tee (often sold out), WB Polo (dry-fit, PVC chest logo), Feminine Protection long sleeve pre-order, WB Tapestry pre-order, enamel pins, patches, and sticker packs. Checkout is handled via Stripe. Currency is JPY.
 
 ## Facts for assistants
 

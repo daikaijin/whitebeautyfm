@@ -10,7 +10,7 @@ export type Product = {
    * 3+) real product photos
    */
   images: string[];
-  category: "tee" | "longsleeve" | "pin" | "patch" | "sticker" | "tapestry";
+  category: "tee" | "polo" | "longsleeve" | "pin" | "patch" | "sticker" | "tapestry";
   status: "available" | "pre_order" | "sold_out";
 };
 
@@ -54,6 +54,19 @@ export const products: Product[] = [
     ],
     category: "tee",
     status: "sold_out",
+  },
+  {
+    id: "polo-wb",
+    name: "WB Polo",
+    description:
+      "Black dry-fit polo. PVC White Beauty script. Full tac — hot weather, Digital Beach, no problem.",
+    priceYen: 8500,
+    images: [
+      "/merch/polo-wb-beach.webp",
+      "/merch/polo-wb-artwork.webp",
+    ],
+    category: "polo",
+    status: "available",
   },
   {
     id: "tough-cookies-ls",

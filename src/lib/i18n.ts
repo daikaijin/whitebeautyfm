@@ -63,8 +63,8 @@ export type UiMessages = {
 
 const en: UiMessages = {
   brandPitch: "Streetwear for the Digital Beach.",
-  shopLede1: "Limited pieces —",
-  shopLede2: "the bag should hit harder than the page.",
+  shopLede1: "Limited drops from the digital beach —",
+  shopLede2: "streetwear that keeps the signal hot.",
   merch: "Merch",
   navShop: "Shop",
   navLookbook: "Lookbook",
@@ -117,8 +117,8 @@ const en: UiMessages = {
 
 const ja: UiMessages = {
   brandPitch: "デジタルビーチのためのストリートウェア。",
-  shopLede1: "リミテッドピース —",
-  shopLede2: "ページより、袋の中のほうが重い。",
+  shopLede1: "デジタルビーチから届くリミテッドドロップ —",
+  shopLede2: "シグナルを熱く保つストリートウェア。",
   merch: "マーチャント",
   navShop: "ショップ",
   navLookbook: "ルックブック",
@@ -171,8 +171,8 @@ const ja: UiMessages = {
 
 const th: UiMessages = {
   brandPitch: "สตรีทแวร์สำหรับดิจิทัลบีช",
-  shopLede1: "ชิ้นลิมิเต็ด —",
-  shopLede2: "ถุงควรหนักกว่าหน้าเว็บ",
+  shopLede1: "ดรอปลิมิเต็ดจากดิจิทัลบีช —",
+  shopLede2: "สตรีทแวร์ที่ทำให้สัญญาณยังร้อน",
   merch: "สินค้า",
   navShop: "ร้าน",
   navLookbook: "ลุคบุ๊ค",
@@ -225,8 +225,8 @@ const th: UiMessages = {
 
 const zh: UiMessages = {
   brandPitch: "数字海滩的街头服饰。",
-  shopLede1: "限量单品 —",
-  shopLede2: "袋子里的，应该比页面更沉。",
+  shopLede1: "来自数字海滩的限量发售 —",
+  shopLede2: "让信号持续升温的街头服饰。",
   merch: "周边",
   navShop: "商店",
   navLookbook: "型录",
@@ -332,6 +332,32 @@ export const productCopy: Record<string, Record<Locale, ProductCopy>> = {
       description:
         "黑色速干聚酯。正面横版 WB。背面肩胛处 Let’s Retreat。",
       spec: "速干聚酯。正背印花。",
+    },
+  },
+  "polo-wb": {
+    en: {
+      name: "WB Polo",
+      description:
+        "Black dry-fit polo. PVC White Beauty script. Full tac — hot weather, Digital Beach, no problem.",
+      spec: "Dry-fit polyester. PVC chest logo.",
+    },
+    ja: {
+      name: "WBポロ",
+      description:
+        "黒のドライフィットポロ。PVCの White Beauty スクリプト。フルタク — 暑い日もデジタルビーチ、問題なし。",
+      spec: "ドライフィットポリエステル。PVCチェストロゴ。",
+    },
+    th: {
+      name: "WB Polo",
+      description:
+        "โปโล dry-fit สีดำ สคริปต์ White Beauty แบบ PVC ฟูลแทค — อากาศร้อน ดิจิทัลบีช ไม่มีปัญหา",
+      spec: "โพลี dry-fit. โลโก้ PVC ที่อก.",
+    },
+    zh: {
+      name: "WB Polo",
+      description:
+        "黑色速干 Polo。PVC White Beauty 手写标。全战术 — 热天、数字海滩，没问题。",
+      spec: "速干聚酯。胸前 PVC 标。",
     },
   },
   "tough-cookies-ls": {
