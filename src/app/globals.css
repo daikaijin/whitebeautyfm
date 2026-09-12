@@ -181,21 +181,24 @@ a {
 @media (min-width: 800px) {
   .masthead {
     flex-direction: row;
-    align-items: flex-start;
+    align-items: center;
     justify-content: space-between;
     gap: 2.5rem;
     padding: 0.15rem 0 1.75rem;
   }
 
   .masthead-logo .logo-glitch {
-    width: 168px;
+    width: min(280px, 32vw);
   }
 
   .masthead-lede {
-    width: min(28rem, 52%);
+    width: min(22rem, 42%);
     align-items: flex-end;
     text-align: right;
-    font-size: clamp(1.55rem, 2.8vw, 2.35rem);
+    font-size: clamp(0.92rem, 1.35vw, 1.15rem);
+    line-height: 1.2;
+    letter-spacing: 0.1em;
+    text-shadow: none;
   }
 }
 
