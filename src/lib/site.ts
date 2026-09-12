@@ -1,12 +1,12 @@
 export const siteConfig = {
   name: "White Beauty",
   shortName: "WB",
-  tagline: "Power and the Glory",
-  pitch: "Streetwear for everywhere.",
+  tagline: "Streetwear for the Digital Beach.",
+  pitch: "Streetwear for the Digital Beach.",
   manifesto:
     "White Beauty Streetwear. Streetwear for everywhere. White is all colors. All people. Streetwear for humans. The Digital Beach isn't for everyone. The Digital Beach is for you.",
   description:
-    "White Beauty Streetwear — streetwear for everywhere. White is all colors. All people. The Digital Beach is for you.",
+    "White Beauty Streetwear — Streetwear for the Digital Beach. White is all colors. All people. The Digital Beach is for you.",
   url:
     process.env.NEXT_PUBLIC_SITE_URL?.replace(/\/$/, "") ||
     "https://www.whitebeautyfm.com",
@@ -16,6 +16,7 @@ export const siteConfig = {
     "White Beauty FM",
     "digital beach",
     "digital beach streetwear",
+    "streetwear for the digital beach",
     "streetwear for everywhere",
     "streetwear for humans",
     "streetwear",
@@ -44,10 +45,10 @@ export const siteConfig = {
   /** Google Analytics 4 measurement ID */
   gaId: "G-CPDTF0QMGJ",
   ogImage: {
-    url: "/brand/og-halloween-2.jpg",
+    url: "/brand/og-halloween-3.jpg",
     width: 1200,
     height: 630,
-    alt: "Make Halloween Scary Again — White Beauty sticker, now live",
+    alt: "White Beauty — Streetwear for the Digital Beach. Make Halloween Scary Again sticker.",
   },
 } as const;
 

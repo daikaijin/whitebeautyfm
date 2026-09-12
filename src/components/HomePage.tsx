@@ -29,8 +29,7 @@ export function HomePage() {
             </h1>
           </div>
           <p className="section-lede masthead-lede">
-            <span>{t.shopLede1}</span>
-            <span>{t.shopLede2}</span>
+            <span>{t.brandPitch}</span>
           </p>
         </header>
 
