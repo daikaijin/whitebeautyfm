@@ -1,5 +1,13 @@
 @import "tailwindcss";
 
+@font-face {
+  font-family: "Digital-7";
+  src: url("/fonts/digital-7.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
 :root {
   --background: #050307;
   --foreground: #f7f2f8;
@@ -9,6 +17,7 @@
   --wb-blue: #1e5cff;
   --wb-muted: #b7a8bc;
   --wb-line: rgba(255, 43, 214, 0.35);
+  --font-digital: "Digital-7", var(--font-display), sans-serif;
 }
 
 @theme inline {
@@ -515,9 +524,10 @@ a {
 
 .masthead .section-lede {
   margin: 0;
+  font-family: var(--font-digital);
   font-size: 45px;
-  line-height: 1.2;
-  letter-spacing: 0.1em;
+  line-height: 1.15;
+  letter-spacing: 0.04em;
   text-shadow: none;
 }
 
@@ -757,9 +767,9 @@ a {
   top: 0.85rem;
   right: 0.85rem;
   z-index: 4;
-  font-family: var(--font-display), sans-serif;
-  letter-spacing: 0.14em;
-  font-size: 0.7rem;
+  font-family: var(--font-digital);
+  letter-spacing: 0.08em;
+  font-size: 0.85rem;
   color: white;
   padding: 0.35rem 0.5rem;
   background: rgba(0, 0, 0, 0.65);
@@ -789,17 +799,19 @@ a {
 
 .product-copy h3 {
   margin: 0;
-  font-family: var(--font-display), sans-serif;
-  letter-spacing: 0.08em;
+  font-family: var(--font-digital);
+  letter-spacing: 0.03em;
   text-transform: uppercase;
-  font-size: 1.35rem;
+  font-size: 1.45rem;
+  line-height: 1.1;
 }
 
 .product-copy .price {
   margin: 0;
   color: var(--wb-green);
-  font-family: var(--font-display), sans-serif;
-  letter-spacing: 0.06em;
+  font-family: var(--font-digital);
+  letter-spacing: 0.04em;
+  font-size: 1.25rem;
 }
 
 .product-copy .spec {
@@ -1058,8 +1070,8 @@ a {
 
 .cart-drawer-head h2 {
   margin: 0;
-  font-family: var(--font-display), sans-serif;
-  letter-spacing: 0.14em;
+  font-family: var(--font-digital);
+  letter-spacing: 0.08em;
   text-transform: uppercase;
   font-size: 2.15rem;
 }
@@ -1132,8 +1144,8 @@ a {
 
 .cart-line-name {
   margin: 0;
-  font-family: var(--font-display), sans-serif;
-  letter-spacing: 0.08em;
+  font-family: var(--font-digital);
+  letter-spacing: 0.03em;
   text-transform: uppercase;
   font-size: 1.85rem;
   line-height: 1.05;
@@ -1143,6 +1155,7 @@ a {
   margin: 0;
   white-space: nowrap;
   color: var(--wb-green);
+  font-family: var(--font-digital);
   font-size: 1.55rem;
 }
 
@@ -1185,6 +1198,7 @@ a {
 .cart-qty span {
   min-width: 1.4rem;
   text-align: center;
+  font-family: var(--font-digital);
   font-variant-numeric: tabular-nums;
   font-size: 1.45rem;
 }
@@ -1234,8 +1248,8 @@ a {
   display: flex;
   justify-content: space-between;
   align-items: baseline;
-  font-family: var(--font-display), sans-serif;
-  letter-spacing: 0.12em;
+  font-family: var(--font-digital);
+  letter-spacing: 0.08em;
   text-transform: uppercase;
   font-size: 1.25rem;
 }
