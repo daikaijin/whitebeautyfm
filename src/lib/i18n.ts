@@ -313,22 +313,22 @@ export type ProductCopy = {
 export const productCopy: Record<string, Record<Locale, ProductCopy>> = {
   "character-tee": {
     en: {
-      name: "Character Tee",
+      name: "Clarence J.",
       description: "Black dry-fit poly. Cracked-lens character hit.",
       spec: "Dry-fit polyester. Front print.",
     },
     ja: {
-      name: "キャラクターTシャツ",
+      name: "Clarence J.",
       description: "黒のドライフィットポリ。ヒビ入りレンズのキャラクターヒット。",
       spec: "ドライフィットポリエステル。フロントプリント。",
     },
     th: {
-      name: "Character Tee",
+      name: "Clarence J.",
       description: "โพลี dry-fit สีดำ กราฟิกตัวละครเลนส์ร้าว",
       spec: "โพลี dry-fit. พิมพ์หน้า.",
     },
     zh: {
-      name: "角色 T 恤",
+      name: "Clarence J.",
       description: "黑色速干聚酯。裂镜角色图案。",
       spec: "速干聚酯。正面印花。",
     },
@@ -389,25 +389,26 @@ export const productCopy: Record<string, Record<Locale, ProductCopy>> = {
     en: {
       name: "Feminine Protection",
       description:
-        "Black dry-fit poly long sleeve. Pre-order — ships when the drop lands.",
-      spec: "Dry-fit polyester. Long sleeve.",
+        "Black dry-fit poly long sleeve. Green White Beauty script left sleeve. Destination: Digital Beach right sleeve. Pre-order — ships when the drop lands.",
+      spec: "Dry-fit polyester. Long sleeve. Sleeve prints.",
     },
     ja: {
       name: "フェミニン・プロテクション",
       description:
-        "黒のドライフィットポリ ロングスリーブ。予約注文 — ドロップ到着後に発送。",
-      spec: "ドライフィットポリエステル。長袖。",
+        "黒のドライフィットポリ ロングスリーブ。左袖に緑の White Beauty スクリプト。右袖に Destination: Digital Beach。予約注文 — ドロップ到着後に発送。",
+      spec: "ドライフィットポリエステル。長袖。袖プリント。",
     },
     th: {
       name: "Feminine Protection",
       description:
-        "แขนยาวโพลี dry-fit สีดำ พรีออเดอร์ — ส่งเมื่อดรอปถึง",
-      spec: "โพลี dry-fit. แขนยาว.",
+        "แขนยาวโพลี dry-fit สีดำ สคริปต์ White Beauty สีเขียวแขนซ้าย Destination: Digital Beach แขนขวา พรีออเดอร์ — ส่งเมื่อดรอปถึง",
+      spec: "โพลี dry-fit. แขนยาว. พิมพ์แขน.",
     },
     zh: {
       name: "Feminine Protection",
-      description: "黑色速干聚酯长袖。预购 — 发售到货后发货。",
-      spec: "速干聚酯。长袖。",
+      description:
+        "黑色速干聚酯长袖。左袖绿色 White Beauty 手写。右袖 Destination: Digital Beach。预购 — 发售到货后发货。",
+      spec: "速干聚酯。长袖。袖印。",
     },
   },
   "tapestry-wb": {
