@@ -95,7 +95,7 @@ const en: UiMessages = {
   contact: "Contact",
   contactLine: "Orders, drops, photo — Instagram or Beach Patrol.",
   cleanupNote:
-    "White Beauty wants the streets clean. The clothes are made from old bottles, caps, and the shit you leave lying around — 100% recycled post-consumer polyester. Clean up your beach so you can visit the Digital Beach.",
+    "We want the streets clean. Our clothing is 100% recycled post-consumer polyester — old bottles, caps, and what gets left behind. Clean up your streets so you can visit the Digital Beach.",
   supportHandle: "Beach Patrol",
   supportLine: "Support tickets",
   supportReveal: "Tap to email",
@@ -156,7 +156,7 @@ const ja: UiMessages = {
   contact: "コンタクト",
   contactLine: "注文・ドロップ・写真 — Instagram またはビーチパトロール。",
   cleanupNote:
-    "White Beauty は通りをきれいにしたい。服は捨てられたペットボトルやキャップ、放置されたゴミからできている — 100% リサイクル・ポストコンシューマーポリエステル。自分のビーチを片付けてから、デジタルビーチへ。",
+    "私たちは通りをきれいにしたい。私たちの衣服は 100% リサイクル・ポストコンシューマーポリエステル — 捨てられたペットボトル、キャップ、放置されたものから。自分の通りを片付けてから、デジタルビーチへ。",
   supportHandle: "ビーチパトロール",
   supportLine: "サポートチケット",
   supportReveal: "タップでメール",
@@ -217,7 +217,7 @@ const th: UiMessages = {
   contact: "ติดต่อ",
   contactLine: "ออเดอร์ ดรอป รูป — Instagram หรือ Beach Patrol",
   cleanupNote:
-    "White Beauty อยากให้ถนนสะอาด เสื้อผ้าทำจากขวดเก่า ฝาขวด และขยะที่ทิ้งไว้ — โพลีเอสเตอร์รีไซเคิล post-consumer 100% เก็บชายหาดของคุณ แล้วค่อยไปดิจิทัลบีช",
+    "เราอยากให้ถนนสะอาด เสื้อผ้าของเราคือโพลีเอสเตอร์รีไซเคิล post-consumer 100% — จากขวดเก่า ฝาขวด และสิ่งที่ถูกทิ้งไว้ เก็บถนนของคุณ แล้วไปดิจิทัลบีช",
   supportHandle: "Beach Patrol",
   supportLine: "ตั๋วซัพพอร์ต",
   supportReveal: "แตะเพื่ออีเมล",
@@ -278,7 +278,7 @@ const zh: UiMessages = {
   contact: "联系",
   contactLine: "订单、发售、照片 — Instagram 或 Beach Patrol。",
   cleanupNote:
-    "White Beauty 想把街面收拾干净。衣服来自旧瓶子、瓶盖和你随手扔下的东西 — 100% 消费后回收聚酯。先清理你的海滩，才能去数字海滩。",
+    "我们想把街面收拾干净。我们的服装是 100% 消费后回收聚酯 — 来自旧瓶子、瓶盖和被留下的东西。先清理你的街道，才能去数字海滩。",
   supportHandle: "Beach Patrol",
   supportLine: "支持工单",
   supportReveal: "点击发邮件",
