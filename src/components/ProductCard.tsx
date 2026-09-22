@@ -64,9 +64,11 @@ export function ProductCard({
             label={preOrder ? t.addPreOrder : t.addToCart}
           />
         ) : (
-          <button type="button" className="wb-btn wb-btn-ghost" disabled>
-            {t.soldOut}
-          </button>
+          <div className="product-action">
+            <button type="button" className="wb-btn wb-btn-ghost" disabled>
+              {t.soldOut}
+            </button>
+          </div>
         )}
       </div>
     </article>

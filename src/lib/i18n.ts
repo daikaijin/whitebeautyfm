@@ -35,6 +35,7 @@ export type UiMessages = {
   lookbookFrame3: string;
   contact: string;
   contactLine: string;
+  cleanupNote: string;
   supportHandle: string;
   supportLine: string;
   supportReveal: string;
@@ -93,6 +94,8 @@ const en: UiMessages = {
   lookbookFrame3: "Lot",
   contact: "Contact",
   contactLine: "Orders, drops, photo — Instagram or Beach Patrol.",
+  cleanupNote:
+    "White Beauty wants the streets clean. The clothes are made from old bottles, caps, and the shit you leave lying around — 100% recycled post-consumer polyester. Clean up your beach so you can visit the Digital Beach.",
   supportHandle: "Beach Patrol",
   supportLine: "Support tickets",
   supportReveal: "Tap to email",
@@ -152,6 +155,8 @@ const ja: UiMessages = {
   lookbookFrame3: "駐車場",
   contact: "コンタクト",
   contactLine: "注文・ドロップ・写真 — Instagram またはビーチパトロール。",
+  cleanupNote:
+    "White Beauty は通りをきれいにしたい。服は捨てられたペットボトルやキャップ、放置されたゴミからできている — 100% リサイクル・ポストコンシューマーポリエステル。自分のビーチを片付けてから、デジタルビーチへ。",
   supportHandle: "ビーチパトロール",
   supportLine: "サポートチケット",
   supportReveal: "タップでメール",
@@ -211,6 +216,8 @@ const th: UiMessages = {
   lookbookFrame3: "ลานจอด",
   contact: "ติดต่อ",
   contactLine: "ออเดอร์ ดรอป รูป — Instagram หรือ Beach Patrol",
+  cleanupNote:
+    "White Beauty อยากให้ถนนสะอาด เสื้อผ้าทำจากขวดเก่า ฝาขวด และขยะที่ทิ้งไว้ — โพลีเอสเตอร์รีไซเคิล post-consumer 100% เก็บชายหาดของคุณ แล้วค่อยไปดิจิทัลบีช",
   supportHandle: "Beach Patrol",
   supportLine: "ตั๋วซัพพอร์ต",
   supportReveal: "แตะเพื่ออีเมล",
@@ -270,6 +277,8 @@ const zh: UiMessages = {
   lookbookFrame3: "停车场",
   contact: "联系",
   contactLine: "订单、发售、照片 — Instagram 或 Beach Patrol。",
+  cleanupNote:
+    "White Beauty 想把街面收拾干净。衣服来自旧瓶子、瓶盖和你随手扔下的东西 — 100% 消费后回收聚酯。先清理你的海滩，才能去数字海滩。",
   supportHandle: "Beach Patrol",
   supportLine: "支持工单",
   supportReveal: "点击发邮件",
@@ -314,101 +323,101 @@ export const productCopy: Record<string, Record<Locale, ProductCopy>> = {
   "character-tee": {
     en: {
       name: "Clarence J.",
-      description: "Black dry-fit poly. Cracked-lens character hit.",
-      spec: "Dry-fit polyester. Front print.",
+      description: "Black recycled polyester. Cracked-lens character hit.",
+      spec: "100% Recycled post-consumer Polyester (RM0189) certified. Front print.",
     },
     ja: {
       name: "Clarence J.",
-      description: "黒のドライフィットポリ。ヒビ入りレンズのキャラクターヒット。",
-      spec: "ドライフィットポリエステル。フロントプリント。",
+      description: "黒のリサイクルポリエステル。ヒビ入りレンズのキャラクターヒット。",
+      spec: "100% リサイクル・ポストコンシューマーポリエステル（RM0189）認証。フロントプリント。",
     },
     th: {
       name: "Clarence J.",
-      description: "โพลี dry-fit สีดำ กราฟิกตัวละครเลนส์ร้าว",
-      spec: "โพลี dry-fit. พิมพ์หน้า.",
+      description: "โพลีเอสเตอร์รีไซเคิลสีดำ กราฟิกตัวละครเลนส์ร้าว",
+      spec: "โพลีเอสเตอร์รีไซเคิล post-consumer 100% (RM0189) รับรอง. พิมพ์หน้า.",
     },
     zh: {
       name: "Clarence J.",
-      description: "黑色速干聚酯。裂镜角色图案。",
-      spec: "速干聚酯。正面印花。",
+      description: "黑色回收聚酯。裂镜角色图案。",
+      spec: "100% 消费后回收聚酯（RM0189）认证。正面印花。",
     },
   },
   "power-glory-tee": {
     en: {
       name: "Digital Beach Tee",
       description:
-        "Black dry-fit poly. Horizontal WB front. Let’s Retreat back at the shoulder blades.",
-      spec: "Dry-fit polyester. Front and back print.",
+        "Black recycled polyester. Horizontal WB front. Let’s Retreat back at the shoulder blades.",
+      spec: "100% Recycled post-consumer Polyester (RM0189) certified. Front and back print.",
     },
     ja: {
       name: "デジタルビーチTシャツ",
       description:
-        "黒のドライフィットポリ。フロントは横型WBロゴ。バックは肩甲骨あたりの Let’s Retreat ヒット。",
-      spec: "ドライフィットポリエステル。前後プリント。",
+        "黒のリサイクルポリエステル。フロントは横型WBロゴ。バックは肩甲骨あたりの Let’s Retreat ヒット。",
+      spec: "100% リサイクル・ポストコンシューマーポリエステル（RM0189）認証。前後プリント。",
     },
     th: {
       name: "Digital Beach Tee",
       description:
-        "โพลี dry-fit สีดำ หน้าอกโลโก้ WB แนวนอน หลัง Let’s Retreat ที่สะบัก",
-      spec: "โพลี dry-fit. พิมพ์หน้าและหลัง.",
+        "โพลีเอสเตอร์รีไซเคิลสีดำ หน้าอกโลโก้ WB แนวนอน หลัง Let’s Retreat ที่สะบัก",
+      spec: "โพลีเอสเตอร์รีไซเคิล post-consumer 100% (RM0189) รับรอง. พิมพ์หน้าและหลัง.",
     },
     zh: {
       name: "数字海滩 T 恤",
       description:
-        "黑色速干聚酯。正面横版 WB。背面肩胛处 Let’s Retreat。",
-      spec: "速干聚酯。正背印花。",
+        "黑色回收聚酯。正面横版 WB。背面肩胛处 Let’s Retreat。",
+      spec: "100% 消费后回收聚酯（RM0189）认证。正背印花。",
     },
   },
   "polo-wb": {
     en: {
       name: "WB Polo",
       description:
-        "Black dry-fit polo. PVC White Beauty script. Full tac — hot weather, Digital Beach, no problem.",
-      spec: "Dry-fit polyester. PVC chest logo.",
+        "Black recycled polyester polo. PVC White Beauty script. Full tac — hot weather, Digital Beach, no problem.",
+      spec: "100% Recycled post-consumer Polyester (RM0189) certified. PVC chest logo.",
     },
     ja: {
       name: "WBポロ",
       description:
-        "黒のドライフィットポロ。PVCの White Beauty スクリプト。フルタク — 暑い日もデジタルビーチ、問題なし。",
-      spec: "ドライフィットポリエステル。PVCチェストロゴ。",
+        "黒のリサイクルポリエステルポロ。PVCの White Beauty スクリプト。フルタク — 暑い日もデジタルビーチ、問題なし。",
+      spec: "100% リサイクル・ポストコンシューマーポリエステル（RM0189）認証。PVCチェストロゴ。",
     },
     th: {
       name: "WB Polo",
       description:
-        "โปโล dry-fit สีดำ สคริปต์ White Beauty แบบ PVC ฟูลแทค — อากาศร้อน ดิจิทัลบีช ไม่มีปัญหา",
-      spec: "โพลี dry-fit. โลโก้ PVC ที่อก.",
+        "โปโลโพลีเอสเตอร์รีไซเคิลสีดำ สคริปต์ White Beauty แบบ PVC ฟูลแทค — อากาศร้อน ดิจิทัลบีช ไม่มีปัญหา",
+      spec: "โพลีเอสเตอร์รีไซเคิล post-consumer 100% (RM0189) รับรอง. โลโก้ PVC ที่อก.",
     },
     zh: {
       name: "WB Polo",
       description:
-        "黑色速干 Polo。PVC White Beauty 手写标。全战术 — 热天、数字海滩，没问题。",
-      spec: "速干聚酯。胸前 PVC 标。",
+        "黑色回收聚酯 Polo。PVC White Beauty 手写标。全战术 — 热天、数字海滩，没问题。",
+      spec: "100% 消费后回收聚酯（RM0189）认证。胸前 PVC 标。",
     },
   },
   "tough-cookies-ls": {
     en: {
       name: "Feminine Protection",
       description:
-        "Black dry-fit poly long sleeve. Green White Beauty script left sleeve. Destination: Digital Beach right sleeve. Pre-order — ships when the drop lands.",
-      spec: "Dry-fit polyester. Long sleeve. Sleeve prints.",
+        "Black recycled polyester long sleeve. Green White Beauty script left sleeve. Destination: Digital Beach right sleeve. Pre-order — ships when the drop lands.",
+      spec: "100% Recycled post-consumer Polyester (RM0189) certified. Long sleeve. Sleeve prints.",
     },
     ja: {
       name: "フェミニン・プロテクション",
       description:
-        "黒のドライフィットポリ ロングスリーブ。左袖に緑の White Beauty スクリプト。右袖に Destination: Digital Beach。予約注文 — ドロップ到着後に発送。",
-      spec: "ドライフィットポリエステル。長袖。袖プリント。",
+        "黒のリサイクルポリエステル ロングスリーブ。左袖に緑の White Beauty スクリプト。右袖に Destination: Digital Beach。予約注文 — ドロップ到着後に発送。",
+      spec: "100% リサイクル・ポストコンシューマーポリエステル（RM0189）認証。長袖。袖プリント。",
     },
     th: {
       name: "Feminine Protection",
       description:
-        "แขนยาวโพลี dry-fit สีดำ สคริปต์ White Beauty สีเขียวแขนซ้าย Destination: Digital Beach แขนขวา พรีออเดอร์ — ส่งเมื่อดรอปถึง",
-      spec: "โพลี dry-fit. แขนยาว. พิมพ์แขน.",
+        "แขนยาวโพลีเอสเตอร์รีไซเคิลสีดำ สคริปต์ White Beauty สีเขียวแขนซ้าย Destination: Digital Beach แขนขวา พรีออเดอร์ — ส่งเมื่อดรอปถึง",
+      spec: "โพลีเอสเตอร์รีไซเคิล post-consumer 100% (RM0189) รับรอง. แขนยาว. พิมพ์แขน.",
     },
     zh: {
       name: "Feminine Protection",
       description:
-        "黑色速干聚酯长袖。左袖绿色 White Beauty 手写。右袖 Destination: Digital Beach。预购 — 发售到货后发货。",
-      spec: "速干聚酯。长袖。袖印。",
+        "黑色回收聚酯长袖。左袖绿色 White Beauty 手写。右袖 Destination: Digital Beach。预购 — 发售到货后发货。",
+      spec: "100% 消费后回收聚酯（RM0189）认证。长袖。袖印。",
     },
   },
   "tapestry-wb": {

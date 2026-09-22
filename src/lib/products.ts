@@ -31,7 +31,7 @@ export const products: Product[] = [
   {
     id: "character-tee",
     name: "Clarence J.",
-    description: "Black dry-fit poly. Cracked-lens character hit.",
+    description: "Black recycled polyester. Cracked-lens character hit.",
     priceYen: 6500,
     images: [
       "/merch/character-tee-beach.webp",
@@ -44,7 +44,7 @@ export const products: Product[] = [
     id: "power-glory-tee",
     name: "Digital Beach Tee",
     description:
-      "Black dry-fit poly. Horizontal WB front. Let’s Retreat back at the shoulder blades.",
+      "Black recycled polyester. Horizontal WB front. Let’s Retreat back at the shoulder blades.",
     priceYen: 6500,
     images: [
       "/merch/retreat-tee-front-beach.webp",
@@ -59,7 +59,7 @@ export const products: Product[] = [
     id: "polo-wb",
     name: "WB Polo",
     description:
-      "Black dry-fit polo. PVC White Beauty script. Full tac — hot weather, Digital Beach, no problem.",
+      "Black recycled polyester polo. PVC White Beauty script. Full tac — hot weather, Digital Beach, no problem.",
     priceYen: 8500,
     images: [
       "/merch/polo-wb-beach.webp",
@@ -72,7 +72,7 @@ export const products: Product[] = [
     id: "tough-cookies-ls",
     name: "Feminine Protection",
     description:
-      "Black dry-fit poly long sleeve. Green White Beauty script left sleeve. Destination: Digital Beach right sleeve. Pre-order — ships when the drop lands.",
+      "Black recycled polyester long sleeve. Green White Beauty script left sleeve. Destination: Digital Beach right sleeve. Pre-order — ships when the drop lands.",
     priceYen: 12000,
     images: [
       "/merch/tough-cookies-ls-sleeves.webp",

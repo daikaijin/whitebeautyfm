@@ -579,6 +579,16 @@ a {
   font-size: 0.75rem;
 }
 
+.cleanup-note {
+  margin: 0 auto 2rem;
+  max-width: 40rem;
+  color: var(--wb-muted);
+  font-size: 1.2rem;
+  line-height: 1.55;
+  letter-spacing: 0.03em;
+  text-align: center;
+}
+
 .contact-line {
   margin: 0;
   color: var(--wb-muted);
@@ -678,6 +688,14 @@ a {
   display: flex;
   flex-direction: column;
   gap: 0.9rem;
+  height: 100%;
+}
+
+.product-copy {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 auto;
+  min-height: 0;
 }
 
 .product-media {
@@ -828,17 +846,13 @@ a {
   color: var(--wb-muted);
   font-size: 0.95rem;
   line-height: 1.45;
-  min-height: calc(1.45em * 2);
-  display: -webkit-box;
-  -webkit-box-orient: vertical;
-  -webkit-line-clamp: 2;
-  overflow: hidden;
 }
 
 .product-action {
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
+  margin-top: auto;
 }
 
 .product-copy .wb-btn {

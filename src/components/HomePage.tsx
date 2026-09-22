@@ -51,6 +51,7 @@ export function HomePage() {
 
       <div className="page">
         <section id="contact" className="section contact" aria-label={t.contact}>
+          <p className="cleanup-note">{t.cleanupNote}</p>
           <div className="contact-bar">
             <p className="contact-kicker">{t.contact}</p>
             <p className="contact-line">{t.contactLine}</p>
