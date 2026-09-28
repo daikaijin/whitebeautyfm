@@ -1796,8 +1796,6 @@ a {
 .admin-more dl {
   margin-top: 0.8rem;
 }
-  overflow-x: auto;
-}
 
 .admin-table-wrap {
   overflow-x: auto;
