@@ -79,8 +79,45 @@ export function OrdersBoard({
       {orders.length === 0 ? (
         <p>No completed orders in this view.</p>
       ) : (
-        <div className="admin-table-wrap">
-          <table className="admin-table">
+        <>
+          <ul className="admin-cards">
+            {rows.map((order) => (
+              <li key={order.id} className={order.free ? "is-free" : undefined}>
+                <Link href={`/admin/orders/${order.id}`}>
+                  <span className="admin-card-top">
+                    <span>
+                      {when[order.id]}
+                      {order.test ? (
+                        <span className="admin-badge-test">Test</span>
+                      ) : null}
+                    </span>
+                    <span>
+                      {order.total}
+                      {order.free ? (
+                        <span className="admin-badge-free">¥0</span>
+                      ) : null}
+                    </span>
+                  </span>
+                  <strong>{order.customerName || "—"}</strong>
+                  {showEmail ? (
+                    <span className="admin-card-email">
+                      {order.customerEmail || "—"}
+                    </span>
+                  ) : null}
+                  <span className="admin-items">{order.items}</span>
+                  {showAmounts ? (
+                    <span className="admin-card-amounts">
+                      {order.subtotal}
+                      {order.discount ? ` · ${order.discount} off` : ""}
+                    </span>
+                  ) : null}
+                  <span className={pillClass(order)}>{order.paymentLabel}</span>
+                </Link>
+              </li>
+            ))}
+          </ul>
+          <div className="admin-table-wrap">
+            <table className="admin-table">
             <caption className="sr-only">Completed orders</caption>
             <thead>
               <tr>
@@ -114,7 +151,9 @@ export function OrdersBoard({
                   {showEmail ? <td>{order.customerEmail || "—"}</td> : null}
                   <td className="admin-items">{order.items}</td>
                   {showAmounts ? <td className="admin-num">{order.subtotal}</td> : null}
-                  {showAmounts ? <td className="admin-num">{order.discount}</td> : null}
+                  {showAmounts ? (
+                    <td className="admin-num">{order.discount || "—"}</td>
+                  ) : null}
                   <td className="admin-num">
                     {order.total}
                     {order.free ? <span className="admin-badge-free">¥0</span> : null}
@@ -125,8 +164,9 @@ export function OrdersBoard({
                 </tr>
               ))}
             </tbody>
-          </table>
-        </div>
+            </table>
+          </div>
+        </>
       )}
     </>
   );

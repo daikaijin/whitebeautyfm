@@ -62,7 +62,9 @@ export default async function OrdersPage({
       : "—",
     quantity: order.quantity,
     subtotal: formatStripeAmount(order.subtotal, order.currency),
-    discount: formatStripeAmount(order.discount, order.currency),
+    discount: order.discount > 0
+      ? formatStripeAmount(order.discount, order.currency)
+      : "",
     total: formatStripeAmount(order.total, order.currency),
     totalValue: order.total,
     paymentLabel: order.paymentLabel,
