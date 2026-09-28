@@ -1,13 +1,14 @@
 import Link from "next/link";
 import { unstable_rethrow } from "next/navigation";
+import { OrdersBoard } from "@/components/OrdersBoard";
 import {
   formatOrderTime,
   formatStripeAmount,
   isCheckoutSessionId,
   listOrders,
-  shortSessionId,
 } from "@/lib/orders";
 import { parseOrderFilter, type OrderFilter } from "@/lib/order-status";
+import type { OrderRow } from "@/lib/order-view";
 
 const FILTERS: { id: OrderFilter; label: string }[] = [
   { id: "all", label: "All" },
@@ -49,15 +50,34 @@ export default async function OrdersPage({
     );
   }
 
+  const rows: OrderRow[] = page.orders.map((order) => ({
+    id: order.id,
+    created: order.created,
+    customerName: order.customerName,
+    customerEmail: order.customerEmail,
+    items: order.lines.length
+      ? order.lines
+          .map((line) => `${line.name} × ${line.quantity}`)
+          .join(", ") + (order.linesTruncated ? "…" : "")
+      : "—",
+    quantity: order.quantity,
+    subtotal: formatStripeAmount(order.subtotal, order.currency),
+    discount: formatStripeAmount(order.discount, order.currency),
+    total: formatStripeAmount(order.total, order.currency),
+    totalValue: order.total,
+    paymentLabel: order.paymentLabel,
+    free: order.free,
+    refunded: order.refund !== "none",
+    test: !order.livemode,
+  }));
+  const when = Object.fromEntries(
+    page.orders.map((order) => [order.id, formatOrderTime(order.created)]),
+  );
+
   return (
     <main className="admin-panel">
       <header className="admin-heading">
-        <p className="section-kicker">Checkout sessions</p>
         <h1>Orders</h1>
-        <p>
-          Every completed Stripe Checkout Session, including ¥0 orders that
-          never create a payment.
-        </p>
       </header>
 
       {page.mode === "test" ? (
@@ -80,87 +100,13 @@ export default async function OrdersPage({
         ))}
       </nav>
 
-      {filter !== "all" ? (
-        <p className="admin-note">
-          This filter walks completed sessions
-          {page.scanned ? ` (${page.scanned} scanned)` : ""}. Use Next to keep
-          looking further back.
-        </p>
-      ) : null}
       {page.capped ? (
         <p className="admin-note">
-          Scanning stopped before the account history ended. Continue to search
-          older sessions.
+          Scanned {page.scanned} sessions. Next keeps looking further back.
         </p>
       ) : null}
 
-      {page.orders.length === 0 ? (
-        <p>No completed orders in this view.</p>
-      ) : (
-        <div className="admin-table-wrap">
-          <table className="admin-table">
-            <caption className="sr-only">Completed orders</caption>
-            <thead>
-              <tr>
-                <th scope="col">Order</th>
-                <th scope="col">Date</th>
-                <th scope="col">Customer</th>
-                <th scope="col">Email</th>
-                <th scope="col">Items</th>
-                <th scope="col">Qty</th>
-                <th scope="col">Subtotal</th>
-                <th scope="col">Discount</th>
-                <th scope="col">Total</th>
-                <th scope="col">Payment</th>
-                <th scope="col">Status</th>
-              </tr>
-            </thead>
-            <tbody>
-              {page.orders.map((order) => (
-                <tr
-                  key={order.id}
-                  className={order.free ? "admin-row-free" : undefined}
-                >
-                  <td>
-                    <Link href={`/admin/orders/${order.id}`}>
-                      {shortSessionId(order.id)}
-                    </Link>
-                    {order.free ? (
-                      <span className="admin-badge-free">¥0</span>
-                    ) : null}
-                    {!order.livemode ? (
-                      <span className="admin-badge-test">Test</span>
-                    ) : null}
-                  </td>
-                  <td>{formatOrderTime(order.created)}</td>
-                  <td>{order.customerName || "—"}</td>
-                  <td>{order.customerEmail || "—"}</td>
-                  <td>
-                    {order.lines.length === 0 ? (
-                      "—"
-                    ) : (
-                      <ul>
-                        {order.lines.map((line, index) => (
-                          <li key={`${order.id}-${index}`}>
-                            {line.name} × {line.quantity}
-                          </li>
-                        ))}
-                      </ul>
-                    )}
-                    {order.linesTruncated ? <p>More on the order</p> : null}
-                  </td>
-                  <td>{order.quantity}</td>
-                  <td>{formatStripeAmount(order.subtotal, order.currency)}</td>
-                  <td>{formatStripeAmount(order.discount, order.currency)}</td>
-                  <td>{formatStripeAmount(order.total, order.currency)}</td>
-                  <td>{order.paymentLabel}</td>
-                  <td>{order.orderStatus}</td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
-        </div>
-      )}
+      <OrdersBoard orders={rows} when={when} />
 
       <nav className="admin-pager" aria-label="Pagination">
         {cursor ? <Link href={ordersHref(filter)}>First page</Link> : null}

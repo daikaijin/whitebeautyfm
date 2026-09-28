@@ -40,6 +40,18 @@ function AddressBlock({
   );
 }
 
+function samePlace(
+  left: ShippingAddress | null,
+  right: ShippingAddress | null,
+) {
+  if (!left || !right) return false;
+  return (
+    left.line1 === right.line1 &&
+    left.postalCode === right.postalCode &&
+    left.country === right.country
+  );
+}
+
 export default async function OrderDetailPage({
   params,
 }: {
@@ -64,31 +76,18 @@ export default async function OrderDetailPage({
 
   return (
     <main className="admin-panel">
-      <p>
-        <Link href="/admin/orders">All orders</Link>
-      </p>
       <header className="admin-heading">
-        <p className="section-kicker">Checkout session</p>
-        <h1>
-          {order.free ? "¥0 order" : "Order"}{" "}
-          <span className="admin-session-id">{order.id}</span>
-        </h1>
         <p>
-          {formatOrderTime(order.created)} · {order.paymentLabel} ·{" "}
-          {order.orderStatus}
+          <Link href="/admin/orders">Orders</Link>
+        </p>
+        <h1>{order.customerName || "Order"}</h1>
+        <p>
+          {formatOrderTime(order.created)}
+          {order.free ? " · Free" : ""}
+          {order.refund !== "none" ? ` · ${order.paymentLabel}` : ""}
           {!order.livemode ? " · Test" : ""}
         </p>
       </header>
-
-      {order.free ? (
-        <p className="admin-banner">
-          Completed checkout with a ¥0 total. No Stripe payment is required for
-          this order.
-        </p>
-      ) : null}
-      {order.orderStatus !== "complete" ? (
-        <p className="admin-banner">This checkout is not a completed order.</p>
-      ) : null}
 
       <div className="admin-detail-grid">
         <section>
@@ -102,43 +101,57 @@ export default async function OrderDetailPage({
               <dt>Email</dt>
               <dd>{order.customerEmail || "—"}</dd>
             </div>
-            <div>
-              <dt>Phone</dt>
-              <dd>{order.phone || "—"}</dd>
-            </div>
+            {order.phone ? (
+              <div>
+                <dt>Phone</dt>
+                <dd>{order.phone}</dd>
+              </div>
+            ) : null}
           </dl>
         </section>
 
         <AddressBlock title="Shipping" address={order.shipping} />
-        <AddressBlock title="Billing" address={order.billing} />
+        {samePlace(order.shipping, order.billing) ? null : (
+          <AddressBlock title="Billing" address={order.billing} />
+        )}
 
         <section>
           <h2>Amounts</h2>
           <dl>
-            <div>
-              <dt>Subtotal</dt>
-              <dd>{money(order.subtotal)}</dd>
-            </div>
-            <div>
-              <dt>Discount</dt>
-              <dd>{money(order.discount)}</dd>
-            </div>
-            <div>
-              <dt>Shipping</dt>
-              <dd>{money(order.shippingAmount)}</dd>
-            </div>
-            <div>
-              <dt>Tax</dt>
-              <dd>{money(order.taxAmount)}</dd>
-            </div>
+            {order.subtotal !== order.total ? (
+              <div>
+                <dt>Subtotal</dt>
+                <dd>{money(order.subtotal)}</dd>
+              </div>
+            ) : null}
             <div>
               <dt>Total</dt>
               <dd>{money(order.total)}</dd>
             </div>
-            <div>
-              <dt>Refunded</dt>
-              <dd>{money(order.amountRefunded)}</dd>
-            </div>
+            {order.discount > 0 ? (
+              <div>
+                <dt>Discount</dt>
+                <dd>{money(order.discount)}</dd>
+              </div>
+            ) : null}
+            {order.shippingAmount > 0 ? (
+              <div>
+                <dt>Shipping</dt>
+                <dd>{money(order.shippingAmount)}</dd>
+              </div>
+            ) : null}
+            {order.taxAmount > 0 ? (
+              <div>
+                <dt>Tax</dt>
+                <dd>{money(order.taxAmount)}</dd>
+              </div>
+            ) : null}
+            {order.amountRefunded > 0 ? (
+              <div>
+                <dt>Refunded</dt>
+                <dd>{money(order.amountRefunded)}</dd>
+              </div>
+            ) : null}
           </dl>
         </section>
       </div>
@@ -172,8 +185,8 @@ export default async function OrderDetailPage({
         {order.linesTruncated ? <p>Additional line items were not loaded.</p> : null}
       </section>
 
-      <section>
-        <h2>Stripe</h2>
+      <details className="admin-more">
+        <summary>Stripe details</summary>
         <dl>
           <div>
             <dt>Checkout Session</dt>
@@ -184,25 +197,19 @@ export default async function OrderDetailPage({
             <dd>{order.paymentIntentId || "None"}</dd>
           </div>
           <div>
-            <dt>Mode</dt>
-            <dd>{order.livemode ? "Live" : "Test"}</dd>
+            <dt>Status</dt>
+            <dd>
+              {order.paymentLabel} · {order.orderStatus}
+            </dd>
           </div>
+          {order.metadata.map((entry) => (
+            <div key={entry.key}>
+              <dt>{entry.key}</dt>
+              <dd>{entry.value}</dd>
+            </div>
+          ))}
         </dl>
-      </section>
-
-      {order.metadata.length ? (
-        <section>
-          <h2>Metadata</h2>
-          <dl>
-            {order.metadata.map((entry) => (
-              <div key={entry.key}>
-                <dt>{entry.key}</dt>
-                <dd>{entry.value}</dd>
-              </div>
-            ))}
-          </dl>
-        </section>
-      ) : null}
+      </details>
     </main>
   );
 }

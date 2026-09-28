@@ -1655,12 +1655,16 @@ a {
   flex-wrap: wrap;
   align-items: center;
   gap: 0.8rem 1.2rem;
-  margin-bottom: 1.5rem;
+  margin-bottom: 1.25rem;
 }
 
 .admin-bar p {
   margin: 0;
   color: var(--wb-muted);
+}
+
+.admin-bar form {
+  margin-left: auto;
 }
 
 .admin-card,
@@ -1689,21 +1693,47 @@ a {
 }
 
 .admin-filters,
-.admin-pager {
+.admin-pager,
+.admin-toolbar,
+.admin-tool {
   display: flex;
   flex-wrap: wrap;
+  align-items: center;
+  gap: 0.45rem 0.55rem;
+}
+
+.admin-toolbar {
+  justify-content: space-between;
   gap: 0.8rem 1rem;
 }
 
-.admin-filters a,
-.admin-pager a,
-.admin-panel a,
-.admin-card a,
-.admin-bar a {
-  color: #fff;
+.admin-tool span,
+.admin-count {
+  color: var(--wb-muted);
+  font-size: 0.82rem;
 }
 
-.admin-filters a.is-active {
+.admin-count {
+  margin: 0;
+}
+
+.admin-filters a,
+.admin-tool button {
+  appearance: none;
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  background: transparent;
+  color: #fff;
+  border-radius: 999px;
+  padding: 0.28rem 0.7rem;
+  font: inherit;
+  font-size: 0.82rem;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.admin-filters a.is-active,
+.admin-tool button.is-on {
+  border-color: var(--wb-green);
   color: var(--wb-green);
 }
 
@@ -1716,6 +1746,57 @@ a {
 
 .admin-error {
   color: #ffb4f4;
+}
+
+.admin-pager a,
+.admin-panel a,
+.admin-card a,
+.admin-bar a {
+  color: #fff;
+}
+
+.admin-table th.admin-num,
+.admin-table td.admin-num {
+  text-align: right;
+  white-space: nowrap;
+}
+
+.admin-items {
+  max-width: 22rem;
+}
+
+.admin-pill {
+  display: inline-block;
+  padding: 0.1rem 0.45rem;
+  border: 1px solid rgba(255, 255, 255, 0.28);
+  border-radius: 999px;
+  font-size: 0.78rem;
+}
+
+.admin-pill.is-free {
+  border-color: var(--wb-green);
+  color: var(--wb-green);
+}
+
+.admin-pill.is-refund {
+  border-color: var(--wb-pink);
+  color: #ffb4f4;
+}
+
+.admin-more {
+  border-top: 1px solid var(--wb-line);
+  padding-top: 0.8rem;
+}
+
+.admin-more summary {
+  cursor: pointer;
+  color: var(--wb-muted);
+}
+
+.admin-more dl {
+  margin-top: 0.8rem;
+}
+  overflow-x: auto;
 }
 
 .admin-table-wrap {
