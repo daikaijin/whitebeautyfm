@@ -17,6 +17,7 @@ export async function AdminBar() {
   return (
     <header className="admin-bar">
       <Link href="/admin/orders">Orders</Link>
+      <Link href="/admin/ship">Ship</Link>
       <p>{email}</p>
       <form
         action={async () => {

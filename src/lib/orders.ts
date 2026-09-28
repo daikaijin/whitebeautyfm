@@ -334,6 +334,116 @@ export async function listOrders(
   }
 }
 
+export type ShipLine = {
+  name: string;
+  quantity: number;
+};
+
+export type ShipOrder = {
+  id: string;
+  created: number;
+  customerName: string;
+  customerEmail: string;
+  phone: string;
+  lines: ShipLine[];
+  address: string[];
+  preorder: boolean;
+  free: boolean;
+  partialRefund: boolean;
+};
+
+export type ShipQueue = {
+  pack: ShipOrder[];
+  hold: ShipOrder[];
+  picks: ShipLine[];
+  capped: boolean;
+  scanned: number;
+  mode: OrderPage["mode"];
+};
+
+function shipAddress(session: Stripe.Checkout.Session) {
+  const shipping = session.collected_information?.shipping_details;
+  const address = addressOf(
+    shipping?.name || customerName(session),
+    shipping?.address,
+  );
+  if (!address) return [];
+  const locality = [address.city, address.state, address.postalCode]
+    .filter(Boolean)
+    .join(" ");
+  return [address.name, address.line1, address.line2, locality, address.country].filter(
+    Boolean,
+  );
+}
+
+function toShipOrder(session: Stripe.Checkout.Session): ShipOrder {
+  const classification = classifyOrder(signalsFor(session));
+  const lines = linesFrom(session.line_items?.data, false).lines.map((line) => ({
+    name: line.name.replace(/\s*\(Pre-Order\)\s*/g, "").trim() || "Item",
+    quantity: line.quantity,
+  }));
+  const preorder = (session.line_items?.data ?? []).some((line) =>
+    (line.description ?? "").includes("(Pre-Order)"),
+  );
+  return {
+    id: session.id,
+    created: session.created,
+    customerName: customerName(session),
+    customerEmail: session.customer_details?.email || session.customer_email || "",
+    phone: session.customer_details?.phone ?? "",
+    lines,
+    address: shipAddress(session),
+    preorder,
+    free: classification.free,
+    partialRefund: classification.refund === "partial",
+  };
+}
+
+export async function listShipQueue(): Promise<ShipQueue> {
+  await requireAdmin();
+
+  try {
+    const pack: ShipOrder[] = [];
+    const hold: ShipOrder[] = [];
+    let scanCursor: string | undefined;
+    let scanned = 0;
+    let capped = false;
+
+    for (let pageNumber = 0; pageNumber < MAX_SCAN_PAGES; pageNumber += 1) {
+      const page = await listCompleted(scanCursor, SCAN_PAGE_SIZE);
+      if (!page.data.length) break;
+
+      for (const session of page.data) {
+        scanned += 1;
+        const classification = classifyOrder(signalsFor(session));
+        if (!classification.completed || classification.refund === "full") continue;
+        const order = toShipOrder(session);
+        if (order.preorder) hold.push(order);
+        else pack.push(order);
+      }
+
+      if (!page.has_more) break;
+      scanCursor = page.data.at(-1)?.id;
+      if (pageNumber === MAX_SCAN_PAGES - 1 && page.has_more) capped = true;
+    }
+
+    const totals = new Map<string, number>();
+    for (const order of pack) {
+      for (const line of order.lines) {
+        totals.set(line.name, (totals.get(line.name) ?? 0) + line.quantity);
+      }
+    }
+    const picks = [...totals.entries()]
+      .map(([name, quantity]) => ({ name, quantity }))
+      .sort((a, b) => b.quantity - a.quantity || a.name.localeCompare(b.name));
+
+    return { pack, hold, picks, capped, scanned, mode: stripeMode() };
+  } catch (error) {
+    logOrderError("ship queue failed", error);
+    throw new Error("Orders could not be loaded");
+  }
+}
+
 export async function getOrder(sessionId: string): Promise<OrderDetail | null> {
   await requireAdmin();
   if (!isCheckoutSessionId(sessionId)) return null;

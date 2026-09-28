@@ -1889,6 +1889,83 @@ a {
   }
 }
 
+.ship-picks,
+.ship-list {
+  display: grid;
+  gap: 0.65rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.ship-picks li,
+.ship-card {
+  display: flex;
+  justify-content: space-between;
+  gap: 0.75rem;
+  padding: 0.8rem 0.9rem;
+  border: 1px solid var(--wb-line);
+}
+
+.ship-card {
+  display: grid;
+  justify-content: stretch;
+}
+
+.ship-card header,
+.ship-card p,
+.ship-card ul {
+  margin: 0;
+}
+
+.ship-card h2 {
+  font-size: 1.35rem;
+}
+
+.ship-card address,
+.ship-card ul {
+  display: grid;
+  font-style: normal;
+}
+
+.ship-card.is-hold {
+  border-color: rgba(255, 255, 255, 0.18);
+  color: var(--wb-muted);
+}
+
+.ship-picks strong {
+  font-family: var(--font-display), sans-serif;
+  letter-spacing: 0.08em;
+  font-size: 1.4rem;
+  font-weight: 400;
+}
+
+@media (min-width: 800px) {
+  .ship-list {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media print {
+  .glitch-bg,
+  .noise,
+  .admin-bar {
+    display: none !important;
+  }
+
+  .admin-shell {
+    background: #fff;
+    color: #111;
+    padding: 0;
+  }
+
+  .ship-card,
+  .ship-picks li {
+    break-inside: avoid;
+    border-color: #ccc;
+  }
+}
+
 .admin-cards {
   display: none;
   margin: 0;
